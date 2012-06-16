@@ -1,6 +1,11 @@
 <?php
 
-class AlgorithmSpBreadthFirst extends AlgorithmSp{
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Vertex;
+use \Exception;
+
+class SpBreadthFirst extends Sp{
     /**
      * start vertex this algorithm operates on
      * 

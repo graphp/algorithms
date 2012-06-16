@@ -1,6 +1,10 @@
 <?php
 
-abstract class AlgorithmMM extends Algorithm {
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Graph;
+
+abstract class MM extends Base {
 
     /**
      * Origianl graph

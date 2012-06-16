@@ -1,6 +1,8 @@
 <?php
 
-class AlgorithmMCFCycleCanceling extends AlgorithmMCF {
+namespace Fhaculty\Graph\Algorithm;
+
+class MCFCycleCanceling extends MCF {
 
     public function createGraph() {
     	$this->checkBalance();
@@ -27,7 +29,7 @@ class AlgorithmMCFCycleCanceling extends AlgorithmMCF {
         }
 
         // calculate (s*,t*)-flow
-        $algMaxFlow = new AlgorithmMaxFlowEdmondsKarp($superSource,$superSink);
+        $algMaxFlow = new MaxFlowEdmondsKarp($superSource,$superSink);
         $flow = $algMaxFlow->getFlowMax();
 
         if($flow !== $sumBalance){
@@ -39,7 +41,7 @@ class AlgorithmMCFCycleCanceling extends AlgorithmMCF {
 
         while(true){
             //create residual graph
-            $algRG = new AlgorithmResidualGraph($resultGraph);
+            $algRG = new ResidualGraph($resultGraph);
             $residualGraph = $algRG->createGraph();
 
             //get negative cycle

@@ -1,6 +1,10 @@
 <?php
 
-class AlgorithmEulerian extends Algorithm{
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Graph;
+
+class Eulerian extends Base{
     /**
      * 
      * @var Graph

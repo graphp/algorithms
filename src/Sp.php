@@ -1,6 +1,11 @@
 <?php
 
-abstract class AlgorithmSp extends Algorithm {
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Vertex;
+use Fhaculty\Graph\Edge;
+
+abstract class Sp extends Base {
     /**
      * start vertex to build shortest paths to
      * 

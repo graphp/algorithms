@@ -1,10 +1,14 @@
 <?php
 
-class AlgorithmGroups extends Algorithm{
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Graph;
+
+class Groups extends Base{
     /**
      * graph to operate on
      * 
-     * @var Group
+     * @var Graph
      */
     private $graph;
     

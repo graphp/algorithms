@@ -1,5 +1,12 @@
 <?php
-class AlgorithmTspNearestNeighbor extends AlgorithmTsp{
+
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Vertex;
+use \Exception;
+use \SplPriorityQueue;
+
+class TspNearestNeighbor extends Tsp{
     
     /**
      * 

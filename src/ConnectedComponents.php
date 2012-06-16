@@ -1,6 +1,11 @@
 <?php
 
-class AlgorithmConnectedComponents extends Algorithm{
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Graph;
+use Fhaculty\Graph\Vertex;
+
+class ConnectedComponents extends Base{
     
     /**
      * 
@@ -33,8 +38,8 @@ class AlgorithmConnectedComponents extends Algorithm{
     }
     
     private function createSearch(Vertex $vertex){
-        $alg = new AlgorithmSearchBreadthFirst($vertex);
-        return $alg->setDirection(AlgorithmSearch::DIRECTION_BOTH); // follow into both directions (loosely connected)
+        $alg = new SearchBreadthFirst($vertex);
+        return $alg->setDirection(Search::DIRECTION_BOTH); // follow into both directions (loosely connected)
     }
     
     /**

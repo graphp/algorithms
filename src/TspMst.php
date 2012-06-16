@@ -1,5 +1,10 @@
 <?php
-class AlgorithmTspMst extends AlgorithmTsp{
+
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Graph;
+
+class TspMst extends Tsp{
     /**
      * 
      * @var Graph
@@ -21,10 +26,10 @@ class AlgorithmTspMst extends AlgorithmTsp{
     public function getEdges(){
         $returnEdges = array();
 
-        $minimumSpanningTreeAlgorithm = new AlgorithmMstKruskal($this->graph);        // Create minimum spanning tree
+        $minimumSpanningTreeAlgorithm = new MstKruskal($this->graph);          // Create minimum spanning tree
         $minimumSpanningTree = $minimumSpanningTreeAlgorithm->createGraph();
 
-        $alg = new AlgorithmSearchDepthFirst($minimumSpanningTree->getVertexFirst());
+        $alg = new SearchDepthFirst($minimumSpanningTree->getVertexFirst());
         $depthFirstSearch = $alg->getVertices();                                // Depth first search in minmum spanning tree (for the eulerian path)
 
         $startVertex = NULL;

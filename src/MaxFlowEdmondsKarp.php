@@ -1,5 +1,12 @@
 <?php
-class AlgorithmMaxFlowEdmondsKarp extends Algorithm{
+
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Graph;
+use Fhaculty\Graph\Vertex;
+use Fhaculty\Graph\Edge;
+
+class MaxFlowEdmondsKarp extends Base{
 
     /**
      *
@@ -59,7 +66,7 @@ class AlgorithmMaxFlowEdmondsKarp extends Algorithm{
                     $originalEdge->setFlow($originalEdge->getFlow() + $newFlowValue);
                 }
 
-                $residualAlgorithm = new AlgorithmResidualGraph($currentGraph);
+                $residualAlgorithm = new ResidualGraph($currentGraph);
                 $residualAlgorithm->setMergeParallelEdges(true);
                 $currentGraph = $residualAlgorithm->createGraph(true);        // Generate new residual graph and repeat
             }
@@ -130,7 +137,7 @@ class AlgorithmMaxFlowEdmondsKarp extends Algorithm{
         $destinationVertex = $currentGraph->getVertex($this->destinationVertex->getId());
 
         // 1. Search _shortest_ (number of hops and cheapest) path from s -> t
-        $breadthSearchAlg = new AlgorithmSearchBreadthFirst($startVertex);
+        $breadthSearchAlg = new SearchBreadthFirst($startVertex);
         $path = $breadthSearchAlg->getGraphPathTo($destinationVertex);
 
         if($path === NULL){

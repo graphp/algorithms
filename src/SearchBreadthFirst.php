@@ -1,6 +1,11 @@
 <?php
 
-class AlgorithmSearchBreadthFirst extends AlgorithmSearch{
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Vertex;
+use Fhaculty\Graph\Graph;
+
+class SearchBreadthFirst extends Search{
     /**
      *
      * @return array[Vertex]

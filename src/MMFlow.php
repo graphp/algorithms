@@ -1,12 +1,17 @@
 <?php
-class AlgorithmMMFlow extends AlgorithmMM {
+
+namespace Fhaculty\Graph\Algorithm;
+
+use \Exception;
+
+class MMFlow extends MM {
 
     public function createGraph() {
 //         if($this->graph->isDirected()){
 //             throw new Exception('Input graph must not be directed');
 //         }
         
-        $alg = new AlgorithmGroups($this->graph);
+        $alg = new Groups($this->graph);
         if(!$alg->isBipartit()){
             throw new Exception('Input graph does not have bipartit groups assigned to each vertex. Consider Using "AlgorithmBipartit::createGraph()" first');
         }
@@ -48,7 +53,7 @@ class AlgorithmMMFlow extends AlgorithmMM {
 //         visualize($resultGraph);
 
         // calculate (s*,t*)-flow
-        $algMaxFlow = new AlgorithmMaxFlowEdmondsKarp($superSource,$superSink);
+        $algMaxFlow = new MaxFlowEdmondsKarp($superSource,$superSink);
         $resultGraph = $algMaxFlow->createGraph();
 
         // destroy temporary supersource and supersink again
@@ -68,5 +73,4 @@ class AlgorithmMMFlow extends AlgorithmMM {
         
         return $resultGraph;
     }
-    
 }

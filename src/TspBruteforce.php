@@ -1,6 +1,12 @@
 <?php
 
-class AlgorithmTspBruteforce extends AlgorithmTsp{
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Graph;
+use Fhaculty\Graph\Vertex;
+use \Exception;
+
+class TspBruteforce extends Tsp{
     /**
      * 
      * @var Graph

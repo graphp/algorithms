@@ -1,5 +1,13 @@
 <?php
-class AlgorithmSpMooreBellmanFord extends AlgorithmSp{
+
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Edge;
+use Fhaculty\Graph\Cycle;
+use Fhaculty\Graph\NegativeCycleException;
+use \Exception;
+
+class SpMooreBellmanFord extends Sp{
     
     /**
      *

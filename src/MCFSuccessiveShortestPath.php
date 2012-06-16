@@ -1,6 +1,14 @@
 <?php
 
-class AlgorithmMCFSuccessiveShortestPath extends AlgorithmMCF {
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Graph;
+use Fhaculty\Graph\Vertex;
+use Fhaculty\Graph\Edge;
+use Fhaculty\Graph\EdgeDirected;
+use \Exception;
+
+class MCFSuccessiveShortestPath extends MCF {
     /**
      * @uses Vertex::getFlow()
      * @uses Graph::createGraphClone()
@@ -46,7 +54,7 @@ class AlgorithmMCFSuccessiveShortestPath extends AlgorithmMCF {
         while(true)                                                             //return or Exception insite this while
         {
             //create residual graph
-            $algRG = new AlgorithmResidualGraph($resultGraph);
+            $algRG = new ResidualGraph($resultGraph);
             $residualGraph = $algRG->createGraph();
             
             //search for a source    
@@ -66,7 +74,7 @@ class AlgorithmMCFSuccessiveShortestPath extends AlgorithmMCF {
             }
             
             //calculate shortest path between source- and target-vertex
-            $algSP = new AlgorithmSpMooreBellmanFord($sourceVertex);
+            $algSP = new SpMooreBellmanFord($sourceVertex);
             $edgesOnFlow = $algSP->getEdgesTo($targetVertex);
             
             //calculate the maximal possible flow
@@ -154,7 +162,7 @@ class AlgorithmMCFSuccessiveShortestPath extends AlgorithmMCF {
      * @return Vertex a sink-vertex that is reachable from the source
      */
     private function getVertexSink(Vertex $source){
-        $algBFS = new AlgorithmSearchBreadthFirst($source);                     //search for reachable Vertices
+        $algBFS = new SearchBreadthFirst($source);                             //search for reachable Vertices
         
         foreach($algBFS->getVertices() as $vid=>$vertex){
             if($this->graph->getVertex($vid)->getBalance() - $vertex->getBalance() < 0){

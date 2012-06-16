@@ -1,6 +1,13 @@
 <?php
 
-class AlgorithmResidualGraph extends Algorithm{
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Graph;
+use Fhaculty\Graph\Edge;
+use Fhaculty\Graph\EdgeDirected;
+use \Exception;
+
+class ResidualGraph extends Base{
     private $graph;
     private $keepNullCapacity = false;
     private $mergeParallelEdges = false;

@@ -1,5 +1,13 @@
 <?php
-class AlgorithmMstKruskal extends AlgorithmMst{
+
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Graph;
+use Fhaculty\Graph\EdgeDirected;
+use \SplPriorityQueue;
+use \Exception;
+
+class MstKruskal extends Mst{
     
     /**
      * 

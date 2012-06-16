@@ -1,6 +1,12 @@
 <?php
 
-class AlgorithmBipartit extends Algorithm{
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Graph;
+use Fhaculty\Graph\Vertex;
+use \Exception;
+
+class Bipartit extends Base{
     /**
      * input graph to operate on
      * 
@@ -34,7 +40,7 @@ class AlgorithmBipartit extends Algorithm{
      * @uses AlgorithmGroups::isBipartit()
      */
     public function isBipartitGroups(){
-        $alg = new AlgorithmGroups($this->graph);
+        $alg = new Groups($this->graph);
         return $alg->isBipartit();
     }
     

@@ -1,5 +1,11 @@
 <?php
-class AlgorithmSpDijkstra extends AlgorithmSp{
+
+namespace Fhaculty\Graph\Algorithm;
+
+use \SplPriorityQueue;
+use \Exception;
+
+class SpDijkstra extends Sp{
     
     /**
      * get all edges on shortest path for this vertex

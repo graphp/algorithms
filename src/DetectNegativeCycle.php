@@ -1,6 +1,11 @@
 <?php
 
-class AlgorithmDetectNegativeCycle extends Algorithm{
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Graph;
+use Fhaculty\Graph\Vertex;
+
+class DetectNegativeCycle extends Base{
 
     /**
      *
@@ -42,7 +47,7 @@ class AlgorithmDetectNegativeCycle extends Algorithm{
     	$verticesVisited = array();                                            // remember vertices already visited, as they can not lead to a new cycle
     	foreach($this->graph->getVertices() as $vid=>$vertex){                // check for all vertices
     		if(!isset($verticesVisited[$vid])){                                // skip vertices already visited
-    			$alg = new AlgorithmSpMooreBellmanFord($vertex);               // start MBF algorithm on current vertex
+    			$alg = new SpMooreBellmanFord($vertex);                        // start MBF algorithm on current vertex
     
     			try{
     				foreach($alg->getVerticesId() as $vid){                   // try to get all connected vertices (or throw new cycle)
@@ -54,7 +59,7 @@ class AlgorithmDetectNegativeCycle extends Algorithm{
     			}
     		}
     	}                                                                       // no more vertices to check => abort
-    	throw  new Exception("No negative cycle found");
+    	throw new Exception("No negative cycle found");
     }
     
     /**

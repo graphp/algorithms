@@ -1,6 +1,10 @@
 <?php
 
-abstract class AlgorithmSearch extends Algorithm{
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Vertex;
+
+abstract class Search extends Base{
     /**
      *
      * @var Vertex

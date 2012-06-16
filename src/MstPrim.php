@@ -1,5 +1,11 @@
 <?php
-class AlgorithmMstPrim extends AlgorithmMst{
+
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Vertex;
+use \SplPriorityQueue;
+
+class MstPrim extends Mst{
     /**
      * @var Vertex
      */

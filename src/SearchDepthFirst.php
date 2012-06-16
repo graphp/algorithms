@@ -1,6 +1,10 @@
 <?php
 
-class AlgorithmSearchDepthFirst extends AlgorithmSearch{
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Vertex;
+
+class SearchDepthFirst extends Search{
 
     /**
      *

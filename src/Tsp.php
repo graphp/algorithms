@@ -1,6 +1,10 @@
 <?php
 
-abstract class AlgorithmTsp extends Algorithm {
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Cycle;
+
+abstract class Tsp extends Base {
     /**
      * get resulting graph with the (first) best circle of edges connecting all vertices
      *

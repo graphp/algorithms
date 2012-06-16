@@ -1,6 +1,10 @@
 <?php
 
-abstract class AlgorithmMCF extends Algorithm {
+namespace Fhaculty\Graph\Algorithm;
+
+use Fhaculty\Graph\Graph;
+
+abstract class MCF extends Base {
 
     /**
      * Origianl graph
