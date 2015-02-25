@@ -11,7 +11,7 @@ The recommended way to install this library is [through composer](http://getcomp
 ```JSON
 {
     "require": {
-        "graphp/algorithms": "dev-master"
+        "graphp/algorithms": "~0.8.0"
     }
 }
 ```
