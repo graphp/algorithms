@@ -1,15 +1,15 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\MaximumMatching;
+namespace Graphp\Algorithms\MaximumMatching;
 
-use Fhaculty\Graph\Algorithm\Directed;
+use Graphp\Algorithms\Directed;
 
 use Fhaculty\Graph\Exception\LogicException;
 
 use Fhaculty\Graph\Exception\UnexpectedValueException;
 
-use Fhaculty\Graph\Algorithm\MaxFlow\EdmondsKarp as MaxFlowEdmondsKarp;
-use Fhaculty\Graph\Algorithm\Groups;
+use Graphp\Algorithms\MaxFlow\EdmondsKarp as MaxFlowEdmondsKarp;
+use Graphp\Algorithms\Groups;
 use Fhaculty\Graph\Exception;
 use Fhaculty\Graph\Set\Edges;
 

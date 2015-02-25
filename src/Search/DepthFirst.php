@@ -1,6 +1,6 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\Search;
+namespace Graphp\Algorithms\Search;
 
 use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Set\Vertices;

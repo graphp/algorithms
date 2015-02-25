@@ -1,8 +1,8 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\Tree;
+namespace Graphp\Algorithms\Tree;
 
-use Fhaculty\Graph\Algorithm\Tree\Base as Tree;
+use Graphp\Algorithms\Tree\Base as Tree;
 use Fhaculty\Graph\Exception\UnderflowException;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Vertex;
@@ -173,7 +173,7 @@ abstract class BaseDirected extends Tree
      * @return boolean
      * @uses self::getVerticesParent() to check given vertex has a parent (is not root)
      * @uses self::getVerticesChildren() to check given vertex has children (is not a leaf)
-     * @see \Fhaculty\Graph\Algorithm\Tree\Base::isVertexInternal() for more information
+     * @see \Graphp\Algorithms\Tree\Base::isVertexInternal() for more information
      */
     public function isVertexInternal(Vertex $vertex)
     {

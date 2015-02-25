@@ -1,6 +1,6 @@
 <?php
 
-use Fhaculty\Graph\Algorithm\Tree\BaseDirected;
+use Graphp\Algorithms\Tree\BaseDirected;
 use Fhaculty\Graph\Exception\UnderflowException;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Graph;

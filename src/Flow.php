@@ -1,8 +1,8 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm;
+namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Algorithm\BaseGraph;
+use Graphp\Algorithms\BaseGraph;
 use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Edge\Directed as EdgeDirected;
 use Fhaculty\Graph\Exception\UnexpectedValueException;

@@ -1,7 +1,7 @@
 <?php
 
 use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Algorithm\MinimumSpanningTree\Prim;
+use Graphp\Algorithms\MinimumSpanningTree\Prim;
 
 class PrimTest extends BaseMstTest
 {

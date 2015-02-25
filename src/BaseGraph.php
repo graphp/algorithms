@@ -1,8 +1,8 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm;
+namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Algorithm\Base;
+use Graphp\Algorithms\Base;
 use Fhaculty\Graph\Graph;
 
 /**

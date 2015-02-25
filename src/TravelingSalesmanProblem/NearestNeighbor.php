@@ -1,6 +1,6 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\TravelingSalesmanProblem;
+namespace Graphp\Algorithms\TravelingSalesmanProblem;
 
 use Fhaculty\Graph\Exception\UnexpectedValueException;
 

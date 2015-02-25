@@ -1,15 +1,15 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm;
+namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Algorithm\BaseGraph;
+use Graphp\Algorithms\BaseGraph;
 use Fhaculty\Graph\Exception\UnderflowException;
 
 use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Walk;
 use Fhaculty\Graph\Exception\NegativeCycleException;
-use Fhaculty\Graph\Algorithm\ShortestPath\MooreBellmanFord as SpMooreBellmanFord;
+use Graphp\Algorithms\ShortestPath\MooreBellmanFord as SpMooreBellmanFord;
 
 class DetectNegativeCycle extends BaseGraph
 {

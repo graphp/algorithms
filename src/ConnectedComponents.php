@@ -1,9 +1,9 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm;
+namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Algorithm\BaseGraph;
-use Fhaculty\Graph\Algorithm\Search\BreadthFirst as SearchBreadthFirst;
+use Graphp\Algorithms\BaseGraph;
+use Graphp\Algorithms\Search\BreadthFirst as SearchBreadthFirst;
 use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Exception\InvalidArgumentException;

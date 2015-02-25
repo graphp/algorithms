@@ -1,8 +1,8 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm;
+namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Algorithm\BaseGraph;
+use Graphp\Algorithms\BaseGraph;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Set\Vertices;

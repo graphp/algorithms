@@ -1,16 +1,16 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\Tree;
+namespace Graphp\Algorithms\Tree;
 
-use Fhaculty\Graph\Algorithm\BaseGraph;
+use Graphp\Algorithms\BaseGraph;
 use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Set\Vertices;
 use Fhaculty\Graph\Exception\UnderflowException;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Algorithm\Search\StrictDepthFirst;
-use Fhaculty\Graph\Algorithm\Degree;
-use Fhaculty\Graph\Algorithm\ConnectedComponents;
+use Graphp\Algorithms\Search\StrictDepthFirst;
+use Graphp\Algorithms\Degree;
+use Graphp\Algorithms\ConnectedComponents;
 
 /**
  * Abstract base class for tree algorithms

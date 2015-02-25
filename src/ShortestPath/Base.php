@@ -1,8 +1,8 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\ShortestPath;
+namespace Graphp\Algorithms\ShortestPath;
 
-use Fhaculty\Graph\Algorithm\BaseVertex;
+use Graphp\Algorithms\BaseVertex;
 use Fhaculty\Graph\Walk;
 use Fhaculty\Graph\Exception\OutOfBoundsException;
 use Fhaculty\Graph\Exception\InvalidArgumentException;

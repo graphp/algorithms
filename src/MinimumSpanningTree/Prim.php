@@ -1,6 +1,6 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\MinimumSpanningTree;
+namespace Graphp\Algorithms\MinimumSpanningTree;
 
 use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Edge\Directed as EdgeDirected;

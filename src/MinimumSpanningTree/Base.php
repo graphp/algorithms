@@ -1,8 +1,8 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\MinimumSpanningTree;
+namespace Graphp\Algorithms\MinimumSpanningTree;
 
-use Fhaculty\Graph\Algorithm\Base as AlgorithmBase;
+use Graphp\Algorithms\Base as AlgorithmBase;
 use Fhaculty\Graph\Set\Edges;
 use Fhaculty\Graph\Edge\Directed as EdgeDirected;
 use Fhaculty\Graph\Edge\Base as Edge;

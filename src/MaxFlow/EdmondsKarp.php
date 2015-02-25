@@ -1,10 +1,10 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\MaxFlow;
+namespace Graphp\Algorithms\MaxFlow;
 
 use Fhaculty\Graph\Exception\OutOfBoundsException;
 
-use Fhaculty\Graph\Algorithm\ShortestPath\BreadthFirst;
+use Graphp\Algorithms\ShortestPath\BreadthFirst;
 
 use Fhaculty\Graph\Exception\InvalidArgumentException;
 
@@ -18,8 +18,8 @@ use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Set\Edges;
-use Fhaculty\Graph\Algorithm\Base;
-use Fhaculty\Graph\Algorithm\ResidualGraph;
+use Graphp\Algorithms\Base;
+use Graphp\Algorithms\ResidualGraph;
 use Fhaculty\Graph\Exception;
 
 class EdmondsKarp extends Base

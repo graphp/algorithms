@@ -2,7 +2,7 @@
 
 use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Algorithm\ShortestPath\BreadthFirst;
+use Graphp\Algorithms\ShortestPath\BreadthFirst;
 
 class BreadthFirstTest extends BaseShortestPathTest
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\ShortestPath;
+namespace Graphp\Algorithms\ShortestPath;
 
 use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Set\Edges;

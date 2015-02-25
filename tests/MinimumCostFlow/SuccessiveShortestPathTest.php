@@ -1,7 +1,7 @@
 <?php
 
 use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Algorithm\MinimumCostFlow\SuccessiveShortestPath;
+use Graphp\Algorithms\MinimumCostFlow\SuccessiveShortestPath;
 
 class SuccessiveShortestPathTest extends BaseMcfTest
 {

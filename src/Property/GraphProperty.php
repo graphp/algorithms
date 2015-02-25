@@ -1,8 +1,8 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\Property;
+namespace Graphp\Algorithms\Property;
 
-use Fhaculty\Graph\Algorithm\BaseGraph;
+use Graphp\Algorithms\BaseGraph;
 
 /**
  * Simple algorithms for working with Graph properties

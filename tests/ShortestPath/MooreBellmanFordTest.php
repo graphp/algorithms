@@ -2,7 +2,7 @@
 
 use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Algorithm\ShortestPath\MooreBellmanFord;
+use Graphp\Algorithms\ShortestPath\MooreBellmanFord;
 
 class MooreBellmanFordTest extends BaseShortestPathTest
 {

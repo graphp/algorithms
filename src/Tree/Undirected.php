@@ -1,17 +1,17 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\Tree;
+namespace Graphp\Algorithms\Tree;
 
-use Fhaculty\Graph\Algorithm\Tree\Base as Tree;
+use Graphp\Algorithms\Tree\Base as Tree;
 use Fhaculty\Graph\Exception\UnderflowException;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Algorithm\Search\Base as Search;
-use Fhaculty\Graph\Algorithm\Search\StrictDepthFirst;
+use Graphp\Algorithms\Search\Base as Search;
+use Graphp\Algorithms\Search\StrictDepthFirst;
 use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Set\Vertices;
 use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Edge\Undirected as UndirectedEdge;
-use Fhaculty\Graph\Algorithm\Degree;
+use Graphp\Algorithms\Degree;
 
 /**
  * Undirected tree implementation

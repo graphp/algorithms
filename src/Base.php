@@ -1,5 +1,5 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm;
+namespace Graphp\Algorithms;
 
 abstract class Base{ }

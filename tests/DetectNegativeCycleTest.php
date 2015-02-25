@@ -1,7 +1,7 @@
 <?php
 
 use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Algorithm\DetectNegativeCycle;
+use Graphp\Algorithms\DetectNegativeCycle;
 
 class DetectNegativeCycleTest extends TestCase
 {

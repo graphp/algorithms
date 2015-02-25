@@ -1,11 +1,11 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\Property;
+namespace Graphp\Algorithms\Property;
 
 use Fhaculty\Graph\Walk;
 use Fhaculty\Graph\Set\Edges;
-use Fhaculty\Graph\Algorithm\Base as BaseAlgorithm;
-use Fhaculty\Graph\Algorithm\Loop as AlgorithmLoop;
+use Graphp\Algorithms\Base as BaseAlgorithm;
+use Graphp\Algorithms\Loop as AlgorithmLoop;
 
 /**
  * Simple algorithms for working with Walk properties

@@ -3,7 +3,7 @@
 use Fhaculty\Graph\Walk;
 
 use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Algorithm\Property\WalkProperty;
+use Graphp\Algorithms\Property\WalkProperty;
 
 class WalkPropertyTest extends TestCase
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\MinimumCostFlow;
+namespace Graphp\Algorithms\MinimumCostFlow;
 
-use Fhaculty\Graph\Algorithm\BaseGraph;
-use Fhaculty\Graph\Algorithm\Weight as AlgorithmWeight;
-use Fhaculty\Graph\Algorithm\Flow as AlgorithmFlow;
+use Graphp\Algorithms\BaseGraph;
+use Graphp\Algorithms\Weight as AlgorithmWeight;
+use Graphp\Algorithms\Flow as AlgorithmFlow;
 use Fhaculty\Graph\Exception\UnderflowException;
 use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Set\Edges;

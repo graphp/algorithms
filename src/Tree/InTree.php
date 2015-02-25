@@ -1,8 +1,8 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\Tree;
+namespace Graphp\Algorithms\Tree;
 
-use Fhaculty\Graph\Algorithm\Tree\BaseDirected as DirectedTree;
+use Graphp\Algorithms\Tree\BaseDirected as DirectedTree;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Vertex;
 

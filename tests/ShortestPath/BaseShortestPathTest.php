@@ -2,7 +2,7 @@
 
 use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Algorithm\ShortestPath\Base as ShortestPathAlg;
+use Graphp\Algorithms\ShortestPath\Base as ShortestPathAlg;
 
 abstract class BaseShortestPathTest extends TestCase
 {

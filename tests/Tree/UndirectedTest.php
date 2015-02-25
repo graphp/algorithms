@@ -2,7 +2,7 @@
 
 use Fhaculty\Graph\Graph;
 
-use Fhaculty\Graph\Algorithm\Tree\Undirected;
+use Graphp\Algorithms\Tree\Undirected;
 
 class UndirectedTest extends TestCase
 {

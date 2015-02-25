@@ -4,7 +4,7 @@ use Fhaculty\Graph\Graph;
 
 use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Loader\CompleteGraph as LoaderCompleteGraph;
-use Fhaculty\Graph\Algorithm\MinimumSpanningTree\Base as MstBase;
+use Graphp\Algorithms\MinimumSpanningTree\Base as MstBase;
 
 abstract class BaseMstTest extends TestCase
 {

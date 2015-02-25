@@ -4,7 +4,7 @@ use Fhaculty\Graph\Exception\UnexpectedValueException;
 
 use Fhaculty\Graph\Graph;
 
-use Fhaculty\Graph\Algorithm\MaxFlow\EdmondsKarp as AlgorithmMaxFlowEdmondsKarp;
+use Graphp\Algorithms\MaxFlow\EdmondsKarp as AlgorithmMaxFlowEdmondsKarp;
 
 class EdmondsKarpTest extends PHPUnit_Framework_TestCase
 {

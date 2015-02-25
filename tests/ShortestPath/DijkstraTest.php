@@ -2,7 +2,7 @@
 
 use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Algorithm\ShortestPath\Dijkstra;
+use Graphp\Algorithms\ShortestPath\Dijkstra;
 
 class DijkstraTest extends BaseShortestPathTest
 {

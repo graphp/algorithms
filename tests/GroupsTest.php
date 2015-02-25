@@ -1,6 +1,6 @@
 <?php
 
-use Fhaculty\Graph\Algorithm\Groups as AlgorithmGroups;
+use Graphp\Algorithms\Groups as AlgorithmGroups;
 use Fhaculty\Graph\Graph;
 
 class GroupsTest extends TestCase

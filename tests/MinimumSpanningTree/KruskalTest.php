@@ -2,7 +2,7 @@
 
 use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Algorithm\MinimumSpanningTree\Kruskal;
+use Graphp\Algorithms\MinimumSpanningTree\Kruskal;
 
 class KruskalTest extends BaseMstTest
 {

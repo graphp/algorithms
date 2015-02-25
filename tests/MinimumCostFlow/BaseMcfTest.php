@@ -1,6 +1,6 @@
 <?php
 
-use Fhaculty\Graph\Algorithm\MinimumCostFlow\Base;
+use Graphp\Algorithms\MinimumCostFlow\Base;
 use Fhaculty\Graph\Graph;
 
 abstract class BaseMcfTest extends TestCase

@@ -1,6 +1,6 @@
 <?php
 
-use Fhaculty\Graph\Algorithm\Directed as AlgorithmDirected;
+use Graphp\Algorithms\Directed as AlgorithmDirected;
 use Fhaculty\Graph\Graph;
 
 class DirectedTest extends TestCase

@@ -1,8 +1,8 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm;
+namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Algorithm\BaseDual;
+use Graphp\Algorithms\BaseDual;
 use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Vertex;
 

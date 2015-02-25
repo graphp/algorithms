@@ -2,7 +2,7 @@
 
 use Fhaculty\Graph\Graph;
 
-use Fhaculty\Graph\Algorithm\MaximumMatching\Flow;
+use Graphp\Algorithms\MaximumMatching\Flow;
 
 use Fhaculty\Graph\Loader\EdgeListBipartit;
 

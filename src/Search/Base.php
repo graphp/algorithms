@@ -1,8 +1,8 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\Search;
+namespace Graphp\Algorithms\Search;
 
-use Fhaculty\Graph\Algorithm\BaseVertex;
+use Graphp\Algorithms\BaseVertex;
 use Fhaculty\Graph\Exception\DomainException;
 use Fhaculty\Graph\Exception\InvalidArgumentException;
 use Fhaculty\Graph\Vertex;

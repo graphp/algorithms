@@ -1,12 +1,12 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\TravelingSalesmanProblem;
+namespace Graphp\Algorithms\TravelingSalesmanProblem;
 
 use Fhaculty\Graph\Walk;
 use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Set\Edges;
-use Fhaculty\Graph\Algorithm\Base as AlgorithmBase;
+use Graphp\Algorithms\Base as AlgorithmBase;
 
 abstract class Base extends AlgorithmBase
 {

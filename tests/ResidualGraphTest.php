@@ -2,7 +2,7 @@
 
 use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Edge\Base as Edge;
-use Fhaculty\Graph\Algorithm\ResidualGraph;
+use Graphp\Algorithms\ResidualGraph;
 use Fhaculty\Graph\Graph;
 
 class ResidualGraphTest extends TestCase

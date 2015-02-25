@@ -1,6 +1,6 @@
 <?php
 
-use Fhaculty\Graph\Algorithm\Degree as AlgorithmDegree;
+use Graphp\Algorithms\Degree as AlgorithmDegree;
 use Fhaculty\Graph\Exception\UnderflowException;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Edge\Base as Edge;

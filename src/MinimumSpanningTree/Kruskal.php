@@ -1,6 +1,6 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\MinimumSpanningTree;
+namespace Graphp\Algorithms\MinimumSpanningTree;
 
 use Fhaculty\Graph\Exception\RuntimeException;
 

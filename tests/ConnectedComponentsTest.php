@@ -1,6 +1,6 @@
 <?php
 
-use Fhaculty\Graph\Algorithm\ConnectedComponents as AlgorithmConnected;
+use Graphp\Algorithms\ConnectedComponents as AlgorithmConnected;
 use Fhaculty\Graph\Graph;
 
 class ConnectedComponentsTest extends TestCase

@@ -1,6 +1,6 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\MinimumCostFlow;
+namespace Graphp\Algorithms\MinimumCostFlow;
 
 use Fhaculty\Graph\Exception\DomainException;
 use Fhaculty\Graph\Exception\UnderflowException;
@@ -10,9 +10,9 @@ use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Edge\Directed as EdgeDirected;
 use Fhaculty\Graph\Set\Edges;
-use Fhaculty\Graph\Algorithm\ShortestPath\MooreBellmanFord as SpMooreBellmanFord;
-use Fhaculty\Graph\Algorithm\ResidualGraph;
-use Fhaculty\Graph\Algorithm\Search\BreadthFirst as SearchBreadthFirst;
+use Graphp\Algorithms\ShortestPath\MooreBellmanFord as SpMooreBellmanFord;
+use Graphp\Algorithms\ResidualGraph;
+use Graphp\Algorithms\Search\BreadthFirst as SearchBreadthFirst;
 
 class SuccessiveShortestPath extends Base
 {

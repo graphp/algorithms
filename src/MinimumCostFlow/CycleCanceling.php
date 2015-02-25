@@ -1,14 +1,14 @@
 <?php
 
-namespace Fhaculty\Graph\Algorithm\MinimumCostFlow;
+namespace Graphp\Algorithms\MinimumCostFlow;
 
 use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Exception\UnderflowException;
 use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Set\Edges;
-use Fhaculty\Graph\Algorithm\MaxFlow\EdmondsKarp as MaxFlowEdmondsKarp;
-use Fhaculty\Graph\Algorithm\DetectNegativeCycle;
-use Fhaculty\Graph\Algorithm\ResidualGraph;
+use Graphp\Algorithms\MaxFlow\EdmondsKarp as MaxFlowEdmondsKarp;
+use Graphp\Algorithms\DetectNegativeCycle;
+use Graphp\Algorithms\ResidualGraph;
 
 class CycleCanceling extends Base
 {

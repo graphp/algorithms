@@ -1,6 +1,6 @@
 <?php
 
-use Fhaculty\Graph\Algorithm\Complete as AlgorithmComplete;
+use Graphp\Algorithms\Complete as AlgorithmComplete;
 use Fhaculty\Graph\Graph;
 
 class CompleteTest extends TestCase
