@@ -2,13 +2,10 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseGraph;
-use Graphp\Algorithms\Directed;
 use Fhaculty\Graph\Exception\InvalidArgumentException;
 use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Set\Vertices;
 use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Set\VerticeDataMap;
 
 /**
  * @see http://github.com/Trismegiste/Mondrian/blob/master/Graph/Tarjan.php
@@ -49,7 +46,7 @@ class Tarjan extends BaseGraph
 
         // check is directed
         $directed = new Directed($this->graph);
-        if($directed->hasUndirected()){
+        if ($directed->hasUndirected()) {
             throw new InvalidArgumentException('Graph shall be directed');
         }
 
