@@ -55,7 +55,7 @@ class Degree extends BaseGraph
      */
     public function getDegreeMin()
     {
-        return $this->getDegreeVertex($this->graph->getVertices()->getVertexOrder(Vertices::ORDER_DEGREE));
+        return $this->getDegreeVertex($this->graph->getVertices()->getVertexOrder(array($this, 'getDegreeVertex')));
     }
 
     /**
@@ -68,7 +68,7 @@ class Degree extends BaseGraph
      */
     public function getDegreeMax()
     {
-        return $this->getDegreeVertex($this->graph->getVertices()->getVertexOrder(Vertices::ORDER_DEGREE, true));
+        return $this->getDegreeVertex($this->graph->getVertices()->getVertexOrder(array($this, 'getDegreeVertex'), true));
     }
 
     /**
