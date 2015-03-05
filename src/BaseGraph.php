@@ -7,6 +7,8 @@ use Fhaculty\Graph\Graph;
 
 /**
  * Abstract base class for algorithms that operate on a given Graph instance
+ *
+ * @deprecated
  */
 abstract class BaseGraph extends Base
 {
