@@ -20,9 +20,6 @@ use Fhaculty\Graph\Vertex;
  */
 class Tarjan
 {
-    /** @var Graph  */
-    private $graph;
-
     /** @var \SplObjectStorage  */
     private $indexMap;
 
@@ -39,25 +36,16 @@ class Tarjan
     private $partition;
 
     /**
-     * @param Graph $graph
-     */
-    public function __construct(Graph $graph)
-    {
-        $this->graph = $graph;
-        $this->indexMap = new \SplObjectStorage();
-        $this->lowLinkMap = new \SplObjectStorage();
-    }
-
-    /**
      * Get the strongly connected components of this digraph by the Tarjan algorithm.
      *
+     * @param Graph $graph Graph to analyze
      * @throws InvalidArgumentException For undirected graph argument.
      * @return Vertices[] Array of Strongly Connected components.
      */
-    public function getStronglyConnectedVertices()
+    public function getStronglyConnectedVerticesFromDirectedGraph(Graph $graph)
     {
         // check is directed
-        $directed = new Directed($this->graph);
+        $directed = new Directed($graph);
         if ($directed->hasUndirected()) {
             throw new InvalidArgumentException('Graph shall be directed');
         }
@@ -65,8 +53,10 @@ class Tarjan
         $this->stack = array();
         $this->index = 0;
         $this->partition = array();
+        $this->indexMap = new \SplObjectStorage();
+        $this->lowLinkMap = new \SplObjectStorage();
 
-        foreach ($this->graph->getVertices()->getVector() as $vertex) {
+        foreach ($graph->getVertices()->getVector() as $vertex) {
             if (! isset($this->indexMap[$vertex])) {
                 $this->recursiveStrongConnect($vertex);
             }

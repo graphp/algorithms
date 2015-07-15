@@ -29,9 +29,9 @@ class TarjanTest extends TestCase
         }
 
         // Run the algorithm
-        $algorithm = new Tarjan($this->graph);
+        $algorithm = new Tarjan();
 
-        $ret = $algorithm->getStronglyConnectedVertices();
+        $ret = $algorithm->getStronglyConnectedVerticesFromDirectedGraph($this->graph);
         $this->assertCount(2, $ret, 'Two cycles');
         $this->assertCount(3, $ret[0]);
         $this->assertCount(3, $ret[1]);
@@ -53,9 +53,9 @@ class TarjanTest extends TestCase
         }
 
         // Run the algorithm
-        $algorithm = new Tarjan($this->graph);
+        $algorithm = new Tarjan();
 
-        $ret = $algorithm->getStronglyConnectedVertices();
+        $ret = $algorithm->getStronglyConnectedVerticesFromDirectedGraph($this->graph);
 
         $this->assertCount(1, $ret, 'One SCC');
         $this->assertCount($card, $ret[0]);
@@ -75,9 +75,9 @@ class TarjanTest extends TestCase
         $b->createEdgeTo($c);
 
         // Run the algorithm
-        $algorithm = new Tarjan($this->graph);
+        $algorithm = new Tarjan();
 
-        $ret = $algorithm->getStronglyConnectedVertices();
+        $ret = $algorithm->getStronglyConnectedVerticesFromDirectedGraph($this->graph);
 
         $this->assertCount(2, $ret);
         $this->assertCount(1, $ret[0]);
