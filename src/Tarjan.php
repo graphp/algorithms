@@ -8,42 +8,54 @@ use Fhaculty\Graph\Set\Vertices;
 use Fhaculty\Graph\Vertex;
 
 /**
- * @see http://github.com/Trismegiste/Mondrian/blob/master/Graph/Tarjan.php
+ * Finds the Strongly Connected Components in a Directed Graph, a graph component being said to be strongly connected
+ * if every vertex is reachable from every other vertex.
+ *
+ * More information here:
+ * @see https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm
+ *
+ * This code was inspired by:
+ * @see http://github.com/Trismegiste/Mondrian/blob/master/Graph/Tarjan.php and
+ * @see https://code.google.com/p/jbpt/source/browse/trunk/jbpt-core/src/main/java/org/jbpt/algo/graph/StronglyConnectedComponents.java
  */
-class Tarjan extends BaseGraph
+class Tarjan
 {
-    private $stack;
-    private $index;
-    private $partition;
+    /** @var Graph  */
+    private $graph;
 
-    private $indexMap = array();
-    private $lowLinkMap = array();
+    /** @var \SplObjectStorage  */
+    private $indexMap;
+
+    /** @var \SplObjectStorage  */
+    private $lowLinkMap;
+
+    /** @var Vertex[] */
+    private $stack;
+
+    /** @var int */
+    private $index;
+
+    /** @var Vertices[] */
+    private $partition;
 
     /**
      * @param Graph $graph
      */
     public function __construct(Graph $graph)
     {
-        parent::__construct($graph);
+        $this->graph = $graph;
         $this->indexMap = new \SplObjectStorage();
         $this->lowLinkMap = new \SplObjectStorage();
     }
 
     /**
-     * Get the strongly connected components of this digraph by
-     * the Tarjan algorithm.
+     * Get the strongly connected components of this digraph by the Tarjan algorithm.
      *
-     * Starting from :
-     * http://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm
-     *
-     * Corrected with the help :
-     * https://code.google.com/p/jbpt/source/browse/trunk/jbpt-core/src/main/java/org/jbpt/algo/graph/StronglyConnectedComponents.java
-     * @throws \Fhaculty\Graph\Exception\InvalidArgumentException
-     * @return array the partition of this graph : an array of an array of vertices
+     * @throws InvalidArgumentException For undirected graph argument.
+     * @return Vertices[] Array of Strongly Connected components.
      */
-    public function getStronglyConnected()
+    public function getStronglyConnectedVertices()
     {
-
         // check is directed
         $directed = new Directed($this->graph);
         if ($directed->hasUndirected()) {
@@ -56,14 +68,20 @@ class Tarjan extends BaseGraph
 
         foreach ($this->graph->getVertices()->getVector() as $vertex) {
             if (! isset($this->indexMap[$vertex])) {
-                $this->recursivStrongConnect($vertex);
+                $this->recursiveStrongConnect($vertex);
             }
         }
 
         return $this->partition;
     }
 
-    private function recursivStrongConnect(Vertex $v)
+    /**
+     * Find recursively connected vertices to a vertex and update strongly connected component
+     * partition with it.
+     *
+     * @param Vertex $v
+     */
+    private function recursiveStrongConnect(Vertex $v)
     {
         $this->indexMap[$v] = $this->index;
         $this->lowLinkMap[$v] = $this->index;
@@ -74,7 +92,7 @@ class Tarjan extends BaseGraph
         foreach ($v->getVerticesEdgeTo() as $w) {
             if (! isset($this->indexMap[$w]) ) {
                 // Successor w has not yet been visited; recurse on it
-                $this->recursivStrongConnect($w);
+                $this->recursiveStrongConnect($w);
                 $this->lowLinkMap[$v] = min(array($this->lowLinkMap[$v], $this->lowLinkMap[$w]));
             } elseif (in_array($w, $this->stack)) {
                 // Successor w is in stack S and hence in the current SCC

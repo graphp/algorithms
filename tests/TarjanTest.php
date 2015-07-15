@@ -31,7 +31,7 @@ class TarjanTest extends TestCase
         // Run the algorithm
         $algorithm = new Tarjan($this->graph);
 
-        $ret = $algorithm->getStronglyConnected();
+        $ret = $algorithm->getStronglyConnectedVertices();
         $this->assertCount(2, $ret, 'Two cycles');
         $this->assertCount(3, $ret[0]);
         $this->assertCount(3, $ret[1]);
@@ -55,7 +55,7 @@ class TarjanTest extends TestCase
         // Run the algorithm
         $algorithm = new Tarjan($this->graph);
 
-        $ret = $algorithm->getStronglyConnected();
+        $ret = $algorithm->getStronglyConnectedVertices();
 
         $this->assertCount(1, $ret, 'One SCC');
         $this->assertCount($card, $ret[0]);
@@ -63,21 +63,21 @@ class TarjanTest extends TestCase
 
     public function testNotObviousGraph()
     {
-        $cls = $this->graph->createVertex('class');
-        $meth = $this->graph->createVertex('method');
-        $param = $this->graph->createVertex('param');
-        $impl = $this->graph->createVertex('impl');
+        $a = $this->graph->createVertex('a');
+        $b = $this->graph->createVertex('b');
+        $c = $this->graph->createVertex('c');
+        $d = $this->graph->createVertex('d');
 
-        $cls->createEdgeTo($meth);
-        $meth->createEdgeTo($impl);
-        $impl->createEdgeTo($cls);
-        $impl->createEdgeTo($param);
-        $meth->createEdgeTo($param);
+        $a->createEdgeTo($b);
+        $b->createEdgeTo($d);
+        $d->createEdgeTo($a);
+        $d->createEdgeTo($c);
+        $b->createEdgeTo($c);
 
         // Run the algorithm
         $algorithm = new Tarjan($this->graph);
 
-        $ret = $algorithm->getStronglyConnected();
+        $ret = $algorithm->getStronglyConnectedVertices();
 
         $this->assertCount(2, $ret);
         $this->assertCount(1, $ret[0]);
