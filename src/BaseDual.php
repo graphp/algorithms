@@ -11,6 +11,7 @@ use Fhaculty\Graph\Walk;
  * Abstract base class for algorithms that operate on a given Set instance
  *
  * @see Set
+ * @deprecated
  */
 abstract class BaseDual extends Base
 {

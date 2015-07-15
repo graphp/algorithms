@@ -7,6 +7,8 @@ use Fhaculty\Graph\Vertex;
 
 /**
  * Abstract base class for algorithms that operate on a given Vertex instance
+ *
+ * @deprecated
  */
 abstract class BaseVertex extends Base
 {
