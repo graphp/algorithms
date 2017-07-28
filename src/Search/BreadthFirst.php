@@ -9,10 +9,10 @@ use Fhaculty\Graph\Set\Vertices;
 class BreadthFirst extends Base
 {
     /**
-     *
+     * @param int $maxDepth
      * @return Vertices
      */
-    public function getVertices()
+    public function getVertices($maxDepth = PHP_INT_MAX)
     {
         $queue = array($this->vertex);
         // to not add vertices twice in array visited
@@ -20,14 +20,32 @@ class BreadthFirst extends Base
         // visited vertices
         $visited = array();
 
+        // keep track of depth
+        $currentDepth = 0;
+        $nodesThisLevel = 1;
+        $nodesNextLevel = 0;
+
         do {
             // get first from queue
             $t = array_shift($queue);
             // save as visited
-            $visited[$t->getId()]= $t;
+            $visited[$t->getId()] = $t;
 
             // get next vertices
-            foreach ($this->getVerticesAdjacent($t)->getMap() as $id => $vertex) {
+            $children = $this->getVerticesAdjacent($t);
+
+            // track depth
+            $nodesNextLevel = $children->count();
+            if (--$nodesThisLevel === 0) {
+                if (++$currentDepth > $maxDepth) {
+                    return new Vertices($visited);
+                }
+                $nodesThisLevel = $nodesNextLevel;
+                $nodesNextLevel = 0;
+            }
+
+            // process next vertices
+            foreach ($children->getMap() as $id => $vertex) {
                 // if not "touched" before
                 if (!isset($mark[$id])) {
                     // add to queue
@@ -37,7 +55,7 @@ class BreadthFirst extends Base
                 }
             }
 
-        // untill queue is empty
+            // until queue is empty
         } while ($queue);
 
         return new Vertices($visited);
