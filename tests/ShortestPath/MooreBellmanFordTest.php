@@ -56,6 +56,8 @@ class MooreBellmanFordTest extends BaseShortestPathTest
         $alg = $this->createAlg($v1);
 
         $cycle = $alg->getCycleNegative();
+
+        $this->assertInstanceOf('Fhaculty\Graph\Walk', $cycle);
     }
 
     public function testLoopNegativeWeightIsCycle()
@@ -68,6 +70,8 @@ class MooreBellmanFordTest extends BaseShortestPathTest
         $alg = $this->createAlg($v1);
 
         $cycle = $alg->getCycleNegative();
+
+        $this->assertInstanceOf('Fhaculty\Graph\Walk', $cycle);
     }
 
     public function testNegativeComponentHasCycle()
@@ -90,7 +94,16 @@ class MooreBellmanFordTest extends BaseShortestPathTest
 
         // first component does not have a cycle
         $alg = $this->createAlg($v1);
-        $this->setExpectedException('UnderflowException');
+        $this->expectException('UnderflowException');
         $alg->getCycleNegative();
+    }
+
+    public function expectException($class)
+    {
+        if (method_exists($this, 'setExpectedException')) {
+            $this->setExpectedException($class);
+        } else {
+            parent::expectException($class);
+        }
     }
 }

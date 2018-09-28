@@ -16,6 +16,21 @@ The recommended way to install this library is [through composer](http://getcomp
 }
 ```
 
+## Tests
+
+To run the test suite, you first need to clone this repo and then install all
+dependencies [through Composer](https://getcomposer.org):
+
+```bash
+$ composer install
+```
+
+To run the test suite, go to the project root and run:
+
+```bash
+$ php vendor/bin/phpunit
+```
+
 ## License
 
 Released under the terms of the permissive [MIT license](http://opensource.org/licenses/MIT).
