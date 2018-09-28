@@ -1,12 +1,11 @@
 <?php
 
 use Fhaculty\Graph\Exception\UnexpectedValueException;
-
 use Fhaculty\Graph\Graph;
-
 use Graphp\Algorithms\MaxFlow\EdmondsKarp as AlgorithmMaxFlowEdmondsKarp;
+use PHPUnit\Framework\TestCase;
 
-class EdmondsKarpTest extends PHPUnit_Framework_TestCase
+class EdmondsKarpTest extends TestCase
 {
     public function testEdgeDirected()
     {
