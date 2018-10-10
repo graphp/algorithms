@@ -2,13 +2,12 @@
 
 namespace Graphp\Algorithms\TravelingSalesmanProblem;
 
+use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
-
 use Fhaculty\Graph\Exception\UnderflowException;
-
 use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Set\Edges;
+use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\TravelingSalesmanProblem\MinimumSpanningTree as AlgorithmTspMst;
 
 class Bruteforce extends Base
@@ -44,7 +43,7 @@ class Bruteforce extends Base
      * upper limit to use for branch-and-bound (BNB)
      *
      * @var float|NULL
-     * @see AlgorithmTspBruteforce::setUpperLimit()
+     * @see self::setUpperLimit()
      */
     private $upperLimit = NULL;
 
@@ -72,8 +71,8 @@ class Bruteforce extends Base
      * this method can be used to optimize the algorithm by providing an upper
      * bound of when to stop branching any further.
      *
-     * @param  double                 $limit
-     * @return AlgorithmTspBruteforce $this (chainable)
+     * @param  double $limit
+     * @return self $this (chainable)
      */
     public function setUpperLimit($limit)
     {
@@ -82,12 +81,18 @@ class Bruteforce extends Base
         return $this;
     }
 
+    /**
+     * automatically sets upper limit to use for branch-and-bound from the MST heuristic
+     *
+     * @return self $this (chainable)
+     * @uses AlgorithmTspMst
+     */
     public function setUpperLimitMst()
     {
         $alg = new AlgorithmTspMst($this->graph);
-        $limit = $alg->createGraph()->getWeight();
+        $this->upperLimit = $alg->getWeight();
 
-        return $this->setUpperLimit($limit);
+        return $this;
     }
 
     protected function getVertexStart()
@@ -104,7 +109,7 @@ class Bruteforce extends Base
     /**
      * get resulting (first) best circle of edges connecting all vertices
      *
-     * @throws Exception on error
+     * @throws \Exception on error
      * @return Edges
      */
     public function getEdges()
