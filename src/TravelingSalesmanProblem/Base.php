@@ -2,10 +2,10 @@
 
 namespace Graphp\Algorithms\TravelingSalesmanProblem;
 
-use Fhaculty\Graph\Walk;
-use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Edge\Base as Edge;
+use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Set\Edges;
+use Fhaculty\Graph\Vertex;
+use Fhaculty\Graph\Walk;
 use Graphp\Algorithms\Base as AlgorithmBase;
 
 abstract class Base extends AlgorithmBase
@@ -13,10 +13,10 @@ abstract class Base extends AlgorithmBase
     /**
      * get resulting graph with the (first) best circle of edges connecting all vertices
      *
-     * @throws Exception on error
+     * @throws \Exception on error
      * @return Graph
-     * @uses Tsp::getGraph()
-     * @uses AlgorithmTsp::getEdges()
+     * @uses self::getGraph()
+     * @uses self::getEdges()
      * @uses Graph::createGraphCloneEdges()
      */
     public function createGraph()
@@ -42,8 +42,8 @@ abstract class Base extends AlgorithmBase
      * get (first) best circle connecting all vertices
      *
      * @return Walk
-     * @uses AlgorithmTsp::getEdges()
-     * @uses AlgorithmTsp::getVertexStart()
+     * @uses self::getEdges()
+     * @uses self::getVertexStart()
      * @uses Walk::factoryCycleFromEdges()
      */
     public function getCycle()
