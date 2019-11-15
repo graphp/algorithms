@@ -103,7 +103,7 @@ class Kruskal extends Base
                 $worseColor  = $bColor;
 
                 // more vertices with color a => paint all in b in a's color
-                if (count($colorVertices[$bColor]) > count($colorVertices[$aColor])) {
+                if (\count($colorVertices[$bColor]) > \count($colorVertices[$aColor])) {
                     $betterColor = $bColor;
                     $worseColor = $aColor;
                 }
@@ -125,7 +125,7 @@ class Kruskal extends Base
 
         // definition of spanning tree: number of edges = number of vertices - 1
         // above algorithm does not check isolated edges or may otherwise return multiple connected components => force check
-        if (count($returnEdges) !== (count($this->graph->getVertices()) - 1)) {
+        if (\count($returnEdges) !== (\count($this->graph->getVertices()) - 1)) {
             throw new UnexpectedValueException('Graph is not connected');
         }
 

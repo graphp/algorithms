@@ -32,15 +32,15 @@ class TopologicalSort extends BaseGraph
         /** @var Vertex $top */
         // TODO: avoid having to reverse all vertices multiple times
         // pick a node to examine next - assume there are isolated nodes
-        foreach (array_reverse($this->graph->getVertices()->getVector()) as $top) {
+        foreach (\array_reverse($this->graph->getVertices()->getVector()) as $top) {
             $tid = $top->getId();
             if (!isset($visited[$tid])) { // don't examine if already found
-                array_push($stack, $top);
+                \array_push($stack, $top);
             }
 
             while ($stack) {
                 /** @var Vertex $current */
-                $node = end($stack);
+                $node = \end($stack);
                 $nid = $node->getId();
 
                 $visited[$nid] = false; // temporary mark
@@ -48,11 +48,11 @@ class TopologicalSort extends BaseGraph
 
                 // find the next node to visit
                 /** @var Vertex $child */
-                foreach (array_reverse($node->getVerticesEdgeTo()->getVector()) as $child) {
+                foreach (\array_reverse($node->getVerticesEdgeTo()->getVector()) as $child) {
                     $cid = $child->getId();
                     if (!isset($visited[$cid])) {
                         // found a new node - push it onto the stack
-                        array_push($stack, $child);
+                        \array_push($stack, $child);
                         $found = true; // move onto the new node
                         break;
                     } else if ($visited[$cid] === false) {
@@ -62,13 +62,13 @@ class TopologicalSort extends BaseGraph
                 }
 
                 if (!$found) {
-                    array_pop($stack); // no new children found - we're done with this node
+                    \array_pop($stack); // no new children found - we're done with this node
                     $visited[$nid] = true; // mark as visited
-                    array_push($output, $node); // add to results
+                    \array_push($output, $node); // add to results
                 }
             }
         }
 
-        return new Vertices(array_reverse($output, true));
+        return new Vertices(\array_reverse($output, true));
     }
 }

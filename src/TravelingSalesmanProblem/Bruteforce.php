@@ -114,7 +114,7 @@ class Bruteforce extends Base
      */
     public function getEdges()
     {
-        $this->numEdges = count($this->graph->getVertices());
+        $this->numEdges = \count($this->graph->getVertices());
         if ($this->numEdges < 3) {
             throw new UnderflowException('Needs at least 3 vertices');
         }
@@ -152,7 +152,7 @@ class Bruteforce extends Base
             return NULL;
         }
         // kreis geschlossen am Ende
-        if ($vertex === $this->startVertex && count($visitedEdges) === $this->numEdges) {
+        if ($vertex === $this->startVertex && \count($visitedEdges) === $this->numEdges) {
             // new best result
             $this->bestWeight = $totalWeight;
 
@@ -180,7 +180,7 @@ class Bruteforce extends Base
             $result = $this->step($target,
                                   $totalWeight + $weight,
                                   $visitedVertices,
-                                  array_merge($visitedEdges, array($edge))
+                                  \array_merge($visitedEdges, array($edge))
                       );
 
             // new result found

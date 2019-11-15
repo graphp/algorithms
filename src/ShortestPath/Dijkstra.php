@@ -46,7 +46,7 @@ class Dijkstra extends Base
         $isFirst = true;
 
         // Repeat until all vertices have been marked
-        $totalCountOfVertices = count($this->vertex->getGraph()->getVertices());
+        $totalCountOfVertices = \count($this->vertex->getGraph()->getVertices());
         for ($i = 0; $i < $totalCountOfVertices; ++$i) {
             $currentVertex = NULL;
             $currentVertexId = NULL;
@@ -89,7 +89,7 @@ class Dijkstra extends Base
                 if (!isset($usedVertices[$targetVertexId])) {
                     // calculate new cost to vertex
                     $newCostsToTargetVertex = $totalCostOfCheapestPathTo[$currentVertexId] + $weight;
-                    if (is_infinite($newCostsToTargetVertex)) {
+                    if (\is_infinite($newCostsToTargetVertex)) {
                         $newCostsToTargetVertex = $weight;
                     }
 

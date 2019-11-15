@@ -32,7 +32,7 @@ class BreadthFirst extends Base
      */
     public function getDistance(Vertex $endVertex)
     {
-        return count($this->getEdgesTo($endVertex));
+        return \count($this->getEdgesTo($endVertex));
     }
 
     /**
@@ -56,12 +56,12 @@ class BreadthFirst extends Base
                 $vid = $vertexTarget->getId();
                 if (!isset($edges[$vid])) {
                     $vertexQueue []= $vertexTarget;
-                    $edges[$vid] = array_merge($edgesCurrent, array($edge));
+                    $edges[$vid] = \array_merge($edgesCurrent, array($edge));
                 }
             }
 
             // get next from queue
-            $vertexCurrent = array_shift($vertexQueue);
+            $vertexCurrent = \array_shift($vertexQueue);
             if ($vertexCurrent) {
                 $edgesCurrent = $edges[$vertexCurrent->getId()];
             }
@@ -93,7 +93,7 @@ class BreadthFirst extends Base
     {
         $ret = array();
         foreach ($this->getEdgesMap() as $vid => $edges) {
-            $ret[$vid] = count($edges);
+            $ret[$vid] = \count($edges);
         }
 
         return $ret;
@@ -121,7 +121,7 @@ class BreadthFirst extends Base
         $ret = array();
         foreach ($this->getEdgesMap() as $edges) {
             foreach ($edges as $edge) {
-                if (!in_array($edge, $ret, true)) {
+                if (!\in_array($edge, $ret, true)) {
                     $ret []= $edge;
                 }
             }

@@ -100,7 +100,7 @@ class MooreBellmanFordTest extends BaseShortestPathTest
 
     public function expectException($class)
     {
-        if (method_exists($this, 'setExpectedException')) {
+        if (\method_exists($this, 'setExpectedException')) {
             $this->setExpectedException($class);
         } else {
             parent::expectException($class);

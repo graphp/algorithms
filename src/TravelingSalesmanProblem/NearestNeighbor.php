@@ -40,7 +40,7 @@ class NearestNeighbor extends Base
     {
         $returnEdges = array();
 
-        $n = count($this->vertex->getGraph()->getVertices());
+        $n = \count($this->vertex->getGraph()->getVertices());
 
         $vertex = $this->vertex;
         $visitedVertices = array($vertex->getId() => true);
