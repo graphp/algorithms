@@ -68,7 +68,7 @@ class Parallel extends BaseGraph
             $edges = $ends->getVertexFirst()->getEdges()->getEdgesIntersection($ends->getVertexLast()->getEdges())->getVector();
         }
 
-        $pos = array_search($edge, $edges, true);
+        $pos = \array_search($edge, $edges, true);
 
         if ($pos === false) {
             // @codeCoverageIgnoreStart
@@ -79,6 +79,6 @@ class Parallel extends BaseGraph
         // exclude current edge from parallel edges
         unset($edges[$pos]);
 
-        return new Edges(array_values($edges));
+        return new Edges(\array_values($edges));
     }
 }

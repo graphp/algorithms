@@ -162,7 +162,7 @@ class WalkProperty extends BaseAlgorithm
      */
     public function isLoop()
     {
-        return (count($this->walk->getEdges()) === 1 && $this->isCycle());
+        return (\count($this->walk->getEdges()) === 1 && $this->isCycle());
     }
 
     /**
@@ -214,11 +214,11 @@ class WalkProperty extends BaseAlgorithm
     public function isDigon()
     {
         // exactly 2 edges
-        return (count($this->walk->getEdges()) === 2 &&
+        return (\count($this->walk->getEdges()) === 2 &&
                 // no duplicate edges
                 !$this->hasArrayDuplicates($this->walk->getEdges()->getVector()) &&
                 // exactly two distinct vertices
-                count($this->walk->getVertices()->getVerticesDistinct()) === 2 &&
+                \count($this->walk->getVertices()->getVerticesDistinct()) === 2 &&
                 // this is actually a cycle
                 $this->isCycle());
     }
@@ -238,9 +238,9 @@ class WalkProperty extends BaseAlgorithm
     public function isTriangle()
     {
         // exactly 3 (implicitly distinct) edges
-        return (count($this->walk->getEdges()) === 3 &&
+        return (\count($this->walk->getEdges()) === 3 &&
                 // exactly three distinct vertices
-                count($this->walk->getVertices()->getVerticesDistinct()) === 3 &&
+                \count($this->walk->getVertices()->getVerticesDistinct()) === 3 &&
                 // this is actually a cycle
                 $this->isCycle());
     }
@@ -347,7 +347,7 @@ class WalkProperty extends BaseAlgorithm
         $compare = array();
         foreach ($array as $element) {
             // duplicate element found
-            if (in_array($element, $compare, true)) {
+            if (\in_array($element, $compare, true)) {
                 return true;
             } else {
                 // add element to temporary array to check for duplicates
@@ -368,7 +368,7 @@ class WalkProperty extends BaseAlgorithm
     private function isArrayContentsEqual($a, $b)
     {
         foreach ($b as $one) {
-            $pos = array_search($one, $a, true);
+            $pos = \array_search($one, $a, true);
             if ($pos === false) {
                 return false;
             } else {

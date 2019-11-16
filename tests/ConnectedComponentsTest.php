@@ -29,7 +29,7 @@ class ConnectedComponentsTest extends TestCase
         $graphs = $alg->createGraphsComponents();
 
         $this->assertCount(1, $graphs);
-        $this->assertGraphEquals($graph, reset($graphs));
+        $this->assertGraphEquals($graph, \reset($graphs));
     }
 
     public function testGraphEdgeDirections()
@@ -48,7 +48,7 @@ class ConnectedComponentsTest extends TestCase
         $graphs = $alg->createGraphsComponents();
 
         $this->assertCount(1, $graphs);
-        $this->assertGraphEquals($graph, reset($graphs));
+        $this->assertGraphEquals($graph, \reset($graphs));
         $this->assertGraphEquals($graph, $alg->createGraphComponentVertex($graph->getVertex(1)));
     }
 

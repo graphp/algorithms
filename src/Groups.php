@@ -16,7 +16,7 @@ class Groups extends BaseGraph
      */
     public function getNumberOfGroups()
     {
-        return count($this->getGroups());
+        return \count($this->getGroups());
     }
 
     /**
@@ -63,7 +63,7 @@ class Groups extends BaseGraph
             $groups[$vertex->getGroup()] = true;
         }
 
-        return array_keys($groups);
+        return \array_keys($groups);
     }
 
     /**

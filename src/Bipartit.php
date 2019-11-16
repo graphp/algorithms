@@ -60,7 +60,7 @@ class Bipartit extends BaseGraph
                 // breadth search all vertices in same component
                 do {
                     // next vertex in color
-                    $vertex = array_shift($queue);
+                    $vertex = \array_shift($queue);
                     $color = $colors[$vertex->getId()];
                     $nextColor = 1-$color;
 

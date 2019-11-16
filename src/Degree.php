@@ -164,7 +164,7 @@ class Degree extends BaseGraph
      */
     public function getDegreeVertex(Vertex $vertex)
     {
-        return count($vertex->getEdges());
+        return \count($vertex->getEdges());
     }
 
     /**

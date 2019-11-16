@@ -111,7 +111,7 @@ abstract class Base extends BaseVertex
             }
         } while ($currentVertex !== $this->vertex);
 
-        return new Edges(array_reverse($path));
+        return new Edges(\array_reverse($path));
     }
 
     /**

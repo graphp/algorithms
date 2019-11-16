@@ -14,9 +14,9 @@ class TestCase extends BaseTestCase
     protected function assertGraphEquals(Graph $expected, Graph $actual)
     {
         $f = function(Graph $graph){
-            $ret = get_class($graph);
-            $ret .= PHP_EOL . 'vertices: ' . count($graph->getVertices());
-            $ret .= PHP_EOL . 'edges: ' . count($graph->getEdges());
+            $ret = \get_class($graph);
+            $ret .= PHP_EOL . 'vertices: ' . \count($graph->getVertices());
+            $ret .= PHP_EOL . 'edges: ' . \count($graph->getEdges());
 
             return $ret;
         };
@@ -48,7 +48,7 @@ class TestCase extends BaseTestCase
         foreach ($actual->getEdges() as $edge) {
             $dump = $this->getEdgeDump($edge);
 
-            $pos = array_search($dump, $edgesExpected, true);
+            $pos = \array_search($dump, $edgesExpected, true);
             if ($pos === false) {
                 $this->fail('given edge ' . $dump . ' not found');
             } else {
@@ -69,10 +69,10 @@ class TestCase extends BaseTestCase
 
     private function getVertexDump(Vertex $vertex)
     {
-        $ret = get_class($vertex);
+        $ret = \get_class($vertex);
 
         $ret .= PHP_EOL . 'id: ' . $vertex->getId();
-        $ret .= PHP_EOL . 'attributes: ' . json_encode($vertex->getAttributeBag()->getAttributes());
+        $ret .= PHP_EOL . 'attributes: ' . \json_encode($vertex->getAttributeBag()->getAttributes());
         $ret .= PHP_EOL . 'balance: ' . $vertex->getBalance();
         $ret .= PHP_EOL . 'group: ' . $vertex->getGroup();
 
@@ -81,7 +81,7 @@ class TestCase extends BaseTestCase
 
     private function getEdgeDump(Edge $edge)
     {
-        $ret = get_class($edge) . ' ';
+        $ret = \get_class($edge) . ' ';
         if ($edge instanceof Directed) {
             $ret .= $edge->getVertexStart()->getId() . ' -> ' . $edge->getVertexEnd()->getId();
         } else {
@@ -91,7 +91,7 @@ class TestCase extends BaseTestCase
         $ret .= PHP_EOL . 'flow: ' . $edge->getFlow();
         $ret .= PHP_EOL . 'capacity: ' . $edge->getCapacity();
         $ret .= PHP_EOL . 'weight: ' . $edge->getWeight();
-        $ret .= PHP_EOL . 'attributes: ' . json_encode($edge->getAttributeBag()->getAttributes());
+        $ret .= PHP_EOL . 'attributes: ' . \json_encode($edge->getAttributeBag()->getAttributes());
 
         return $ret;
     }

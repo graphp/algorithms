@@ -18,7 +18,7 @@ abstract class Base extends BaseGraph
      */
     public function getNumberOfMatches()
     {
-        return count($this->getEdges());
+        return \count($this->getEdges());
     }
 
     /**

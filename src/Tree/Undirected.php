@@ -70,7 +70,7 @@ class Undirected extends Tree
             return false;
         }
 
-        return (count($vertices) === count($this->graph->getVertices()));
+        return (\count($vertices) === \count($this->graph->getVertices()));
     }
 
     /**

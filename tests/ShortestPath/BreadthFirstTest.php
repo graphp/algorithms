@@ -33,6 +33,6 @@ class BreadthFirstTest extends BaseShortestPathTest
 
     protected function getExpectedWeight($edges)
     {
-        return count($edges);
+        return \count($edges);
     }
 }

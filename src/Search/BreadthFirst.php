@@ -27,7 +27,7 @@ class BreadthFirst extends Base
 
         do {
             // get first from queue
-            $t = array_shift($queue);
+            $t = \array_shift($queue);
             // save as visited
             $visited[$t->getId()] = $t;
 

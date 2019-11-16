@@ -89,14 +89,14 @@ abstract class BaseDirected extends Tree
         }
 
         try {
-            $num = count($this->getVerticesSubtree($root));
+            $num = \count($this->getVerticesSubtree($root));
         }
         catch (UnexpectedValueException $e) {
             return false;
         }
 
         // check number of vertices reachable from root should match total number of vertices
-        return ($num === count($this->graph->getVertices()));
+        return ($num === \count($this->graph->getVertices()));
     }
 
     /**
@@ -111,7 +111,7 @@ abstract class BaseDirected extends Tree
     public function getVertexParent(Vertex $vertex)
     {
         $parents = $this->getVerticesParent($vertex);
-        if (count($parents) !== 1) {
+        if (\count($parents) !== 1) {
             if ($parents->isEmpty()) {
                 throw new UnderflowException('No parents for given vertex found');
             } else {
@@ -151,7 +151,7 @@ abstract class BaseDirected extends Tree
      */
     protected function isVertexPossibleRoot(Vertex $vertex)
     {
-        return (count($this->getVerticesParent($vertex)) === 0);
+        return (\count($this->getVerticesParent($vertex)) === 0);
     }
 
     /**
@@ -163,7 +163,7 @@ abstract class BaseDirected extends Tree
      */
     public function isVertexLeaf(Vertex $vertex)
     {
-        return (count($this->getVerticesChildren($vertex)) === 0);
+        return (\count($this->getVerticesChildren($vertex)) === 0);
     }
 
     /**
@@ -192,7 +192,7 @@ abstract class BaseDirected extends Tree
     {
         $max = null;
         foreach ($this->graph->getVertices() as $vertex) {
-            $num = count($this->getVerticesChildren($vertex));
+            $num = \count($this->getVerticesChildren($vertex));
             if ($max === null || $num > $max) {
                 $max = $num;
             }

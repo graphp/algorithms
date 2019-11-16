@@ -15,11 +15,11 @@ class DepthFirst extends Base
     {
         $visited = array();
         $todo = array($this->vertex);
-        while ($vertex = array_shift($todo)) {
+        while ($vertex = \array_shift($todo)) {
             if (!isset($visited[$vertex->getId()])) {
                 $visited[$vertex->getId()] = $vertex;
 
-                foreach (array_reverse($this->getVerticesAdjacent($vertex)->getMap(), true) as $vid => $nextVertex) {
+                foreach (\array_reverse($this->getVerticesAdjacent($vertex)->getMap(), true) as $vid => $nextVertex) {
                     $todo[] = $nextVertex;
                 }
             }

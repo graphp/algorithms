@@ -78,7 +78,7 @@ class ConnectedComponents extends BaseGraph
         }
         $alg = $this->createSearch($vertex);
 
-        return (count($this->graph->getVertices()) === count($alg->getVertices()));
+        return (\count($this->graph->getVertices()) === \count($alg->getVertices()));
     }
 
     /**
