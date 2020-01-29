@@ -48,4 +48,47 @@ class GraphProperty extends BaseGraph
     {
         return ($this->graph->getEdges()->isEmpty() && \count($this->graph->getVertices()) === 1);
     }
+    
+    /**
+     * checks whether this graph is acyclic (directed graph with no cycles)
+     * using the Kahn algorithm
+     * 
+     * @return boolean
+     * @link https://en.wikipedia.org/wiki/Directed_acyclic_graph
+     */
+    public function isAcyclic()
+    {
+        $vertices = $this->graph->getVertices();
+        $nVertices = count($vertices);
+        $visited = 0;
+        $inDegree = [];
+        $stack=[];
+
+        foreach($vertices as $vert){
+            $deg=count($vert->getEdgesIn());
+            $inDegree[$vert->getId()]=$deg;
+            if($deg==0){
+                $stack[]=$vert;
+            }
+        }
+
+        while(!(empty($stack))){
+            $n = array_pop($stack);
+            $visited++;
+            foreach($n->getEdgesOut() as $e){
+                $m = $e->getVertexEnd();
+                $inDegree[$m->getId()]--;
+                if($inDegree[$m->getId()]==0){
+                    $stack[]=$m;
+                }
+            }
+        }
+        
+        if($visited==$nVertices){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
