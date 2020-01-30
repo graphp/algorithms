@@ -61,14 +61,14 @@ class GraphProperty extends BaseGraph
         $vertices = $this->graph->getVertices();
         $nVertices = count($vertices);
         $visited = 0;
-        $inDegree = [];
-        $stack=[];
+        $inDegree = array();
+        $stack = array();
 
         foreach($vertices as $vert){
             $deg=count($vert->getEdgesIn());
             $inDegree[$vert->getId()]=$deg;
             if($deg==0){
-                $stack[]=$vert;
+                \array_push($stack,$vert);
             }
         }
 
@@ -79,7 +79,7 @@ class GraphProperty extends BaseGraph
                 $m = $e->getVertexEnd();
                 $inDegree[$m->getId()]--;
                 if($inDegree[$m->getId()]==0){
-                    $stack[]=$m;
+                    \array_push($stack,$m);
                 }
             }
         }
