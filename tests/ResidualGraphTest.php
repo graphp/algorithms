@@ -1,9 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Edge\Base as Edge;
-use Graphp\Algorithms\ResidualGraph;
 use Fhaculty\Graph\Graph;
+use Graphp\Algorithms\ResidualGraph;
 
 class ResidualGraphTest extends TestCase
 {
@@ -83,6 +81,81 @@ class ResidualGraphTest extends TestCase
         $expected->getVertex(1)->createEdgeTo($expected->getVertex(0))->setFlow(0)
                                                                       ->setCapacity(1)
                                                                       ->setWeight(-3);
+
+        $this->assertGraphEquals($expected, $residual);
+    }
+
+    public function testResidualGraphCanOptionallyKeepNullCapacityForEdgeWithZeroFlow()
+    {
+        // 1 -[0/2]-> 2
+        $graph = new Graph();
+        $v1 = $graph->createVertex(1);
+        $v2 = $graph->createVertex(2);
+        $v1->createEdgeTo($v2)->setFlow(0)->setCapacity(2);
+
+        // 1 -[0/2]-> 2
+        // ^          |
+        // \--[0/0]---/
+        $expected = new Graph();
+        $v1 = $expected->createVertex(1);
+        $v2 = $expected->createVertex(2);
+        $v1->createEdgeTo($v2)->setFlow(0)->setCapacity(2);
+        $v2->createEdgeTo($v1)->setFlow(0)->setCapacity(0);
+
+        $alg = new ResidualGraph($graph);
+        $alg->setKeepNullCapacity(true);
+        $residual = $alg->createGraph();
+
+        $this->assertGraphEquals($expected, $residual);
+    }
+
+    public function testResidualGraphCanOptionallyKeepNullCapacityForEdgeWithZeroCapacityRemaining()
+    {
+        // 1 -[2/2]-> 2
+        $graph = new Graph();
+        $v1 = $graph->createVertex(1);
+        $v2 = $graph->createVertex(2);
+        $v1->createEdgeTo($v2)->setFlow(2)->setCapacity(2);
+
+        // 1 -[0/0]-> 2
+        // ^          |
+        // \--[0/2]---/
+        $expected = new Graph();
+        $v1 = $expected->createVertex(1);
+        $v2 = $expected->createVertex(2);
+        $v1->createEdgeTo($v2)->setFlow(0)->setCapacity(0);
+        $v2->createEdgeTo($v1)->setFlow(0)->setCapacity(2);
+
+        $alg = new ResidualGraph($graph);
+        $alg->setKeepNullCapacity(true);
+        $residual = $alg->createGraph();
+
+        $this->assertGraphEquals($expected, $residual);
+    }
+
+    public function testParallelEdgesCanBeMerged()
+    {
+        // 1 -[1/2]-> 2
+        // |          ^
+        // \--[2/3]---/
+        $graph = new Graph();
+        $v1 = $graph->createVertex(1);
+        $v2 = $graph->createVertex(2);
+        $v1->createEdgeTo($v2)->setFlow(1)->setCapacity(2);
+        $v1->createEdgeTo($v2)->setFlow(2)->setCapacity(3);
+
+        // 1 -[0/2]-> 2
+        // ^          |
+        // \--[0/3]---/
+        $expected = new Graph();
+        $v1 = $expected->createVertex(1);
+        $v2 = $expected->createVertex(2);
+        $v1->createEdgeTo($v2)->setFlow(0)->setCapacity(2);
+        $v2->createEdgeTo($v1)->setFlow(0)->setCapacity(3);
+
+        $alg = new ResidualGraph($graph);
+        $alg->setMergeParallelEdges(true);
+        $residual = $alg->createGraph();
 
         $this->assertGraphEquals($expected, $residual);
     }
