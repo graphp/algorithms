@@ -2,12 +2,10 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseGraph;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-
-use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Edge\Directed as EdgeDirected;
+use Fhaculty\Graph\Exception\UnexpectedValueException;
+use Fhaculty\Graph\Graph;
 
 class ResidualGraph extends BaseGraph
 {
@@ -90,20 +88,22 @@ class ResidualGraph extends BaseGraph
      */
     private function mergeParallelEdges(Edge $newEdge)
     {
-        $parallelEdges = $newEdge->getEdgesParallel();
-        if ($parallelEdges) {
+        $alg = new Parallel($this->graph);
+        $parallelEdges = $alg->getEdgesParallelEdge($newEdge)->getVector();
 
-            $mergedCapacity = 0;
+        if (!$parallelEdges) {
+            return;
+        }
 
-            foreach ($parallelEdges as $parallelEdge) {
-                $mergedCapacity += $parallelEdge->getCapacity();
-            }
+        $mergedCapacity = 0;
+        foreach ($parallelEdges as $parallelEdge) {
+            $mergedCapacity += $parallelEdge->getCapacity();
+        }
 
-            $newEdge->setCapacity($newEdge->getCapacity() + $mergedCapacity);
+        $newEdge->setCapacity($newEdge->getCapacity() + $mergedCapacity);
 
-            foreach ($parallelEdges as $parallelEdge) {
-                $parallelEdge->destroy();
-            }
+        foreach ($parallelEdges as $parallelEdge) {
+            $parallelEdge->destroy();
         }
     }
 }
