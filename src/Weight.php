@@ -2,8 +2,6 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseGraph;
-use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Graph;
 
 /**
@@ -23,7 +21,7 @@ class Weight extends BaseDual
      * edges usually have no weight attached. a weight explicitly set to (int) 0
      * will be considered as 'weighted'.
      *
-     * @return boolean
+     * @return bool
      * @uses Edge::getWeight()
      */
     public function isWeighted()

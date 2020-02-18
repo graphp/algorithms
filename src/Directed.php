@@ -2,7 +2,6 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseGraph;
 use Fhaculty\Graph\Edge\Directed as EdgeDirected;
 use Fhaculty\Graph\Edge\Undirected as EdgeUndirected;
 
@@ -20,7 +19,7 @@ class Directed extends BaseDual
      * This method is intentionally not named "isDirected()" (aka digraph),
      * because that might be misleading in regards to empty and/or mixed graphs.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasDirected()
     {
@@ -39,7 +38,7 @@ class Directed extends BaseDual
      * This method is intentionally not named "isUndirected()",
      * because that might be misleading in regards to empty and/or mixed graphs.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasUndirected()
     {
@@ -55,7 +54,7 @@ class Directed extends BaseDual
     /**
      * checks whether this is a mixed graph (contains both directed and undirected edges)
      *
-     * @return boolean
+     * @return bool
      * @uses self::hasDirected()
      * @uses self::hasUndirected()
      */

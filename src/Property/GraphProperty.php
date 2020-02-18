@@ -17,7 +17,7 @@ class GraphProperty extends BaseGraph
      * Also known as empty Graph. An empty Graph contains no edges, but can
      * possibly contain any number of isolated vertices.
      *
-     * @return boolean
+     * @return bool
      */
     public function isEdgeless()
     {
@@ -32,7 +32,7 @@ class GraphProperty extends BaseGraph
      * no Vertices exist. So if we check we have no Vertices, we can also be
      * sure that no Edges exist either.
      *
-     * @return boolean
+     * @return bool
      */
     public function isNull()
     {
@@ -42,7 +42,7 @@ class GraphProperty extends BaseGraph
     /**
      * checks whether this graph is trivial (one vertex and no edges)
      *
-     * @return boolean
+     * @return bool
      */
     public function isTrivial()
     {

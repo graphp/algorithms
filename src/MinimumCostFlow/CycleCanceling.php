@@ -2,12 +2,11 @@
 
 namespace Graphp\Algorithms\MinimumCostFlow;
 
-use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Exception\UnderflowException;
-use Fhaculty\Graph\Edge\Base as Edge;
+use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Set\Edges;
-use Graphp\Algorithms\MaxFlow\EdmondsKarp as MaxFlowEdmondsKarp;
 use Graphp\Algorithms\DetectNegativeCycle;
+use Graphp\Algorithms\MaxFlow\EdmondsKarp as MaxFlowEdmondsKarp;
 use Graphp\Algorithms\ResidualGraph;
 
 class CycleCanceling extends Base
@@ -67,6 +66,7 @@ class CycleCanceling extends Base
             $newFlow = $clonedEdges->getEdgeOrder(Edges::ORDER_CAPACITY_REMAINING)->getCapacityRemaining();
 
             // set flow on original graph
+            assert($newFlow !== null);
             $this->addFlow($resultGraph, $clonedEdges, $newFlow);
         }
 

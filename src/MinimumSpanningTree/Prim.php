@@ -2,12 +2,11 @@
 
 namespace Graphp\Algorithms\MinimumSpanningTree;
 
+use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Edge\Directed as EdgeDirected;
 use Fhaculty\Graph\Set\Edges;
 use Fhaculty\Graph\Vertex;
-use \SplPriorityQueue;
-use \Exception;
+use SplPriorityQueue;
 
 class Prim extends Base
 {
@@ -22,7 +21,6 @@ class Prim extends Base
     }
 
     /**
-     *
      * @return Edges
      */
     public function getEdges()
@@ -43,25 +41,22 @@ class Prim extends Base
             $this->addEdgesSorted($vertexCurrent->getEdges(), $edgeQueue);
 
             do {
-                try {
-                    // Get next cheapest edge
-                    $cheapestEdge = $edgeQueue->extract();
-                    /* @var $cheapestEdge EdgeDirected */
-                } catch (Exception $e) {
-                    throw new UnexpectedValueException('Graph has more than one component', 0, $e);
+                if ($edgeQueue->isEmpty()) {
+                    throw new UnexpectedValueException('Graph has more than one component');
                 }
 
-                // Check if edge is between unmarked and marked edge
+                // Get next cheapest edge
+                $cheapestEdge = $edgeQueue->extract();
+                assert($cheapestEdge instanceof Edge);
 
+                // Check if edge is between unmarked and marked edge
                 $vertices = $cheapestEdge->getVertices();
                 $vertexA  = $vertices->getVertexFirst();
                 $vertexB  = $vertices->getVertexLast();
-
-            // Edge is between marked and unmared vertex
             } while (!(isset($markInserted[$vertexA->getId()]) XOR isset($markInserted[$vertexB->getId()])));
 
             // Cheapest Edge found, add edge to returnGraph
-            $returnEdges []= $cheapestEdge;
+            $returnEdges[] = $cheapestEdge;
 
             // set current vertex for next iteration in order to add its edges to queue
             if (isset($markInserted[$vertexA->getId()])) {

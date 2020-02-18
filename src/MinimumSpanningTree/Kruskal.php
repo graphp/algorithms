@@ -2,26 +2,22 @@
 
 namespace Graphp\Algorithms\MinimumSpanningTree;
 
-use Fhaculty\Graph\Exception\RuntimeException;
-
+use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
-
 use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Edge\Directed as EdgeDirected;
 use Fhaculty\Graph\Set\Edges;
-use \SplPriorityQueue;
+use SplPriorityQueue;
 
 class Kruskal extends Base
 {
     /**
-     *
      * @var Graph
      */
     private $graph;
 
     public function __construct(Graph $inputGraph)
     {
-         $this->graph = $inputGraph;
+        $this->graph = $inputGraph;
     }
 
     protected function getGraph()
@@ -30,7 +26,6 @@ class Kruskal extends Base
     }
 
     /**
-     *
      * @return Edges
      */
     public function getEdges()
@@ -54,7 +49,7 @@ class Kruskal extends Base
         // Füge billigste Kanten zu neuen Graphen hinzu und verschmelze teilgragen wenn es nötig ist (keine Kreise)
         // solange ich mehr als einen Graphen habe mit weniger als n-1 kanten (bei n knoten im original)
         foreach ($sortedEdges as $edge) {
-            /* @var $edge EdgeDirected */
+            assert($edge instanceof Edge);
             // Gucke Kante an:
 
             $vertices = $edge->getVertices()->getIds();
@@ -76,7 +71,7 @@ class Kruskal extends Base
                 ++$colorNext;
 
                 // connect both vertices
-                $returnEdges []= $edge;
+                $returnEdges[] = $edge;
             }
             // 4. start xor end gehören zu einem graphen
                 // => erweitere diesesn Graphen
@@ -86,14 +81,14 @@ class Kruskal extends Base
                 $colorOfVertices[$aId] = $bColor;
                 $colorVertices[$bColor][]=$aId;
 
-                $returnEdges []= $edge;
+                $returnEdges[] = $edge;
             // Only a has color
             } elseif ($aColor !== NULL && $bColor === NULL) {
                 // paint b in a's color
                 $colorOfVertices[$bId] = $aColor;
                 $colorVertices[$aColor][]=$bId;
 
-                $returnEdges []= $edge;
+                $returnEdges[] = $edge;
             }
             // 3. start und end gehören zu unterschiedlichen graphen
                 // => vereinigung
@@ -117,7 +112,7 @@ class Kruskal extends Base
                 // delete old color
                 unset($colorVertices[$worseColor]);
 
-                $returnEdges []= $edge;
+                $returnEdges[] = $edge;
             }
             // 2. start und end gehören zum gleichen graphen => zirkel
             // => nichts machen

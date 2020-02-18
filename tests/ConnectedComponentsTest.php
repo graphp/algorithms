@@ -1,7 +1,7 @@
 <?php
 
-use Graphp\Algorithms\ConnectedComponents as AlgorithmConnected;
 use Fhaculty\Graph\Graph;
+use Graphp\Algorithms\ConnectedComponents as AlgorithmConnected;
 
 class ConnectedComponentsTest extends TestCase
 {
@@ -61,8 +61,8 @@ class ConnectedComponentsTest extends TestCase
         $v3 = $graph->createVertex(3);
         $v4 = $graph->createVertex(4);
         $v5 = $graph->createVertex(5);
-        $e1 = $v1->createEdge($v2);
-        $e2 = $v3->createEdgeTo($v4);
+        $v1->createEdge($v2);
+        $v3->createEdgeTo($v4);
 
         $alg = new AlgorithmConnected($graph);
 

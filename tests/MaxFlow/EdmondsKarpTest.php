@@ -1,6 +1,5 @@
 <?php
 
-use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\MaxFlow\EdmondsKarp as AlgorithmMaxFlowEdmondsKarp;
 use PHPUnit\Framework\TestCase;
@@ -59,8 +58,6 @@ class EdmondsKarpTest extends TestCase
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
-        $v4 = $graph->createVertex(4);
-        $v5 = $graph->createVertex(5);
 
         $v0->createEdgeTo($v1)->setCapacity(5);
         $v0->createEdgeTo($v2)->setCapacity(7);

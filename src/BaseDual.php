@@ -2,9 +2,8 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\Base;
-use Fhaculty\Graph\Set\DualAggregate;
 use Fhaculty\Graph\Graph;
+use Fhaculty\Graph\Set\DualAggregate;
 use Fhaculty\Graph\Walk;
 
 /**
@@ -25,7 +24,7 @@ abstract class BaseDual extends Base
     /**
      * instantiate new algorithm
      *
-     * @param Graph|Walk|Set $graphOrWalk either the Graph or Walk to operate on (or the common base class Set)
+     * @param Graph|Walk|DualAggregate $graphOrWalk either the Graph or Walk to operate on (or the common base class Set)
      */
     public function __construct(DualAggregate $graphOrWalk)
     {

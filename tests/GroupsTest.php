@@ -1,7 +1,7 @@
 <?php
 
-use Graphp\Algorithms\Groups as AlgorithmGroups;
 use Fhaculty\Graph\Graph;
+use Graphp\Algorithms\Groups as AlgorithmGroups;
 
 class GroupsTest extends TestCase
 {

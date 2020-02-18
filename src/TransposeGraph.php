@@ -2,12 +2,9 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseGraph;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Edge\Directed as EdgeDirected;
+use Fhaculty\Graph\Exception\UnexpectedValueException;
+use Fhaculty\Graph\Graph;
 
 class TransposeGraph extends BaseGraph
 {

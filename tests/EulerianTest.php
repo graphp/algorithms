@@ -1,7 +1,7 @@
 <?php
 
-use Graphp\Algorithms\Eulerian as AlgorithmEulerian;
 use Fhaculty\Graph\Graph;
+use Graphp\Algorithms\Eulerian as AlgorithmEulerian;
 
 class EulerianTest extends TestCase
 {

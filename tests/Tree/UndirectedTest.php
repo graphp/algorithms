@@ -1,7 +1,6 @@
 <?php
 
 use Fhaculty\Graph\Graph;
-
 use Graphp\Algorithms\Tree\Undirected;
 
 class UndirectedTest extends TestCase

@@ -1,7 +1,7 @@
 <?php
 
-use Graphp\Algorithms\Bipartit as AlgorithmBipartit;
 use Fhaculty\Graph\Graph;
+use Graphp\Algorithms\Bipartit as AlgorithmBipartit;
 
 class BipartitTest extends TestCase
 {

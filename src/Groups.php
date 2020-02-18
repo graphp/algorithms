@@ -2,9 +2,8 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseGraph;
-use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Set\Vertices;
+use Fhaculty\Graph\Vertex;
 
 class Groups extends BaseGraph
 {
@@ -22,7 +21,7 @@ class Groups extends BaseGraph
     /**
      * checks whether the input graph's vertex groups are a valid bipartition
      *
-     * @return boolean
+     * @return bool
      * @see AlgorithmBipartit() if you do NOT want to take vertex groups into consideration
      * @uses AlgorithmGroups::getNumberOfGroups()
      * @uses Vertex::getGroup()
@@ -60,6 +59,7 @@ class Groups extends BaseGraph
     {
         $groups = array();
         foreach ($this->graph->getVertices() as $vertex) {
+            assert($vertex instanceof Vertex);
             $groups[$vertex->getGroup()] = true;
         }
 

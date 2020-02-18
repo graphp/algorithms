@@ -2,9 +2,6 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseGraph;
-use Fhaculty\Graph\Graph;
-
 /**
  * Basic algorithms for working with complete graphs
  *
@@ -19,7 +16,7 @@ class Complete extends BaseGraph
     /**
      * checks whether this graph is complete (every vertex has an edge to any other vertex)
      *
-     * @return boolean
+     * @return bool
      * @uses Graph::getVertices()
      * @uses Vertex::hasEdgeTo()
      */

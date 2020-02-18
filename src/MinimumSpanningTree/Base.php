@@ -2,10 +2,10 @@
 
 namespace Graphp\Algorithms\MinimumSpanningTree;
 
-use Graphp\Algorithms\Base as AlgorithmBase;
-use Fhaculty\Graph\Set\Edges;
-use Fhaculty\Graph\Edge\Directed as EdgeDirected;
 use Fhaculty\Graph\Edge\Base as Edge;
+use Fhaculty\Graph\Graph;
+use Fhaculty\Graph\Set\Edges;
+use Graphp\Algorithms\Base as AlgorithmBase;
 use SplPriorityQueue;
 
 /**
@@ -80,7 +80,7 @@ abstract class Base extends AlgorithmBase
     {
         // For all edges
         foreach ($edges as $edge) {
-            /* @var $edge Edge */
+            assert($edge instanceof Edge);
             // ignore loops (a->a)
             if (!$edge->isLoop()) {
                 // Add edges with negative weight because of order in stl

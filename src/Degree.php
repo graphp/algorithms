@@ -2,11 +2,9 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseGraph;
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
+use Fhaculty\Graph\Exception\UnderflowException;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Set\Vertices;
+use Fhaculty\Graph\Vertex;
 
 /**
  * Basic algorithms for working with the degrees of Graphs.
@@ -34,7 +32,7 @@ class Degree extends BaseGraph
         $degree = $this->getDegreeVertex($this->graph->getVertices()->getVertexFirst());
 
         foreach ($this->graph->getVertices() as $vertex) {
-            /** @var $vertex Vertex */
+            assert($vertex instanceof Vertex);
             $i = $this->getDegreeVertex($vertex);
 
             if ($i !== $degree) {
@@ -49,7 +47,7 @@ class Degree extends BaseGraph
      * get minimum degree of vertices
      *
      * @return int
-     * @throws Exception if graph is empty or directed
+     * @throws UnderflowException       if graph is empty
      * @uses Vertices::getVertexOrder()
      * @uses self::getDegreeVertex()
      */
@@ -62,7 +60,7 @@ class Degree extends BaseGraph
      * get maximum degree of vertices
      *
      * @return int
-     * @throws Exception if graph is empty or directed
+     * @throws UnderflowException       if graph is empty
      * @uses Vertices::getVertexOrder()
      * @uses self::getDegreeVertex()
      */
@@ -74,7 +72,7 @@ class Degree extends BaseGraph
     /**
      * checks whether this graph is regular, i.e. each vertex has the same indegree/outdegree
      *
-     * @return boolean
+     * @return bool
      * @uses self::getDegree()
      */
     public function isRegular()
@@ -95,7 +93,7 @@ class Degree extends BaseGraph
     /**
      * checks whether the indegree of every vertex equals its outdegree
      *
-     * @return boolean
+     * @return bool
      * @uses self::getDegreeInVertex()
      * @uses self::getDegreeOutVertex()
      */
@@ -114,7 +112,7 @@ class Degree extends BaseGraph
      * checks whether this vertex is a source, i.e. its indegree is zero
      *
      * @param Vertex $vertex
-     * @return boolean
+     * @return bool
      * @uses Edge::hasVertexTarget()
      * @see self::getDegreeInVertex()
      */
@@ -134,7 +132,7 @@ class Degree extends BaseGraph
      * checks whether this vertex is a sink, i.e. its outdegree is zero
      *
      * @param Vertex $vertex
-     * @return boolean
+     * @return bool
      * @uses Edge::hasVertexStart()
      * @see self::getDegreeOutVertex()
      */
@@ -171,7 +169,7 @@ class Degree extends BaseGraph
      * check whether this vertex is isolated (i.e. has no edges attached)
      *
      * @param Vertex $vertex
-     * @return boolean
+     * @return bool
      */
     public function isVertexIsolated(Vertex $vertex)
     {

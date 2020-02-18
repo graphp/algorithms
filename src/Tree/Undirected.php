@@ -2,16 +2,11 @@
 
 namespace Graphp\Algorithms\Tree;
 
-use Graphp\Algorithms\Tree\Base as Tree;
-use Fhaculty\Graph\Exception\UnderflowException;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Graphp\Algorithms\Search\Base as Search;
-use Graphp\Algorithms\Search\StrictDepthFirst;
-use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Set\Vertices;
-use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Edge\Undirected as UndirectedEdge;
-use Graphp\Algorithms\Degree;
+use Fhaculty\Graph\Exception\UnexpectedValueException;
+use Fhaculty\Graph\Set\Vertices;
+use Fhaculty\Graph\Vertex;
+use Graphp\Algorithms\Tree\Base as Tree;
 
 /**
  * Undirected tree implementation
@@ -48,7 +43,7 @@ class Undirected extends Tree
     /**
      * checks if this is a tree
      *
-     * @return boolean
+     * @return bool
      * @uses Vertices::isEmpty() to skip null Graphs (a Graph with no Vertices is *NOT* a valid tree)
      * @uses Vertices::getVertexFirst() to get get get random "root" Vertex to start search from
      * @uses self::getVerticesSubtreeRecursive() to count number of vertices connected to root
@@ -65,8 +60,7 @@ class Undirected extends Tree
         $vertices = array();
         try {
             $this->getVerticesSubtreeRecursive($root, $vertices, null);
-        }
-        catch (UnexpectedValueException $e) {
+        } catch (UnexpectedValueException $e) {
             return false;
         }
 
@@ -77,7 +71,7 @@ class Undirected extends Tree
      * checks if the given $vertex is a leaf (outermost vertex with exactly one edge)
      *
      * @param Vertex $vertex
-     * @return boolean
+     * @return bool
      * @uses Degree::getDegreeVertex()
      */
     public function isVertexLeaf(Vertex $vertex)
@@ -89,7 +83,7 @@ class Undirected extends Tree
      * checks if the given $vertex is an internal vertex (inner vertex with at least 2 edges)
      *
      * @param Vertex $vertex
-     * @return boolean
+     * @return bool
      * @uses Degree::getDegreeVertex()
      */
     public function isVertexInternal(Vertex $vertex)
@@ -129,8 +123,8 @@ class Undirected extends Tree
      * get neighbor vertices for given start vertex
      *
      * @param Vertex $vertex
-     * @throws UnexpectedValueException for directed edges
      * @return Vertices (might include possible duplicates)
+     * @throws UnexpectedValueException for directed edges
      * @uses Vertex::getEdges()
      * @uses Edge::getVertexToFrom()
      * @see Vertex::getVerticesEdge()
@@ -139,8 +133,7 @@ class Undirected extends Tree
     {
         $vertices = array();
         foreach ($vertex->getEdges() as $edge) {
-            /* @var Edge $edge */
-            if (!($edge instanceof UndirectedEdge)) {
+            if (!$edge instanceof UndirectedEdge) {
                 throw new UnexpectedValueException('Directed edge encountered');
             }
             $vertices[] = $edge->getVertexToFrom($vertex);

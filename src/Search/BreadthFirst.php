@@ -2,8 +2,6 @@
 
 namespace Graphp\Algorithms\Search;
 
-use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Set\Vertices;
 
 class BreadthFirst extends Base

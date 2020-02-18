@@ -2,11 +2,9 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseGraph;
 use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Edge\Directed as DirectedEdge;
 use Fhaculty\Graph\Set\Edges;
-use Fhaculty\Graph\Graph;
 use LogicException;
 
 /**
@@ -23,7 +21,7 @@ class Parallel extends BaseGraph
     /**
      * checks whether this graph has any parallel edges (aka multigraph)
      *
-     * @return boolean
+     * @return bool
      * @uses Edge::hasEdgeParallel() for every edge
      */
     public function hasEdgeParallel()
@@ -41,7 +39,7 @@ class Parallel extends BaseGraph
     /**
      * checks whether this edge has any parallel edges
      *
-     * @return boolean
+     * @return bool
      * @uses Edge::getEdgesParallel()
      */
     public function hasEdgeParallelEdge(Edge $edge)
@@ -69,12 +67,7 @@ class Parallel extends BaseGraph
         }
 
         $pos = \array_search($edge, $edges, true);
-
-        if ($pos === false) {
-            // @codeCoverageIgnoreStart
-            throw new LogicException('Internal error: Current edge not found');
-            // @codeCoverageIgnoreEnd
-        }
+        assert($pos !== false);
 
         // exclude current edge from parallel edges
         unset($edges[$pos]);

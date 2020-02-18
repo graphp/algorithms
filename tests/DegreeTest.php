@@ -1,11 +1,9 @@
 <?php
 
-use Graphp\Algorithms\Degree as AlgorithmDegree;
 use Fhaculty\Graph\Exception\UnderflowException;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Edge\Base as Edge;
-use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Graph;
+use Graphp\Algorithms\Degree as AlgorithmDegree;
 
 class DegreeTest extends TestCase
 {
@@ -18,20 +16,17 @@ class DegreeTest extends TestCase
         try {
             $alg->getDegree();
             $this->fail();
-        }
-        catch (UnderflowException $e) { }
+        } catch (UnderflowException $e) { }
 
         try {
             $alg->getDegreeMin();
             $this->fail();
-        }
-        catch (UnderflowException $e) { }
+        } catch (UnderflowException $e) { }
 
         try {
             $alg->getDegreeMax();
             $this->fail();
-        }
-        catch (UnderflowException $e) { }
+        } catch (UnderflowException $e) { }
 
         $this->assertTrue($alg->isRegular());
         $this->assertTrue($alg->isBalanced());
@@ -67,8 +62,7 @@ class DegreeTest extends TestCase
         try {
             $this->assertEquals(0, $alg->getDegree());
             $this->fail();
-        }
-        catch (UnexpectedValueException $e) { }
+        } catch (UnexpectedValueException $e) { }
 
         $this->assertEquals(1, $alg->getDegreeMin());
         $this->assertEquals(2, $alg->getDegreeMax());

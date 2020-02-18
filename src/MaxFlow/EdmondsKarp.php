@@ -2,25 +2,17 @@
 
 namespace Graphp\Algorithms\MaxFlow;
 
-use Fhaculty\Graph\Exception\OutOfBoundsException;
-
-use Graphp\Algorithms\ShortestPath\BreadthFirst;
-
-use Fhaculty\Graph\Exception\InvalidArgumentException;
-
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-
 use Fhaculty\Graph\Edge\Directed as EdgeDirected;
-
+use Fhaculty\Graph\Exception\InvalidArgumentException;
+use Fhaculty\Graph\Exception\OutOfBoundsException;
 use Fhaculty\Graph\Exception\UnderflowException;
-
+use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Set\Edges;
+use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\Base;
 use Graphp\Algorithms\ResidualGraph;
-use Fhaculty\Graph\Exception;
+use Graphp\Algorithms\ShortestPath\BreadthFirst;
 
 class EdmondsKarp extends Base
 {
@@ -35,7 +27,6 @@ class EdmondsKarp extends Base
     private $destinationVertex;
 
     /**
-     *
      * @param Vertex $startVertex       the vertex where the flow search starts
      * @param Vertex $destinationVertex the vertex where the flow search ends (destination)
      */
@@ -55,6 +46,7 @@ class EdmondsKarp extends Base
      * Returns max flow graph
      *
      * @return Graph
+     * @throws UnexpectedValueException for undirected edges
      */
     public function createGraph()
     {
@@ -112,7 +104,7 @@ class EdmondsKarp extends Base
     /**
      * Returns max flow value
      *
-     * @return double
+     * @return float
      */
     public function getFlowMax()
     {

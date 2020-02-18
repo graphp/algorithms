@@ -2,14 +2,15 @@
 
 namespace Graphp\Algorithms\ShortestPath;
 
-use Graphp\Algorithms\BaseVertex;
-use Fhaculty\Graph\Walk;
-use Fhaculty\Graph\Exception\OutOfBoundsException;
-use Fhaculty\Graph\Exception\InvalidArgumentException;
-use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Edge\Base as Edge;
+use Fhaculty\Graph\Exception\InvalidArgumentException;
+use Fhaculty\Graph\Exception\OutOfBoundsException;
+use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Set\Edges;
 use Fhaculty\Graph\Set\Vertices;
+use Fhaculty\Graph\Vertex;
+use Fhaculty\Graph\Walk;
+use Graphp\Algorithms\BaseVertex;
 
 /**
  * Abstract base class for shortest path algorithms
@@ -100,7 +101,7 @@ abstract class Base extends BaseVertex
                 try {
                     // get start point of this edge (fails if current vertex is not its end point)
                     $pre = $edge->getVertexFromTo($currentVertex);
-                    $path []= $edge;
+                    $path[] = $edge;
                     $currentVertex = $pre;
                     break;
                 } catch (InvalidArgumentException $ignore) {
@@ -153,16 +154,15 @@ abstract class Base extends BaseVertex
     /**
      * checks whether there's a path from this start vertex to given end vertex
      *
-     * @param  Vertex  $endVertex
-     * @return boolean
+     * @param  Vertex  $vertex
+     * @return bool
      * @uses self::getEdgesTo()
      */
     public function hasVertex(Vertex $vertex)
     {
         try {
             $this->getEdgesTo($vertex);
-        }
-        catch (OutOfBoundsException $e) {
+        } catch (OutOfBoundsException $e) {
             return false;
         }
         return true;
@@ -271,7 +271,7 @@ abstract class Base extends BaseVertex
                 $predecesVertex = $predecessor[$vid];
 
                 // get cheapest edge
-                $edges []= $predecesVertex->getEdgesTo($vertex)->getEdgeOrder(Edges::ORDER_WEIGHT);
+                $edges[] = $predecesVertex->getEdgesTo($vertex)->getEdgeOrder(Edges::ORDER_WEIGHT);
             }
         }
 

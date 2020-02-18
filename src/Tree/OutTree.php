@@ -2,9 +2,9 @@
 
 namespace Graphp\Algorithms\Tree;
 
-use Graphp\Algorithms\Tree\BaseDirected as DirectedTree;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Vertex;
+use Graphp\Algorithms\Tree\BaseDirected as DirectedTree;
 
 /**
  * Usual OutTree implementation where Edges "point away" from root Vertex

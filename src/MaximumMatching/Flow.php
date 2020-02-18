@@ -2,16 +2,12 @@
 
 namespace Graphp\Algorithms\MaximumMatching;
 
-use Graphp\Algorithms\Directed;
-
-use Fhaculty\Graph\Exception\LogicException;
-
 use Fhaculty\Graph\Exception\UnexpectedValueException;
-
-use Graphp\Algorithms\MaxFlow\EdmondsKarp as MaxFlowEdmondsKarp;
-use Graphp\Algorithms\Groups;
-use Fhaculty\Graph\Exception;
 use Fhaculty\Graph\Set\Edges;
+use Fhaculty\Graph\Vertex;
+use Graphp\Algorithms\Directed;
+use Graphp\Algorithms\Groups;
+use Graphp\Algorithms\MaxFlow\EdmondsKarp as MaxFlowEdmondsKarp;
 
 class Flow extends Base
 {
@@ -35,17 +31,17 @@ class Flow extends Base
 
         $groups = $alg->getGroups();
         $groupA = $groups[0];
-        $groupB = $groups[1];
 
         // connect supersource s* to set A and supersink t* to set B
         foreach ($graphFlow->getVertices() as $vertex) {
+            assert($vertex instanceof Vertex);
             // we want to skip over supersource & supersink as they do not have a partition assigned
             if ($vertex === $superSource || $vertex === $superSink) continue;
 
             $group = $vertex->getGroup();
 
-            // source
             if ($group === $groupA) {
+                // group A: source
                 $superSource->createEdgeTo($vertex)->setCapacity(1)->setFlow(0);
 
                 // temporarily create edges from A->B for flow graph
@@ -53,13 +49,9 @@ class Flow extends Base
                 foreach ($originalVertex->getVerticesEdgeTo() as $vertexTarget) {
                     $vertex->createEdgeTo($graphFlow->getVertex($vertexTarget->getId()))->setCapacity(1)->setFlow(0);
                 }
-            // sink
-            } elseif ($group === $groupB) {
-                $vertex->createEdgeTo($superSink)->setCapacity(1)->setFlow(0);
             } else {
-                // @codeCoverageIgnoreStart
-                throw new LogicException('Should not happen. Unknown set: ' + $belongingSet);
-                // @codeCoverageIgnoreEnd
+                // group B: sink
+                $vertex->createEdgeTo($superSink)->setCapacity(1)->setFlow(0);
             }
         }
 
@@ -78,7 +70,7 @@ class Flow extends Base
             // only keep matched edges
             if ($edge->getFlow() > 0) {
                 $originalEdge = $this->graph->getEdgeClone($edge);
-                $returnEdges []= $originalEdge;
+                $returnEdges[] = $originalEdge;
             }
         }
 

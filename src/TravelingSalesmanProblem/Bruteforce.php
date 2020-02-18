@@ -52,7 +52,7 @@ class Bruteforce extends Base
      *
      * simply put, there's no valid reason why anybody would want to turn off this flag
      *
-     * @var boolean
+     * @var bool
      */
     private $branchAndBound = true;
 
@@ -71,8 +71,8 @@ class Bruteforce extends Base
      * this method can be used to optimize the algorithm by providing an upper
      * bound of when to stop branching any further.
      *
-     * @param  double $limit
-     * @return self $this (chainable)
+     * @param  float $limit
+     * @return self  $this (chainable)
      */
     public function setUpperLimit($limit)
     {
@@ -141,9 +141,9 @@ class Bruteforce extends Base
      *
      * @param  Vertex    $vertex          current point-of-view
      * @param  number    $totalWeight     total weight (so far)
-     * @param  boolean[] $visitedVertices
+     * @param  bool[] $visitedVertices
      * @param  Edge[]    $visitedEdges
-     * @return Edge[]
+     * @return Edge[]|null
      */
     private function step(Vertex $vertex, $totalWeight, array $visitedVertices, array $visitedEdges)
     {

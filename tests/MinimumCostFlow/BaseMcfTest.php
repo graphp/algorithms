@@ -1,7 +1,7 @@
 <?php
 
-use Graphp\Algorithms\MinimumCostFlow\Base;
 use Fhaculty\Graph\Graph;
+use Graphp\Algorithms\MinimumCostFlow\Base;
 
 abstract class BaseMcfTest extends TestCase
 {
@@ -23,7 +23,7 @@ abstract class BaseMcfTest extends TestCase
     public function testSingleIntermediary()
     {
         $graph = new Graph();
-        $v1 = $graph->createVertex(1);
+        $graph->createVertex(1);
 
         $alg = $this->createAlgorithm($graph);
         $this->assertEquals(0, $alg->getWeightFlow());
@@ -149,8 +149,8 @@ abstract class BaseMcfTest extends TestCase
     {
         // 1(+2), 2(-2)
         $graph = new Graph();
-        $v1 = $graph->createVertex(1)->setBalance(2);
-        $v2 = $graph->createVertex(2)->setBalance(-2);
+        $graph->createVertex(1)->setBalance(2);
+        $graph->createVertex(2)->setBalance(-2);
 
         $alg = $this->createAlgorithm($graph);
         $alg->getWeightFlow();
