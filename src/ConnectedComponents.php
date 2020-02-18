@@ -2,12 +2,11 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseGraph;
-use Graphp\Algorithms\Search\BreadthFirst as SearchBreadthFirst;
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Exception\InvalidArgumentException;
 use Fhaculty\Graph\Exception\UnderflowException;
+use Fhaculty\Graph\Graph;
+use Fhaculty\Graph\Vertex;
+use Graphp\Algorithms\Search\BreadthFirst as SearchBreadthFirst;
 
 /**
  * Algorithm for working with connected components
@@ -64,15 +63,14 @@ class ConnectedComponents extends BaseGraph
      * As such, a null Graph (a Graph with no vertices) is not considered
      * connected here.
      *
-     * @return boolean
+     * @return bool
      * @see self::getNumberOfComponents()
      */
     public function isSingle()
     {
         try {
             $vertex = $this->graph->getVertices()->getVertexFirst();
-        }
-        catch (UnderflowException $e) {
+        } catch (UnderflowException $e) {
             // no first vertex => empty graph => has zero components
             return false;
         }
@@ -142,7 +140,7 @@ class ConnectedComponents extends BaseGraph
                     $visitedVertices[$vid] = true;
                 }
 
-                $graphs []= $this->graph->createGraphCloneVertices($newVertices);
+                $graphs[] = $this->graph->createGraphCloneVertices($newVertices);
             }
         }
 

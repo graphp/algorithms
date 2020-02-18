@@ -2,17 +2,15 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseGraph;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
 
 class Bipartit extends BaseGraph
 {
     /**
      * check whether this graph is bipartit
      *
-     * @return boolean
+     * @return bool
      * @uses AlgorithmBipartit::getColors()
      */
     public function isBipartit()
@@ -29,7 +27,7 @@ class Bipartit extends BaseGraph
     /**
      * checks whether the input graph's vertex groups are a valid bipartition
      *
-     * @return boolean
+     * @return bool
      * @uses AlgorithmGroups::isBipartit()
      */
     public function isBipartitGroups()
@@ -69,7 +67,7 @@ class Bipartit extends BaseGraph
                         // color unknown, so expect next color for this vertex
                         if (!isset($colors[$vid])) {
                             $colors[$vid] = $nextColor;
-                            $queue []= $nextVertex;
+                            $queue[] = $nextVertex;
                         // color is known but differs => can not be bipartit
                         } elseif ($colors[$vid] !== $nextColor) {
                             throw new UnexpectedValueException('Graph is not bipartit');

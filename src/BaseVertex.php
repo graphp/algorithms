@@ -2,7 +2,6 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\Base;
 use Fhaculty\Graph\Vertex;
 
 /**

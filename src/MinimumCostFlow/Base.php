@@ -6,18 +6,17 @@ use Graphp\Algorithms\BaseGraph;
 use Graphp\Algorithms\Weight as AlgorithmWeight;
 use Graphp\Algorithms\Flow as AlgorithmFlow;
 use Fhaculty\Graph\Exception\UnderflowException;
-use Fhaculty\Graph\Edge\Base as Edge;
-use Fhaculty\Graph\Set\Edges;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Graph;
+use Fhaculty\Graph\Set\Edges;
 
 abstract class Base extends BaseGraph
 {
     /**
      * check if balance is okay and throw exception otherwise
      *
+     * @return $this (chainable)
      * @throws UnexpectedValueException
-     * @return AlgorithmMCF             $this (chainable)
      */
     protected function checkBalance()
     {
@@ -51,8 +50,8 @@ abstract class Base extends BaseGraph
                 $edge = $resultGraph->getEdgeClone($clonedEdge);
                 // add flow
                 $edge->setFlow($edge->getFlow() + $newFlow);
-            // if the edge doesn't exist => use the residual edge
             } catch (UnderflowException $ignore) {
+                // if the edge doesn't exist => use the residual edge
                 $edge = $resultGraph->getEdgeCloneInverted($clonedEdge);
                 // remove flow
                 $edge->setFlow($edge->getFlow() - $newFlow);
@@ -76,8 +75,9 @@ abstract class Base extends BaseGraph
     /**
      * create new resulting graph with minimum-cost flow on edges
      *
-     * @throws Exception if the graph has not enough capacity for the minimum-cost flow
      * @return Graph
+     * @throws UnexpectedValueException for undirected edges
+     * @throws UnexpectedValueException if the graph has not enough capacity for the minimum-cost flow
      */
     abstract public function createGraph();
 }

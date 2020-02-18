@@ -2,16 +2,14 @@
 
 namespace Graphp\Algorithms\MinimumCostFlow;
 
-use Fhaculty\Graph\Exception\DomainException;
+use Fhaculty\Graph\Edge\Directed as EdgeDirected;
 use Fhaculty\Graph\Exception\UnderflowException;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Edge\Base as Edge;
-use Fhaculty\Graph\Edge\Directed as EdgeDirected;
 use Fhaculty\Graph\Set\Edges;
-use Graphp\Algorithms\ShortestPath\MooreBellmanFord as SpMooreBellmanFord;
+use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\ResidualGraph;
+use Graphp\Algorithms\ShortestPath\MooreBellmanFord as SpMooreBellmanFord;
 use Graphp\Algorithms\Search\BreadthFirst as SearchBreadthFirst;
 
 class SuccessiveShortestPath extends Base
@@ -101,6 +99,7 @@ class SuccessiveShortestPath extends Base
             }
 
             // add the new flow to the path
+            assert($newflow !== null);
             $this->addFlow($resultGraph, $edgesOnFlow, $newflow);
 
             // add balance to source and remove for the target sink
@@ -115,12 +114,9 @@ class SuccessiveShortestPath extends Base
     }
 
     /**
-     *
-     *
      * @param  Graph     $graph
-     * @throws Exception if there is no left source vertex
-     *
      * @return Vertex a source vertex in the given graph
+     * @throws UnderflowException if there is no left source vertex
      */
     private function getVertexSource(Graph $graph)
     {
@@ -133,12 +129,9 @@ class SuccessiveShortestPath extends Base
     }
 
     /**
-     *
-     *
      * @param  Vertex    $source
-     * @throws Exception if there is no reachable sink vertex
-     *
      * @return Vertex a sink-vertex that is reachable from the source
+     * @throws UnderflowException if there is no reachable sink vertex
      * @uses BreadthFirst::getVertices()
      */
     private function getVertexSink(Vertex $source)

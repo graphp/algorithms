@@ -1,10 +1,8 @@
 <?php
 
-use Graphp\Algorithms\Tree\BaseDirected;
-use Fhaculty\Graph\Exception\UnderflowException;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Set\Vertices;
+use Graphp\Algorithms\Tree\BaseDirected;
 
 abstract class BaseDirectedTest extends TestCase
 {

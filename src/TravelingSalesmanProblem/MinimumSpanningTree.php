@@ -3,7 +3,6 @@
 namespace Graphp\Algorithms\TravelingSalesmanProblem;
 
 use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Set\Edges;
 use Graphp\Algorithms\MinimumSpanningTree\Kruskal as MstKruskal;
 use Graphp\Algorithms\Search\BreadthFirst as SearchDepthFirst;
@@ -11,7 +10,6 @@ use Graphp\Algorithms\Search\BreadthFirst as SearchDepthFirst;
 class MinimumSpanningTree extends Base
 {
     /**
-     *
      * @var Graph
      */
     private $graph;
@@ -32,7 +30,6 @@ class MinimumSpanningTree extends Base
     }
 
     /**
-     *
      * @return Edges
      */
     public function getEdges()
@@ -59,7 +56,8 @@ class MinimumSpanningTree extends Base
                 $startVertex = $vertex;
             } else {
                 // get edge(s) to clone, multiple edges are possible (returns an array if undirected edge)
-                $returnEdges []= $oldVertex->getEdgesTo($vertex)->getEdgeFirst();
+                assert($oldVertex !== null);
+                $returnEdges[] = $oldVertex->getEdgesTo($vertex)->getEdgeFirst();
             }
 
             $oldVertex = $vertex;
@@ -67,7 +65,8 @@ class MinimumSpanningTree extends Base
 
         // connect last vertex with start vertex
         // multiple edges are possible (returns an array if undirected edge)
-        $returnEdges []= $oldVertex->getEdgesTo($startVertex)->getEdgeFirst();
+        assert($startVertex !== null && $oldVertex !== null);
+        $returnEdges[] = $oldVertex->getEdgesTo($startVertex)->getEdgeFirst();
 
         return new Edges($returnEdges);
     }

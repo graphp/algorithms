@@ -1,9 +1,7 @@
 <?php
 
 use Fhaculty\Graph\Graph;
-
 use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Loader\CompleteGraph as LoaderCompleteGraph;
 use Graphp\Algorithms\MinimumSpanningTree\Base as MstBase;
 
 abstract class BaseMstTest extends TestCase
@@ -159,7 +157,7 @@ abstract class BaseMstTest extends TestCase
         // 1, 2
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
-        $v2 = $graph->createVertex(2);
+        $graph->createVertex(2);
 
         $alg = $this->createAlg($v1);
         $alg->getEdges();

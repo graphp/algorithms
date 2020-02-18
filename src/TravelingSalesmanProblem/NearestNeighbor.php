@@ -3,16 +3,13 @@
 namespace Graphp\Algorithms\TravelingSalesmanProblem;
 
 use Fhaculty\Graph\Exception\UnexpectedValueException;
-
-use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Set\Edges;
-use \SplPriorityQueue;
+use Fhaculty\Graph\Vertex;
+use SplPriorityQueue;
 
 class NearestNeighbor extends Base
 {
     /**
-     *
      * @var Vertex
      */
     private $vertex;
@@ -33,7 +30,6 @@ class NearestNeighbor extends Base
     }
 
     /**
-     *
      * @return Edges
      */
     public function getEdges()
@@ -42,7 +38,7 @@ class NearestNeighbor extends Base
 
         $n = \count($this->vertex->getGraph()->getVertices());
 
-        $vertex = $this->vertex;
+        $vertex = $nextVertex = $this->vertex;
         $visitedVertices = array($vertex->getId() => true);
 
         for ($i = 0; $i < $n - 1; ++$i,
@@ -79,14 +75,15 @@ class NearestNeighbor extends Base
             $visitedVertices[$nextVertex->getId()] = TRUE;
 
             // clone edge in new Graph
-            $returnEdges []= $edge;
+            assert(isset($edge));
+            $returnEdges[] = $edge;
 
         }
 
         // check if there is a way from end edge to start edge
         // get first connecting edge
         // connect the last vertex with the start vertex
-        $returnEdges []= $vertex->getEdgesTo($this->vertex)->getEdgeFirst();
+        $returnEdges[] = $vertex->getEdgesTo($this->vertex)->getEdgeFirst();
 
         return new Edges($returnEdges);
     }

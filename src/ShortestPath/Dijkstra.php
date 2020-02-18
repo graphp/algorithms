@@ -2,9 +2,9 @@
 
 namespace Graphp\Algorithms\ShortestPath;
 
-use Fhaculty\Graph\Set\Edges;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
-use \SplPriorityQueue;
+use Fhaculty\Graph\Set\Edges;
+use SplPriorityQueue;
 
 /**
  * Commonly used Dijkstra's shortest path algorithm

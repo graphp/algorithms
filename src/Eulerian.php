@@ -2,16 +2,12 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseGraph;
-use Fhaculty\Graph\Graph;
-use Graphp\Algorithms\Degree;
-
 class Eulerian extends BaseGraph
 {
     /**
      * check whether this graph has an eulerian cycle
      *
-     * @return boolean
+     * @return bool
      * @uses ConnectedComponents::isSingle()
      * @uses Degree::getDegreeVertex()
      * @todo isolated vertices should be ignored

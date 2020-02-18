@@ -2,13 +2,10 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseGraph;
-use Fhaculty\Graph\Exception\UnderflowException;
-
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Walk;
 use Fhaculty\Graph\Exception\NegativeCycleException;
+use Fhaculty\Graph\Exception\UnderflowException;
+use Fhaculty\Graph\Graph;
+use Fhaculty\Graph\Walk;
 use Graphp\Algorithms\ShortestPath\MooreBellmanFord as SpMooreBellmanFord;
 
 class DetectNegativeCycle extends BaseGraph
@@ -16,7 +13,7 @@ class DetectNegativeCycle extends BaseGraph
     /**
      * check if the input graph has any negative cycles
      *
-     * @return boolean
+     * @return bool
      * @uses AlgorithmDetectNegativeCycle::getCycleNegative()
      */
     public function hasCycleNegative()
@@ -71,7 +68,7 @@ class DetectNegativeCycle extends BaseGraph
      * create new graph clone with only vertices and edges in negative cycle
      *
      * @return Graph
-     * @throws Exception if there's no negative cycle
+     * @throws UnderflowException if there's no negative cycle
      * @uses AlgorithmDetectNegativeCycle::getCycleNegative()
      * @uses Walk::createGraph()
      */

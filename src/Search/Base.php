@@ -2,11 +2,10 @@
 
 namespace Graphp\Algorithms\Search;
 
-use Graphp\Algorithms\BaseVertex;
-use Fhaculty\Graph\Exception\DomainException;
 use Fhaculty\Graph\Exception\InvalidArgumentException;
-use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Set\Vertices;
+use Fhaculty\Graph\Vertex;
+use Graphp\Algorithms\BaseVertex;
 
 abstract class Base extends BaseVertex
 {
@@ -20,9 +19,9 @@ abstract class Base extends BaseVertex
      * set direction in which to follow adjacent vertices
      *
      * @param  int             $direction
-     * @return AlgorithmSearch $this (chainable)
-     * @throws Exception
-     * @see AlgorithmSearch::getVerticesAdjacent()
+     * @return $this (chainable)
+     * @throws InvalidArgumentException
+     * @see self::getVerticesAdjacent()
      */
     public function setDirection($direction)
     {
@@ -40,10 +39,8 @@ abstract class Base extends BaseVertex
             return $vertex->getVerticesEdgeTo();
         } elseif ($this->direction === self::DIRECTION_REVERSE) {
             return $vertex->getVerticesEdgeFrom();
-        } elseif ($this->direction === self::DIRECTION_BOTH) {
-            return $vertex->getVerticesEdge();
         } else {
-            throw new DomainException('Should not happen. Invalid direction setting');
+            return $vertex->getVerticesEdge();
         }
     }
 

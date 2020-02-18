@@ -2,10 +2,7 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseGraph;
 use Fhaculty\Graph\Edge\Directed as EdgeDirected;
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
 
 /**
  * Basic algorithms for working with symmetric digraphs
@@ -20,7 +17,7 @@ class Symmetric extends BaseGraph
     /**
      * checks whether this graph is symmetric (for every edge a->b there's also an edge b->a)
      *
-     * @return boolean
+     * @return bool
      * @uses Graph::getEdges()
      * @uses EdgeDirected::getVertexStart()
      * @uses EdgeDirected::getVertedEnd()

@@ -4,9 +4,8 @@ namespace Graphp\Algorithms\ShortestPath;
 
 use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Exception\OutOfBoundsException;
-use Fhaculty\Graph\Set\Vertices;
 use Fhaculty\Graph\Set\Edges;
-use \Exception;
+use Fhaculty\Graph\Set\Vertices;
 
 /**
  * Simple breadth-first shortest path algorithm
@@ -27,12 +26,12 @@ class BreadthFirst extends Base
      *
      * @param  Vertex               $endVertex
      * @throws OutOfBoundsException if there's no path to given end vertex
-     * @return int
+     * @return float
      * @uses self::getEdgesTo()
      */
     public function getDistance(Vertex $endVertex)
     {
-        return \count($this->getEdgesTo($endVertex));
+        return (float)\count($this->getEdgesTo($endVertex));
     }
 
     /**
@@ -55,7 +54,7 @@ class BreadthFirst extends Base
                 $vertexTarget = $edge->getVertexToFrom($vertexCurrent);
                 $vid = $vertexTarget->getId();
                 if (!isset($edges[$vid])) {
-                    $vertexQueue []= $vertexTarget;
+                    $vertexQueue[] = $vertexTarget;
                     $edges[$vid] = \array_merge($edgesCurrent, array($edge));
                 }
             }
@@ -86,14 +85,14 @@ class BreadthFirst extends Base
     /**
      * get map of vertex IDs to distance
      *
-     * @return int[]
+     * @return float[]
      * @uses Vertex::hasLoop()
      */
     public function getDistanceMap()
     {
         $ret = array();
         foreach ($this->getEdgesMap() as $vid => $edges) {
-            $ret[$vid] = \count($edges);
+            $ret[$vid] = (float)\count($edges);
         }
 
         return $ret;
@@ -109,7 +108,7 @@ class BreadthFirst extends Base
     {
         $ret = array();
         $graph = $this->vertex->getGraph();
-        foreach ($this->getEdgesMap() as $vid => $unusedEdges) {
+        foreach (\array_keys($this->getEdgesMap()) as $vid) {
             $ret[$vid] = $graph->getVertex($vid);
         }
 
@@ -122,7 +121,7 @@ class BreadthFirst extends Base
         foreach ($this->getEdgesMap() as $edges) {
             foreach ($edges as $edge) {
                 if (!\in_array($edge, $ret, true)) {
-                    $ret []= $edge;
+                    $ret[] = $edge;
                 }
             }
         }

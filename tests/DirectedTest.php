@@ -1,7 +1,7 @@
 <?php
 
-use Graphp\Algorithms\Directed as AlgorithmDirected;
 use Fhaculty\Graph\Graph;
+use Graphp\Algorithms\Directed as AlgorithmDirected;
 
 class DirectedTest extends TestCase
 {

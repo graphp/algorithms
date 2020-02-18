@@ -2,8 +2,6 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseDual;
-use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Vertex;
 
 /**
@@ -19,7 +17,7 @@ class Loop extends BaseDual
     /**
      * checks whether this graph has any loops (edges from vertex to itself)
      *
-     * @return boolean
+     * @return bool
      * @uses Edge::isLoop()
      */
     public function hasLoop()
@@ -36,7 +34,7 @@ class Loop extends BaseDual
     /**
      * checks whether this vertex has a loop (edge to itself)
      *
-     * @return boolean
+     * @return bool
      * @uses Edge::isLoop()
      */
     public function hasLoopVertex(Vertex $vertex)

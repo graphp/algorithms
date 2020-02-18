@@ -3,7 +3,6 @@
 namespace Graphp\Algorithms\Property;
 
 use Fhaculty\Graph\Walk;
-use Fhaculty\Graph\Set\Edges;
 use Graphp\Algorithms\Base as BaseAlgorithm;
 use Graphp\Algorithms\Loop as AlgorithmLoop;
 
@@ -94,7 +93,7 @@ class WalkProperty extends BaseAlgorithm
      * "1, 2, 2, 2, 3, 1", which would still be a valid cycle, but NOT a valid
      * circuit anymore.
      *
-     * @return boolean
+     * @return bool
      * @link http://www.proofwiki.org/wiki/Definition:Circuit
      * @uses self::isCycle()
      * @uses self::isPath()
@@ -156,7 +155,7 @@ class WalkProperty extends BaseAlgorithm
      * ^  |
      * \--/
      *
-     * @return boolean
+     * @return bool
      * @uses self::isCycle()
      * @see self::hasLoop()
      */
@@ -176,7 +175,7 @@ class WalkProperty extends BaseAlgorithm
      *      ^  |
      *      \--/
      *
-     * @return boolean
+     * @return bool
      * @uses AlgorithmLoop::hasLoop()
      * @see self::isLoop()
      */
@@ -207,7 +206,7 @@ class WalkProperty extends BaseAlgorithm
      * |    |
      * \----/
      *
-     * @return boolean
+     * @return bool
      * @uses self::hasArrayDuplicates()
      * @uses self::isCycle()
      */
@@ -232,7 +231,7 @@ class WalkProperty extends BaseAlgorithm
      * ^     |
      * \-----/
      *
-     * @return boolean
+     * @return bool
      * @uses self::isCycle()
      */
     public function isTriangle()
@@ -287,7 +286,7 @@ class WalkProperty extends BaseAlgorithm
      * |          |
      * \----------/
      *
-     * @return boolean
+     * @return bool
      * @uses self::isCycle()
      * @uses self::hasArrayDuplicates()
      * @see self::hasCycle()
@@ -308,7 +307,7 @@ class WalkProperty extends BaseAlgorithm
      *
      * A hamiltonian Walk is also known as a spanning walk.
      *
-     * @return boolean
+     * @return bool
      * @see self::isEulerian() if you want to check for all EDGES instead of VERTICES
      * @uses self::isArrayContentsEqual()
      * @link http://en.wikipedia.org/wiki/Hamiltonian_path
@@ -326,7 +325,7 @@ class WalkProperty extends BaseAlgorithm
     /**
      * checks whether walk is eulerian (i.e. a walk over ALL EDGES of the graph)
      *
-     * @return boolean
+     * @return bool
      * @see self::isHamiltonian() if you want to check for all VERTICES instead of EDGES
      * @uses self::isArrayContentsEqual()
      * @link http://en.wikipedia.org/wiki/Eulerian_path
@@ -363,7 +362,7 @@ class WalkProperty extends BaseAlgorithm
      *
      * @param  array   $a
      * @param  array   $b
-     * @return boolean
+     * @return bool
      */
     private function isArrayContentsEqual($a, $b)
     {

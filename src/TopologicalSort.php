@@ -2,11 +2,9 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseGraph;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Set\Vertices;
-use Fhaculty\Graph\Graph;
+use Fhaculty\Graph\Vertex;
 
 /**
  * topological sorting / order, also known as toposort / topsort, commonly used in resolving dependencies
@@ -29,26 +27,26 @@ class TopologicalSort extends BaseGraph
         $visited = array();
         $output = array();
 
-        /** @var Vertex $top */
         // TODO: avoid having to reverse all vertices multiple times
         // pick a node to examine next - assume there are isolated nodes
         foreach (\array_reverse($this->graph->getVertices()->getVector()) as $top) {
+            assert($top instanceof Vertex);
             $tid = $top->getId();
             if (!isset($visited[$tid])) { // don't examine if already found
                 \array_push($stack, $top);
             }
 
             while ($stack) {
-                /** @var Vertex $current */
                 $node = \end($stack);
+                assert($node instanceof Vertex);
                 $nid = $node->getId();
 
                 $visited[$nid] = false; // temporary mark
                 $found = false; // new children found during visit to this node
 
                 // find the next node to visit
-                /** @var Vertex $child */
                 foreach (\array_reverse($node->getVerticesEdgeTo()->getVector()) as $child) {
+                    assert($child instanceof Vertex);
                     $cid = $child->getId();
                     if (!isset($visited[$cid])) {
                         // found a new node - push it onto the stack

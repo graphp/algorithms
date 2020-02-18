@@ -2,18 +2,18 @@
 
 namespace Graphp\Algorithms\MaximumMatching;
 
-use Graphp\Algorithms\BaseGraph;
+use Fhaculty\Graph\Exception\UnexpectedValueException;
 use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Set\Edges;
+use Graphp\Algorithms\BaseGraph;
 
 abstract class Base extends BaseGraph
 {
     /**
      * Get the count of edges that are in the match
      *
-     * @throws Exception
      * @return int
+     * @throws UnexpectedValueException if graph is directed or is not bipartit
      * @uses Base::getEdges()
      */
     public function getNumberOfMatches()

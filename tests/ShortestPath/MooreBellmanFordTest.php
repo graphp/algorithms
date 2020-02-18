@@ -14,11 +14,12 @@ class MooreBellmanFordTest extends BaseShortestPathTest
     public function testGraphParallelNegative()
     {
         // 1 -[10]-> 2
-        // 1 -[-1]-> 2
+        // |         ^
+        // \--[-1]---/
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $e1 = $v1->createEdgeTo($v2)->setWeight(10);
+        $v1->createEdgeTo($v2)->setWeight(10);
         $e2 = $v1->createEdgeTo($v2)->setWeight(-1);
 
         $alg = $this->createAlg($v1);
@@ -51,7 +52,7 @@ class MooreBellmanFordTest extends BaseShortestPathTest
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $e1 = $v1->createEdge($v2)->setWeight(-10);
+        $v1->createEdge($v2)->setWeight(-10);
 
         $alg = $this->createAlg($v1);
 
@@ -65,7 +66,7 @@ class MooreBellmanFordTest extends BaseShortestPathTest
         // 1 -[-10]-> 1
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
-        $e1 = $v1->createEdge($v1)->setWeight(-10);
+        $v1->createEdge($v1)->setWeight(-10);
 
         $alg = $this->createAlg($v1);
 
@@ -84,13 +85,14 @@ class MooreBellmanFordTest extends BaseShortestPathTest
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
         $v4 = $graph->createVertex(4);
-        $e1 = $v1->createEdgeTo($v2)->setWeight(1);
-        $e2 = $v3->createEdgeTo($v4)->setWeight(-1);
-        $e3 = $v4->createEdgeTo($v3)->setWeight(-2);
+        $v1->createEdgeTo($v2)->setWeight(1);
+        $v3->createEdgeTo($v4)->setWeight(-1);
+        $v4->createEdgeTo($v3)->setWeight(-2);
 
         // second component has a cycle
         $alg = $this->createAlg($v3);
         $cycle = $alg->getCycleNegative();
+        assert(isset($cycle));
 
         // first component does not have a cycle
         $alg = $this->createAlg($v1);

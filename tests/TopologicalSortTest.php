@@ -1,9 +1,7 @@
 <?php
 
-use Graphp\Algorithms\TopologicalSort;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Graph;
+use Graphp\Algorithms\TopologicalSort;
 
 class TopologicalSortTest extends TestCase
 {

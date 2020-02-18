@@ -2,15 +2,11 @@
 
 namespace Graphp\Algorithms\Tree;
 
-use Graphp\Algorithms\BaseGraph;
 use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
 use Fhaculty\Graph\Set\Vertices;
-use Fhaculty\Graph\Exception\UnderflowException;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Graphp\Algorithms\Search\StrictDepthFirst;
+use Fhaculty\Graph\Vertex;
+use Graphp\Algorithms\BaseGraph;
 use Graphp\Algorithms\Degree;
-use Graphp\Algorithms\ConnectedComponents;
 
 /**
  * Abstract base class for tree algorithms
@@ -42,7 +38,6 @@ use Graphp\Algorithms\ConnectedComponents;
 abstract class Base extends BaseGraph
 {
     /**
-     *
      * @var Degree
      */
     protected $degree;
@@ -57,7 +52,7 @@ abstract class Base extends BaseGraph
     /**
      * checks whether the given graph is actually a tree
      *
-     * @return boolean
+     * @return bool
      */
     abstract public function isTree();
 
@@ -67,7 +62,7 @@ abstract class Base extends BaseGraph
      * leaf vertex is also known as leaf node, external node or terminal node
      *
      * @param Vertex $vertex
-     * @return boolean
+     * @return bool
      */
     abstract public function isVertexLeaf(Vertex $vertex);
 
@@ -77,7 +72,7 @@ abstract class Base extends BaseGraph
      * internal vertex is also known as inner node (inode) or branch node
      *
      * @param Vertex $vertex
-     * @return boolean
+     * @return bool
      */
     abstract public function isVertexInternal(Vertex $vertex);
 

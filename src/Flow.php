@@ -2,11 +2,8 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Algorithms\BaseGraph;
-use Fhaculty\Graph\Edge\Base as Edge;
 use Fhaculty\Graph\Edge\Directed as EdgeDirected;
 use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Graph;
 use Fhaculty\Graph\Vertex;
 
 /**
@@ -23,7 +20,7 @@ class Flow extends BaseDual
     /**
      * check if this graph has any flow set (any edge has a non-NULL flow)
      *
-     * @return boolean
+     * @return bool
      * @uses Edge::getFlow()
      */
     public function hasFlow()
@@ -98,8 +95,8 @@ class Flow extends BaseDual
      * checking whether the FLOW is balanced is not to be confused with checking
      * whether the GRAPH is balanced (see Graph::isBalanced() instead)
      *
-     * @return boolean
-     * @see Algorithm\Degree::isBalanced() if you merely want to check indegree=outdegree
+     * @return bool
+     * @see Degree::isBalanced() if you merely want to check indegree=outdegree
      * @uses self::getFlowVertex()
      * @uses Vertex::getBalance()
      */

@@ -1,7 +1,6 @@
 <?php
 
 use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Loader\EdgeListBipartit;
 use Graphp\Algorithms\MaximumMatching\Flow;
 use PHPUnit\Framework\TestCase;
 
