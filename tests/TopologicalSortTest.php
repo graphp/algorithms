@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\TopologicalSort;
+use Graphp\Graph\Graph;
 
 class TopologicalSortTest extends TestCase
 {
@@ -11,7 +11,7 @@ class TopologicalSortTest extends TestCase
 
         $alg = new TopologicalSort($graph);
 
-        $this->assertInstanceOf('Fhaculty\Graph\Set\Vertices', $alg->getVertices());
+        $this->assertInstanceOf('Graphp\Graph\Set\Vertices', $alg->getVertices());
         $this->assertTrue($alg->getVertices()->isEmpty());
     }
 

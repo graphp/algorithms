@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\MinimumCostFlow\CycleCanceling;
+use Graphp\Graph\Graph;
 
 class CycleCancellingTest extends BaseMcfTest
 {

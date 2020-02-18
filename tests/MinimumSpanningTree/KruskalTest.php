@@ -1,8 +1,8 @@
 <?php
 
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\MinimumSpanningTree\Kruskal;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Vertex;
 
 class KruskalTest extends BaseMstTest
 {

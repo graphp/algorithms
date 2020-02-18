@@ -1,8 +1,8 @@
 <?php
 
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\MinimumSpanningTree\Base as MstBase;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Vertex;
 
 abstract class BaseMstTest extends TestCase
 {

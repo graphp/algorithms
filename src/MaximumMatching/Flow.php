@@ -2,12 +2,12 @@
 
 namespace Graphp\Algorithms\MaximumMatching;
 
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Set\Edges;
-use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\Directed;
 use Graphp\Algorithms\Groups;
 use Graphp\Algorithms\MaxFlow\EdmondsKarp as MaxFlowEdmondsKarp;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Set\Edges;
+use Graphp\Graph\Vertex;
 
 class Flow extends Base
 {

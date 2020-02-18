@@ -2,7 +2,7 @@
 
 namespace Graphp\Algorithms\Search;
 
-use Fhaculty\Graph\Set\Vertices;
+use Graphp\Graph\Set\Vertices;
 
 class DepthFirst extends Base
 {

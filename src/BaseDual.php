@@ -2,9 +2,9 @@
 
 namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Set\DualAggregate;
-use Fhaculty\Graph\Walk;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Set\DualAggregate;
+use Graphp\Graph\Walk;
 
 /**
  * Abstract base class for algorithms that operate on a given Set instance

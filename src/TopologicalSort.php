@@ -2,9 +2,9 @@
 
 namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Set\Vertices;
-use Fhaculty\Graph\Vertex;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Set\Vertices;
+use Graphp\Graph\Vertex;
 
 /**
  * topological sorting / order, also known as toposort / topsort, commonly used in resolving dependencies

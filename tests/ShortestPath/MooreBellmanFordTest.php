@@ -1,8 +1,8 @@
 <?php
 
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\ShortestPath\MooreBellmanFord;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Vertex;
 
 class MooreBellmanFordTest extends BaseShortestPathTest
 {
@@ -58,7 +58,7 @@ class MooreBellmanFordTest extends BaseShortestPathTest
 
         $cycle = $alg->getCycleNegative();
 
-        $this->assertInstanceOf('Fhaculty\Graph\Walk', $cycle);
+        $this->assertInstanceOf('Graphp\Graph\Walk', $cycle);
     }
 
     public function testLoopNegativeWeightIsCycle()
@@ -72,7 +72,7 @@ class MooreBellmanFordTest extends BaseShortestPathTest
 
         $cycle = $alg->getCycleNegative();
 
-        $this->assertInstanceOf('Fhaculty\Graph\Walk', $cycle);
+        $this->assertInstanceOf('Graphp\Graph\Walk', $cycle);
     }
 
     public function testNegativeComponentHasCycle()

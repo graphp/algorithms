@@ -1,9 +1,9 @@
 <?php
 
-use Fhaculty\Graph\Exception\UnderflowException;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Degree as AlgorithmDegree;
+use Graphp\Graph\Exception\UnderflowException;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Graph;
 
 class DegreeTest extends TestCase
 {

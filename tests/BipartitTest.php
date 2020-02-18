@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Bipartit as AlgorithmBipartit;
+use Graphp\Graph\Graph;
 
 class BipartitTest extends TestCase
 {
@@ -46,7 +46,7 @@ class BipartitTest extends TestCase
         // create a cloned graph with groups assigned according to bipartition
         $graph = $alg->createGraphGroups();
 
-        $this->assertInstanceOf('Fhaculty\Graph\Graph', $graph);
+        $this->assertInstanceOf('Graphp\Graph\Graph', $graph);
 
         $alg2 = new AlgorithmBipartit($graph);
         $this->assertTrue($alg2->isBipartitGroups());

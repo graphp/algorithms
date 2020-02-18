@@ -1,9 +1,9 @@
 <?php
 
-use Fhaculty\Graph\Edge\Directed;
-use Fhaculty\Graph\Edge\Base as Edge;
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
+use Graphp\Graph\Edge\Directed;
+use Graphp\Graph\Edge\Base as Edge;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Vertex;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 (include_once __DIR__ . '/../vendor/autoload.php') OR die(PHP_EOL . 'ERROR: composer autoloader not found, run "composer install" or see README for instructions' . PHP_EOL);

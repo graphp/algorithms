@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Weight as AlgorithmWeight;
+use Graphp\Graph\Graph;
 
 class WeightTest extends TestCase
 {

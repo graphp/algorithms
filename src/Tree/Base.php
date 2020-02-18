@@ -2,11 +2,11 @@
 
 namespace Graphp\Algorithms\Tree;
 
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Set\Vertices;
-use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\BaseGraph;
 use Graphp\Algorithms\Degree;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Set\Vertices;
+use Graphp\Graph\Vertex;
 
 /**
  * Abstract base class for tree algorithms

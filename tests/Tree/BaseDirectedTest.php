@@ -1,8 +1,8 @@
 <?php
 
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Set\Vertices;
 use Graphp\Algorithms\Tree\BaseDirected;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Set\Vertices;
 
 abstract class BaseDirectedTest extends TestCase
 {

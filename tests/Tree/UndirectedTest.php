@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Tree\Undirected;
+use Graphp\Graph\Graph;
 
 class UndirectedTest extends TestCase
 {

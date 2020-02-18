@@ -2,12 +2,12 @@
 
 namespace Graphp\Algorithms\MinimumCostFlow;
 
-use Fhaculty\Graph\Exception\UnderflowException;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Set\Edges;
 use Graphp\Algorithms\DetectNegativeCycle;
 use Graphp\Algorithms\MaxFlow\EdmondsKarp as MaxFlowEdmondsKarp;
 use Graphp\Algorithms\ResidualGraph;
+use Graphp\Graph\Exception\UnderflowException;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Set\Edges;
 
 class CycleCanceling extends Base
 {

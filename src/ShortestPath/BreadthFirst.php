@@ -2,10 +2,10 @@
 
 namespace Graphp\Algorithms\ShortestPath;
 
-use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Exception\OutOfBoundsException;
-use Fhaculty\Graph\Set\Edges;
-use Fhaculty\Graph\Set\Vertices;
+use Graphp\Graph\Vertex;
+use Graphp\Graph\Exception\OutOfBoundsException;
+use Graphp\Graph\Set\Edges;
+use Graphp\Graph\Set\Vertices;
 
 /**
  * Simple breadth-first shortest path algorithm

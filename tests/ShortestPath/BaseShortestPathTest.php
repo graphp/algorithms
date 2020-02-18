@@ -1,8 +1,8 @@
 <?php
 
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\ShortestPath\Base as ShortestPathAlg;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Vertex;
 
 abstract class BaseShortestPathTest extends TestCase
 {

@@ -2,9 +2,9 @@
 
 namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Exception\UnderflowException;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Vertex;
+use Graphp\Graph\Exception\UnderflowException;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Vertex;
 
 /**
  * Basic algorithms for working with the degrees of Graphs.

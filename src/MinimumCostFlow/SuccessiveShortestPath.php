@@ -2,15 +2,15 @@
 
 namespace Graphp\Algorithms\MinimumCostFlow;
 
-use Fhaculty\Graph\Edge\Directed as EdgeDirected;
-use Fhaculty\Graph\Exception\UnderflowException;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Set\Edges;
-use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\ResidualGraph;
 use Graphp\Algorithms\ShortestPath\MooreBellmanFord as SpMooreBellmanFord;
 use Graphp\Algorithms\Search\BreadthFirst as SearchBreadthFirst;
+use Graphp\Graph\Edge\Directed as EdgeDirected;
+use Graphp\Graph\Exception\UnderflowException;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Set\Edges;
+use Graphp\Graph\Vertex;
 
 class SuccessiveShortestPath extends Base
 {

@@ -2,8 +2,8 @@
 
 namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Set\Vertices;
-use Fhaculty\Graph\Vertex;
+use Graphp\Graph\Set\Vertices;
+use Graphp\Graph\Vertex;
 
 class Groups extends BaseGraph
 {

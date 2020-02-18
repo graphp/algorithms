@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Flow as AlgorithmFlow;
+use Graphp\Graph\Graph;
 
 class FlowaTest extends TestCase
 {

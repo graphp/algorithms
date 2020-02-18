@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\ResidualGraph;
+use Graphp\Graph\Graph;
 
 class ResidualGraphTest extends TestCase
 {

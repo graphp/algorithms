@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\TravelingSalesmanProblem\Bruteforce;
+use Graphp\Graph\Graph;
 
 class BruteforceTest extends TestCase
 {

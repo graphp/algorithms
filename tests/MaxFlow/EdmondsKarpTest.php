@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\MaxFlow\EdmondsKarp as AlgorithmMaxFlowEdmondsKarp;
+use Graphp\Graph\Graph;
 use PHPUnit\Framework\TestCase;
 
 class EdmondsKarpTest extends TestCase

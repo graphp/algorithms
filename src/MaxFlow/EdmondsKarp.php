@@ -2,17 +2,17 @@
 
 namespace Graphp\Algorithms\MaxFlow;
 
-use Fhaculty\Graph\Edge\Directed as EdgeDirected;
-use Fhaculty\Graph\Exception\InvalidArgumentException;
-use Fhaculty\Graph\Exception\OutOfBoundsException;
-use Fhaculty\Graph\Exception\UnderflowException;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Set\Edges;
-use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\Base;
 use Graphp\Algorithms\ResidualGraph;
 use Graphp\Algorithms\ShortestPath\BreadthFirst;
+use Graphp\Graph\Edge\Directed as EdgeDirected;
+use Graphp\Graph\Exception\InvalidArgumentException;
+use Graphp\Graph\Exception\OutOfBoundsException;
+use Graphp\Graph\Exception\UnderflowException;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Set\Edges;
+use Graphp\Graph\Vertex;
 
 class EdmondsKarp extends Base
 {

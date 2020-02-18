@@ -2,10 +2,10 @@
 
 namespace Graphp\Algorithms\MinimumSpanningTree;
 
-use Fhaculty\Graph\Edge\Base as Edge;
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Set\Edges;
 use Graphp\Algorithms\Base as AlgorithmBase;
+use Graphp\Graph\Edge\Base as Edge;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Set\Edges;
 use SplPriorityQueue;
 
 /**

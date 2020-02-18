@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Parallel as AlgorithmParallel;
+use Graphp\Graph\Graph;
 
 class ParallelTest extends TestCase
 {

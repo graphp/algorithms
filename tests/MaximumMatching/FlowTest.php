@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\MaximumMatching\Flow;
+use Graphp\Graph\Graph;
 use PHPUnit\Framework\TestCase;
 
 class FlowTest extends TestCase
@@ -32,7 +32,7 @@ class FlowTest extends TestCase
 
         // check
         $flowgraph = $alg->createGraph();
-        $this->assertInstanceOf('Fhaculty\Graph\Graph', $flowgraph);
+        $this->assertInstanceOf('Graphp\Graph\Graph', $flowgraph);
     }
 
     /**

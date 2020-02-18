@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Tree\InTree;
+use Graphp\Graph\Graph;
 
 class InTreeTest extends BaseDirectedTest
 {

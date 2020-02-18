@@ -2,7 +2,7 @@
 
 namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Vertex;
+use Graphp\Graph\Vertex;
 
 /**
  * Abstract base class for algorithms that operate on a given Vertex instance

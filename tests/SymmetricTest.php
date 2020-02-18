@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Symmetric as AlgorithmSymmetric;
+use Graphp\Graph\Graph;
 
 class SymmetricTest extends TestCase
 {

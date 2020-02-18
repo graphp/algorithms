@@ -1,8 +1,8 @@
 <?php
 
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Walk;
 use Graphp\Algorithms\Property\WalkProperty;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Walk;
 
 class WalkPropertyTest extends TestCase
 {

@@ -2,10 +2,9 @@
 
 namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Edge\Base as Edge;
-use Fhaculty\Graph\Edge\Directed as DirectedEdge;
-use Fhaculty\Graph\Set\Edges;
-use LogicException;
+use Graphp\Graph\Edge\Base as Edge;
+use Graphp\Graph\Edge\Directed as DirectedEdge;
+use Graphp\Graph\Set\Edges;
 
 /**
  * Basic algorithms for working with parallel edges
@@ -52,7 +51,6 @@ class Parallel extends BaseGraph
      *
      * @param Edge $edge
      * @return Edges
-     * @throws LogicException
      */
     public function getEdgesParallelEdge(Edge $edge)
     {

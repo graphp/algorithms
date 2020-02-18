@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Loop as AlgorithmLoop;
+use Graphp\Graph\Graph;
 
 class LoopTest extends TestCase
 {
