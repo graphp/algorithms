@@ -29,7 +29,7 @@ class SymmetricTest extends TestCase
     {
         // 1 -> 2
         $graph = new Graph();
-        $graph->createVertex(1)->createEdgeTo($graph->createVertex(2));
+        $graph->createEdgeDirected($graph->createVertex(1), $graph->createVertex(2));
 
         $alg = new AlgorithmSymmetric($graph);
 
@@ -40,8 +40,8 @@ class SymmetricTest extends TestCase
     {
         // 1 -> 2 -> 1
         $graph = new Graph();
-        $graph->createVertex(1)->createEdgeTo($graph->createVertex(2));
-        $graph->getVertex(2)->createEdgeTo($graph->getVertex(1));
+        $graph->createEdgeDirected($graph->createVertex(1), $graph->createVertex(2));
+        $graph->createEdgeDirected($graph->getVertex(2), $graph->getVertex(1));
 
         $alg = new AlgorithmSymmetric($graph);
 
@@ -52,7 +52,7 @@ class SymmetricTest extends TestCase
     {
         // 1 -- 2
         $graph = new Graph();
-        $graph->createVertex(1)->createEdge($graph->createVertex(2));
+        $graph->createEdgeUndirected($graph->createVertex(1), $graph->createVertex(2));
 
         $alg = new AlgorithmSymmetric($graph);
 

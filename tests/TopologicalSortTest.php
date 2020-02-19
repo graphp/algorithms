@@ -29,7 +29,7 @@ class TopologicalSortTest extends TestCase
     public function testGraphSimple()
     {
         $graph = new Graph();
-        $graph->createVertex(1)->createEdgeTo($graph->createVertex(2));
+        $graph->createEdgeDirected($graph->createVertex(1), $graph->createVertex(2));
 
         $alg = new TopologicalSort($graph);
 
@@ -42,7 +42,7 @@ class TopologicalSortTest extends TestCase
     public function testFailUndirected()
     {
         $graph = new Graph();
-        $graph->createVertex(1)->createEdge($graph->createVertex(2));
+        $graph->createEdgeUndirected($graph->createVertex(1), $graph->createVertex(2));
 
         $alg = new TopologicalSort($graph);
         $alg->getVertices();
@@ -54,7 +54,7 @@ class TopologicalSortTest extends TestCase
     public function testFailLoop()
     {
         $graph = new Graph();
-        $graph->createVertex(1)->createEdgeTo($graph->getVertex(1));
+        $graph->createEdgeDirected($graph->createVertex(1), $graph->getVertex(1));
 
         $alg = new TopologicalSort($graph);
         $alg->getVertices();
@@ -66,8 +66,8 @@ class TopologicalSortTest extends TestCase
     public function testFailCycle()
     {
         $graph = new Graph();
-        $graph->createVertex(1)->createEdgeTo($graph->createVertex(2));
-        $graph->getVertex(2)->createEdgeTo($graph->getVertex(1));
+        $graph->createEdgeDirected($graph->createVertex(1), $graph->createVertex(2));
+        $graph->createEdgeDirected($graph->getVertex(2), $graph->getVertex(1));
 
         $alg = new TopologicalSort($graph);
         $alg->getVertices();

@@ -22,7 +22,7 @@ class FlowTest extends TestCase
     public function testSingleEdge()
     {
         $graph = new Graph();
-        $edge = $graph->createVertex(0)->setGroup(0)->createEdge($graph->createVertex(1)->setGroup(1));
+        $edge = $graph->createEdgeUndirected($graph->createVertex(0)->setGroup(0), $graph->createVertex(1)->setGroup(1));
 
         $alg = new Flow($graph);
         // correct number of edges
@@ -42,7 +42,7 @@ class FlowTest extends TestCase
     public function testInvalidDirected()
     {
         $graph = new Graph();
-        $graph->createVertex(0)->setGroup(0)->createEdgeTo($graph->createVertex(1)->setGroup(1));
+        $graph->createEdgeDirected($graph->createVertex(0)->setGroup(0), $graph->createVertex(1)->setGroup(1));
 
         $alg = new Flow($graph);
         $alg->getNumberOfMatches();
@@ -55,7 +55,7 @@ class FlowTest extends TestCase
     public function testInvalidBipartit()
     {
         $graph = new Graph();
-        $graph->createVertex(0)->setGroup(1)->createEdge($graph->createVertex(1)->setGroup(1));
+        $graph->createEdgeUndirected($graph->createVertex(0)->setGroup(1), $graph->createVertex(1)->setGroup(1));
 
         $alg = new Flow($graph);
         $alg->getNumberOfMatches();

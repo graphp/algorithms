@@ -36,7 +36,7 @@ class WalkPropertyTest extends TestCase
         // 1 -- 1
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
-        $e1 = $v1->createEdge($v1);
+        $e1 = $graph->createEdgeUndirected($v1, $v1);
 
         $walk = Walk::factoryFromEdges(array($e1), $v1);
 
@@ -61,8 +61,8 @@ class WalkPropertyTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $e1 = $v1->createEdge($v2);
-        $e2 = $v2->createEdge($v1);
+        $e1 = $graph->createEdgeUndirected($v1, $v2);
+        $e2 = $graph->createEdgeUndirected($v2, $v1);
 
         $walk = Walk::factoryFromEdges(array($e1, $e2), $v1);
 
@@ -86,9 +86,9 @@ class WalkPropertyTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $e1 = $v1->createEdgeTo($v2);
-        $e2 = $v2->createEdgeTo($v1);
-        $e3 = $v2->createEdgeTo($v2);
+        $e1 = $graph->createEdgeDirected($v1, $v2);
+        $e2 = $graph->createEdgeDirected($v2, $v1);
+        $e3 = $graph->createEdgeDirected($v2, $v2);
 
         // 1 -> 2 -> 2 -> 1
         $walk = Walk::factoryFromEdges(array($e1, $e3, $e2), $v1);
@@ -107,9 +107,9 @@ class WalkPropertyTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $e1 = $v1->createEdgeTo($v2);
-        $e2 = $v2->createEdgeTo($v1);
-        $e3 = $v2->createEdgeTo($v2);
+        $e1 = $graph->createEdgeDirected($v1, $v2);
+        $e2 = $graph->createEdgeDirected($v2, $v1);
+        $e3 = $graph->createEdgeDirected($v2, $v2);
 
         // non-circuit: taking loop twice
         // 1 -> 2 -> 2 -> 2 -> 1
@@ -129,8 +129,8 @@ class WalkPropertyTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $e1 = $v1->createEdgeTo($v2);
-        $e2 = $v2->createEdgeTo($v1);
+        $e1 = $graph->createEdgeDirected($v1, $v2);
+        $e2 = $graph->createEdgeDirected($v2, $v1);
 
         $walk = Walk::factoryFromEdges(array($e1, $e2), $v1);
 
@@ -146,9 +146,9 @@ class WalkPropertyTest extends TestCase
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
-        $e1 = $v1->createEdgeTo($v2);
-        $e2 = $v2->createEdgeTo($v3);
-        $e3 = $v3->createEdgeTo($v1);
+        $e1 = $graph->createEdgeDirected($v1, $v2);
+        $e2 = $graph->createEdgeDirected($v2, $v3);
+        $e3 = $graph->createEdgeDirected($v3, $v1);
 
         $walk = Walk::factoryFromEdges(array($e1, $e2, $e3), $v1);
 
@@ -163,8 +163,8 @@ class WalkPropertyTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $v1->createEdge($v2);
-        $e2 = $v2->createEdge($v2);
+        $graph->createEdgeUndirected($v1, $v2);
+        $e2 = $graph->createEdgeUndirected($v2, $v2);
 
         // only use "2 -- 2" part
         $walk = Walk::factoryFromEdges(array($e2), $v2);

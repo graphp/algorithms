@@ -36,9 +36,9 @@ class ConnectedComponentsTest extends TestCase
     {
         // 1 -- 2 -> 3 <- 4
         $graph = new Graph();
-        $graph->createVertex(1)->createEdge($graph->createVertex(2));
-        $graph->getVertex(2)->createEdgeTo($graph->createVertex(3));
-        $graph->createVertex(4)->createEdgeTo($graph->getVertex(3));
+        $graph->createEdgeUndirected($graph->createVertex(1), $graph->createVertex(2));
+        $graph->createEdgeDirected($graph->getVertex(2), $graph->createVertex(3));
+        $graph->createEdgeDirected($graph->createVertex(4), $graph->getVertex(3));
 
         $alg = new AlgorithmConnected($graph);
 
@@ -61,8 +61,8 @@ class ConnectedComponentsTest extends TestCase
         $v3 = $graph->createVertex(3);
         $v4 = $graph->createVertex(4);
         $v5 = $graph->createVertex(5);
-        $v1->createEdge($v2);
-        $v3->createEdgeTo($v4);
+        $graph->createEdgeUndirected($v1, $v2);
+        $graph->createEdgeDirected($v3, $v4);
 
         $alg = new AlgorithmConnected($graph);
 
@@ -73,7 +73,7 @@ class ConnectedComponentsTest extends TestCase
         $this->assertCount(3, $graphs);
 
         $ge = new Graph();
-        $ge->createVertex(1)->createEdge($ge->createVertex(2));
+        $ge->createEdgeUndirected($ge->createVertex(1), $ge->createVertex(2));
         $this->assertGraphEquals($ge, $alg->createGraphComponentVertex($v2));
 
         $ge = new Graph();

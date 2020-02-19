@@ -42,16 +42,16 @@ class Flow extends Base
 
             if ($group === $groupA) {
                 // group A: source
-                $superSource->createEdgeTo($vertex)->setCapacity(1)->setFlow(0);
+                $graphFlow->createEdgeDirected($superSource, $vertex)->setCapacity(1)->setFlow(0);
 
                 // temporarily create edges from A->B for flow graph
                 $originalVertex = $this->graph->getVertex($vertex->getId());
                 foreach ($originalVertex->getVerticesEdgeTo() as $vertexTarget) {
-                    $vertex->createEdgeTo($graphFlow->getVertex($vertexTarget->getId()))->setCapacity(1)->setFlow(0);
+                    $graphFlow->createEdgeDirected($vertex, $graphFlow->getVertex($vertexTarget->getId()))->setCapacity(1)->setFlow(0);
                 }
             } else {
                 // group B: sink
-                $vertex->createEdgeTo($superSink)->setCapacity(1)->setFlow(0);
+                $graphFlow->createEdgeDirected($vertex, $superSink)->setCapacity(1)->setFlow(0);
             }
         }
 

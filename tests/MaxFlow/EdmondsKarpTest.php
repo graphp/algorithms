@@ -13,7 +13,7 @@ class EdmondsKarpTest extends TestCase
         $v0 = $graph->createVertex(0);
         $v1 = $graph->createVertex(1);
 
-        $v0->createEdgeTo($v1)->setCapacity(10);
+        $graph->createEdgeDirected($v0, $v1)->setCapacity(10);
 
         // 0 -[10/10]-> 1
         $alg = new AlgorithmMaxFlowEdmondsKarp($v0, $v1);
@@ -32,9 +32,9 @@ class EdmondsKarpTest extends TestCase
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
 
-        $v0->createEdgeTo($v1)->setCapacity(5);
-        $v0->createEdgeTo($v2)->setCapacity(7);
-        $v2->createEdgeTo($v1)->setCapacity(9);
+        $graph->createEdgeDirected($v0, $v1)->setCapacity(5);
+        $graph->createEdgeDirected($v0, $v2)->setCapacity(7);
+        $graph->createEdgeDirected($v2, $v1)->setCapacity(9);
 
         // 0 -[5/5]---------> 1
         // |                  ^
@@ -59,11 +59,11 @@ class EdmondsKarpTest extends TestCase
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
 
-        $v0->createEdgeTo($v1)->setCapacity(5);
-        $v0->createEdgeTo($v2)->setCapacity(7);
-        $v2->createEdgeTo($v1)->setCapacity(9);
-        $v1->createEdgeTo($v3)->setCapacity(10);
-        $v3->createEdgeTo($v2)->setCapacity(2);
+        $graph->createEdgeDirected($v0, $v1)->setCapacity(5);
+        $graph->createEdgeDirected($v0, $v2)->setCapacity(7);
+        $graph->createEdgeDirected($v2, $v1)->setCapacity(9);
+        $graph->createEdgeDirected($v1, $v3)->setCapacity(10);
+        $graph->createEdgeDirected($v3, $v2)->setCapacity(2);
 
         $alg = new AlgorithmMaxFlowEdmondsKarp($v0, $v3);
 
@@ -82,11 +82,11 @@ class EdmondsKarpTest extends TestCase
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
 
-        $v0->createEdgeTo($v1)->setCapacity(4);
-        $v0->createEdgeTo($v2)->setCapacity(2);
-        $v1->createEdgeTo($v2)->setCapacity(3);
-        $v1->createEdgeTo($v3)->setCapacity(1);
-        $v2->createEdgeTo($v3)->setCapacity(6);
+        $graph->createEdgeDirected($v0, $v1)->setCapacity(4);
+        $graph->createEdgeDirected($v0, $v2)->setCapacity(2);
+        $graph->createEdgeDirected($v1, $v2)->setCapacity(3);
+        $graph->createEdgeDirected($v1, $v3)->setCapacity(1);
+        $graph->createEdgeDirected($v2, $v3)->setCapacity(6);
 
         $alg = new AlgorithmMaxFlowEdmondsKarp($v0, $v3);
 
@@ -98,8 +98,8 @@ class EdmondsKarpTest extends TestCase
 //         $v0 = $graph->createVertex(0);
 //         $v1 = $graph->createVertex(1);
 
-//         $v0->createEdgeTo($v1)->setCapacity(3.4);
-//         $v0->createEdgeTo($v1)->setCapacity(6.6);
+//         $graph->createEdgeDirected($v0, $v1)->setCapacity(3.4);
+//         $graph->createEdgeDirected($v0, $v1)->setCapacity(6.6);
 
 //         $alg = new AlgorithmMaxFlowEdmondsKarp($v0, $v1);
 
@@ -116,7 +116,7 @@ class EdmondsKarpTest extends TestCase
         $v0 = $graph->createVertex(0);
         $v1 = $graph->createVertex(1);
 
-        $v1->createEdge($v0)->setCapacity(7);
+        $graph->createEdgeUndirected($v1, $v0)->setCapacity(7);
 
         // 0 -[7/7]- 1
         $alg = new AlgorithmMaxFlowEdmondsKarp($v0, $v1);

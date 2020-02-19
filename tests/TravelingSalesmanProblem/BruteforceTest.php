@@ -11,9 +11,9 @@ class BruteforceTest extends TestCase
         $a = $graph->createVertex();
         $b = $graph->createVertex();
         $c = $graph->createVertex();
-        $a->createEdgeTo($b)->setWeight(1);
-        $b->createEdgeTo($c)->setWeight(2);
-        $c->createEdgeTo($a)->setWeight(3);
+        $graph->createEdgeDirected($a, $b)->setWeight(1);
+        $graph->createEdgeDirected($b, $c)->setWeight(2);
+        $graph->createEdgeDirected($c, $a)->setWeight(3);
 
         $alg = new Bruteforce($graph);
 
@@ -26,9 +26,9 @@ class BruteforceTest extends TestCase
         $a = $graph->createVertex();
         $b = $graph->createVertex();
         $c = $graph->createVertex();
-        $a->createEdgeTo($b)->setWeight(1);
-        $b->createEdgeTo($c)->setWeight(2);
-        $c->createEdgeTo($a)->setWeight(3);
+        $graph->createEdgeDirected($a, $b)->setWeight(1);
+        $graph->createEdgeDirected($b, $c)->setWeight(2);
+        $graph->createEdgeDirected($c, $a)->setWeight(3);
 
         $alg = new Bruteforce($graph);
         $alg->setUpperLimitMst();

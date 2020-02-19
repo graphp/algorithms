@@ -43,7 +43,7 @@ class DetectNegativeCycleTest extends TestCase
         // 1 --[-1]--> 1
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
-        $e1 = $v1->createEdgeTo($v1)->setWeight(-1);
+        $e1 = $graph->createEdgeDirected($v1, $v1)->setWeight(-1);
 
         $alg = new DetectNegativeCycle($graph);
 
@@ -65,8 +65,8 @@ class DetectNegativeCycleTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $v1->createEdgeTo($v2)->setWeight(-1);
-        $v2->createEdgeTo($v1)->setWeight(-2);
+        $graph->createEdgeDirected($v1, $v2)->setWeight(-1);
+        $graph->createEdgeDirected($v2, $v1)->setWeight(-2);
 
         $alg = new DetectNegativeCycle($graph);
 
@@ -84,7 +84,7 @@ class DetectNegativeCycleTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $v1->createEdge($v2)->setWeight(-1);
+        $graph->createEdgeUndirected($v1, $v2)->setWeight(-1);
 
         $alg = new DetectNegativeCycle($graph);
 
@@ -106,10 +106,10 @@ class DetectNegativeCycleTest extends TestCase
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
         $v4 = $graph->createVertex(4);
-        $v1->createEdgeTo($v2)->setWeight(1);
-        $v2->createEdgeTo($v3)->setWeight(1);
-        $v3->createEdgeTo($v4)->setWeight(1);
-        $v4->createEdgeTo($v3)->setWeight(-2);
+        $graph->createEdgeDirected($v1, $v2)->setWeight(1);
+        $graph->createEdgeDirected($v2, $v3)->setWeight(1);
+        $graph->createEdgeDirected($v3, $v4)->setWeight(1);
+        $graph->createEdgeDirected($v4, $v3)->setWeight(-2);
 
         $alg = new DetectNegativeCycle($graph);
 
@@ -133,9 +133,9 @@ class DetectNegativeCycleTest extends TestCase
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
         $v4 = $graph->createVertex(4);
-        $v1->createEdge($v2);
-        $v3->createEdgeTo($v4)->setWeight(-1);
-        $v4->createEdgeTo($v3)->setWeight(-2);
+        $graph->createEdgeUndirected($v1, $v2);
+        $graph->createEdgeDirected($v3, $v4)->setWeight(-1);
+        $graph->createEdgeDirected($v4, $v3)->setWeight(-2);
 
         $alg = new DetectNegativeCycle($graph);
 

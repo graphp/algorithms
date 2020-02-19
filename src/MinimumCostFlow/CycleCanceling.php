@@ -29,12 +29,12 @@ class CycleCanceling extends Base
 
             if ($balance > 0) {
                 // positive balance => source capacity
-                $superSource->createEdgeTo($vertex)->setCapacity($balance);
+                $resultGraph->createEdgeDirected($superSource, $vertex)->setCapacity($balance);
 
                 $sumBalance += $balance;
             } elseif ($balance < 0) {
                 // negative balance => sink capacity (positive)
-                $vertex->createEdgeTo($superSink)->setCapacity(-$balance);
+                $resultGraph->createEdgeDirected($vertex, $superSink)->setCapacity(-$balance);
             }
         }
 

@@ -22,7 +22,7 @@ class BipartitTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $v1->createEdgeTo($v2);
+        $graph->createEdgeDirected($v1, $v2);
 
         $alg = new AlgorithmBipartit($graph);
 
@@ -59,9 +59,9 @@ class BipartitTest extends TestCase
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
-        $v1->createEdgeTo($v2);
-        $v2->createEdgeTo($v3);
-        $v3->createEdgeTo($v1);
+        $graph->createEdgeDirected($v1, $v2);
+        $graph->createEdgeDirected($v2, $v3);
+        $graph->createEdgeDirected($v3, $v1);
 
         $alg = new AlgorithmBipartit($graph);
 

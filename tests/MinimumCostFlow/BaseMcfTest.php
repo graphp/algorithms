@@ -35,7 +35,7 @@ abstract class BaseMcfTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1)->setBalance(2);
         $v2 = $graph->createVertex(2)->setBalance(-2);
-        $v1->createEdgeTo($v2)->setWeight(2)->setCapacity(2);
+        $graph->createEdgeDirected($v1, $v2)->setWeight(2)->setCapacity(2);
 
         $alg = $this->createAlgorithm($graph);
         $this->assertEquals(4, $alg->getWeightFlow()); // 2x2
@@ -49,8 +49,8 @@ abstract class BaseMcfTest extends TestCase
         $v1 = $graph->createVertex(1)->setBalance(2);
         $v2 = $graph->createVertex(2)->setBalance(-1);
         $v3 = $graph->createVertex(3)->setBalance(-1);
-        $v1->createEdgeTo($v2)->setWeight(2)->setCapacity(2);
-        $v1->createEdgeTo($v3)->setWeight(-5)->setCapacity(4);
+        $graph->createEdgeDirected($v1, $v2)->setWeight(2)->setCapacity(2);
+        $graph->createEdgeDirected($v1, $v3)->setWeight(-5)->setCapacity(4);
 
         $alg = $this->createAlgorithm($graph);
         $this->assertEquals(-3, $alg->getWeightFlow()); // 1*2 + 1*-5
@@ -65,10 +65,10 @@ abstract class BaseMcfTest extends TestCase
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
         $v4 = $graph->createVertex(4)->setBalance(-2);
-        $v1->createEdgeTo($v2)->setWeight(4)->setCapacity(1);
-        $v2->createEdgeTo($v4)->setWeight(-2)->setCapacity(6);
-        $v1->createEdgeTo($v3)->setWeight(5)->setCapacity(4);
-        $v3->createEdgeTo($v4)->setWeight(8)->setCapacity(6);
+        $graph->createEdgeDirected($v1, $v2)->setWeight(4)->setCapacity(1);
+        $graph->createEdgeDirected($v2, $v4)->setWeight(-2)->setCapacity(6);
+        $graph->createEdgeDirected($v1, $v3)->setWeight(5)->setCapacity(4);
+        $graph->createEdgeDirected($v3, $v4)->setWeight(8)->setCapacity(6);
 
         $alg = $this->createAlgorithm($graph);
         $this->assertEquals(15, $alg->getWeightFlow()); // 1*4 + 1*-2 + 1*5 + 1*8
@@ -82,9 +82,9 @@ abstract class BaseMcfTest extends TestCase
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
         $v4 = $graph->createVertex(4)->setBalance(-2);
-        $v1->createEdgeTo($v2)->setWeight(4)->setCapacity(3);
-        $v2->createEdgeTo($v3)->setWeight(5)->setCapacity(4);
-        $v3->createEdgeTo($v4)->setWeight(-2)->setCapacity(6);
+        $graph->createEdgeDirected($v1, $v2)->setWeight(4)->setCapacity(3);
+        $graph->createEdgeDirected($v2, $v3)->setWeight(5)->setCapacity(4);
+        $graph->createEdgeDirected($v3, $v4)->setWeight(-2)->setCapacity(6);
 
         $alg = $this->createAlgorithm($graph);
         $this->assertEquals(14, $alg->getWeightFlow()); // 2*4 + 2*5 + 2*-2
@@ -102,11 +102,11 @@ abstract class BaseMcfTest extends TestCase
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
         $v4 = $graph->createVertex(4)->setBalance(-4);
-        $v1->createEdgeTo($v2)->setFlow(3)->setCapacity(4)->setWeight(2);
-        $v2->createEdgeTo($v4)->setFlow(3)->setCapacity(3)->setWeight(3);
-        $v1->createEdgeTo($v3)->setFlow(1)->setCapacity(2)->setWeight(2);
-        $v3->createEdgeTo($v4)->setFlow(1)->setCapacity(5)->setWeight(1);
-        $v2->createEdgeTo($v3)->setFlow(0)->setCapacity(2)->setWeight(1);
+        $graph->createEdgeDirected($v1, $v2)->setFlow(3)->setCapacity(4)->setWeight(2);
+        $graph->createEdgeDirected($v2, $v4)->setFlow(3)->setCapacity(3)->setWeight(3);
+        $graph->createEdgeDirected($v1, $v3)->setFlow(1)->setCapacity(2)->setWeight(2);
+        $graph->createEdgeDirected($v3, $v4)->setFlow(1)->setCapacity(5)->setWeight(1);
+        $graph->createEdgeDirected($v2, $v3)->setFlow(0)->setCapacity(2)->setWeight(1);
 
         $alg = $this->createAlgorithm($graph);
         $this->assertEquals(14, $alg->getWeightFlow()); // 4*1 + 2*2 + 2*1 + 2*2
@@ -121,7 +121,7 @@ abstract class BaseMcfTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1)->setBalance(2);
         $v2 = $graph->createVertex(2)->setBalance(-2);
-        $v1->createEdgeTo($v2)->setCapacity(1);
+        $graph->createEdgeDirected($v1, $v2)->setCapacity(1);
 
         $alg = $this->createAlgorithm($graph);
         $alg->getWeightFlow();
@@ -136,7 +136,7 @@ abstract class BaseMcfTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1)->setBalance(2);
         $v2 = $graph->createVertex(2)->setBalance(-2);
-        $v1->createEdgeTo($v2);
+        $graph->createEdgeDirected($v1, $v2);
 
         $alg = $this->createAlgorithm($graph);
         $alg->getWeightFlow();
@@ -165,7 +165,7 @@ abstract class BaseMcfTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1)->setBalance(2);
         $v2 = $graph->createVertex(2)->setBalance(-3);
-        $v1->createEdgeTo($v2)->setCapacity(3);
+        $graph->createEdgeDirected($v1, $v2)->setCapacity(3);
 
         $alg = $this->createAlgorithm($graph);
         $alg->getWeightFlow();
@@ -180,7 +180,7 @@ abstract class BaseMcfTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1)->setBalance(2);
         $v2 = $graph->createVertex(2)->setBalance(-2);
-        $v1->createEdge($v2)->setCapacity(2);
+        $graph->createEdgeUndirected($v1, $v2)->setCapacity(2);
 
         $alg = $this->createAlgorithm($graph);
         $alg->getWeightFlow();
@@ -195,7 +195,7 @@ abstract class BaseMcfTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1)->setBalance(2);
         $v2 = $graph->createVertex(2)->setBalance(-2);
-        $v1->createEdge($v2)->setCapacity(2)->setWeight(-1);
+        $graph->createEdgeUndirected($v1, $v2)->setCapacity(2)->setWeight(-1);
 
         $alg = $this->createAlgorithm($graph);
         $alg->getWeightFlow();

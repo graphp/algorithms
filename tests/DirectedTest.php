@@ -20,7 +20,7 @@ class DirectedTest extends TestCase
     {
         // 1 -- 2
         $graph = new Graph();
-        $graph->createVertex(1)->createEdge($graph->createVertex(2));
+        $graph->createEdgeUndirected($graph->createVertex(1), $graph->createVertex(2));
 
         $alg = new AlgorithmDirected($graph);
 
@@ -33,7 +33,7 @@ class DirectedTest extends TestCase
     {
         // 1 -> 2
         $graph = new Graph();
-        $graph->createVertex(1)->createEdgeTo($graph->createVertex(2));
+        $graph->createEdgeDirected($graph->createVertex(1), $graph->createVertex(2));
 
         $alg = new AlgorithmDirected($graph);
 
@@ -46,8 +46,8 @@ class DirectedTest extends TestCase
     {
         // 1 -- 2 -> 3
         $graph = new Graph();
-        $graph->createVertex(1)->createEdge($graph->createVertex(2));
-        $graph->getVertex(2)->createEdgeTo($graph->createVertex(3));
+        $graph->createEdgeUndirected($graph->createVertex(1), $graph->createVertex(2));
+        $graph->createEdgeDirected($graph->getVertex(2), $graph->createVertex(3));
 
         $alg = new AlgorithmDirected($graph);
 

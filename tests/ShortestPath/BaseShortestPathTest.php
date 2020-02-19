@@ -40,7 +40,7 @@ abstract class BaseShortestPathTest extends TestCase
         // 1 -[4]> 1
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
-        $e1 = $v1->createEdgeTo($v1)->setWeight(4);
+        $e1 = $graph->createEdgeDirected($v1, $v1)->setWeight(4);
 
         $alg = $this->createAlg($v1);
 
@@ -61,8 +61,8 @@ abstract class BaseShortestPathTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $e1 = $v1->createEdgeTo($v2)->setWeight(4);
-        $e2 = $v2->createEdgeTo($v1)->setWeight(2);
+        $e1 = $graph->createEdgeDirected($v1, $v2)->setWeight(4);
+        $e2 = $graph->createEdgeDirected($v2, $v1)->setWeight(2);
 
         $alg = $this->createAlg($v1);
 
@@ -122,7 +122,7 @@ abstract class BaseShortestPathTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $e1 = $v1->createEdgeTo($v2);
+        $e1 = $graph->createEdgeDirected($v1, $v2);
 
         $alg = $this->createAlg($v1);
 
@@ -143,8 +143,8 @@ abstract class BaseShortestPathTest extends TestCase
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
         $v4 = $graph->createVertex(4);
-        $e1 = $v1->createEdgeTo($v2)->setWeight(10);
-        $v3->createEdgeTo($v4)->setWeight(20);
+        $e1 = $graph->createEdgeDirected($v1, $v2)->setWeight(10);
+        $graph->createEdgeDirected($v3, $v4)->setWeight(20);
 
         $alg = $this->createAlg($v1);
 
