@@ -3,7 +3,7 @@
 namespace Graphp\Algorithms\TravelingSalesmanProblem;
 
 use Graphp\Algorithms\TravelingSalesmanProblem\MinimumSpanningTree as AlgorithmTspMst;
-use Graphp\Graph\Edge\Base as Edge;
+use Graphp\Graph\Edge;
 use Graphp\Graph\Exception\UnexpectedValueException;
 use Graphp\Graph\Exception\UnderflowException;
 use Graphp\Graph\Graph;

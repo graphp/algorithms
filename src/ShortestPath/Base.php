@@ -3,7 +3,7 @@
 namespace Graphp\Algorithms\ShortestPath;
 
 use Graphp\Algorithms\BaseVertex;
-use Graphp\Graph\Edge\Base as Edge;
+use Graphp\Graph\Edge;
 use Graphp\Graph\Exception\InvalidArgumentException;
 use Graphp\Graph\Exception\OutOfBoundsException;
 use Graphp\Graph\Graph;

@@ -5,7 +5,7 @@ namespace Graphp\Algorithms\MinimumCostFlow;
 use Graphp\Algorithms\ResidualGraph;
 use Graphp\Algorithms\ShortestPath\MooreBellmanFord as SpMooreBellmanFord;
 use Graphp\Algorithms\Search\BreadthFirst as SearchBreadthFirst;
-use Graphp\Graph\Edge\Directed as EdgeDirected;
+use Graphp\Graph\EdgeDirected;
 use Graphp\Graph\Exception\UnderflowException;
 use Graphp\Graph\Exception\UnexpectedValueException;
 use Graphp\Graph\Graph;

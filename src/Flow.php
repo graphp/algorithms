@@ -2,7 +2,7 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Graph\Edge\Directed as EdgeDirected;
+use Graphp\Graph\EdgeDirected;
 use Graphp\Graph\Exception\UnexpectedValueException;
 use Graphp\Graph\Vertex;
 

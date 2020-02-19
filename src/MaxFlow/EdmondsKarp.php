@@ -5,7 +5,7 @@ namespace Graphp\Algorithms\MaxFlow;
 use Graphp\Algorithms\Base;
 use Graphp\Algorithms\ResidualGraph;
 use Graphp\Algorithms\ShortestPath\BreadthFirst;
-use Graphp\Graph\Edge\Directed as EdgeDirected;
+use Graphp\Graph\EdgeDirected;
 use Graphp\Graph\Exception\InvalidArgumentException;
 use Graphp\Graph\Exception\OutOfBoundsException;
 use Graphp\Graph\Exception\UnderflowException;

@@ -2,7 +2,7 @@
 
 namespace Graphp\Algorithms\MinimumSpanningTree;
 
-use Graphp\Graph\Edge\Base as Edge;
+use Graphp\Graph\Edge;
 use Graphp\Graph\Exception\UnexpectedValueException;
 use Graphp\Graph\Set\Edges;
 use Graphp\Graph\Vertex;

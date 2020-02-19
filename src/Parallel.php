@@ -2,8 +2,8 @@
 
 namespace Graphp\Algorithms;
 
-use Graphp\Graph\Edge\Base as Edge;
-use Graphp\Graph\Edge\Directed as DirectedEdge;
+use Graphp\Graph\Edge;
+use Graphp\Graph\EdgeDirected as EdgeDirected;
 use Graphp\Graph\Set\Edges;
 
 /**
@@ -54,7 +54,7 @@ class Parallel extends BaseGraph
      */
     public function getEdgesParallelEdge(Edge $edge)
     {
-        if ($edge instanceof DirectedEdge) {
+        if ($edge instanceof EdgeDirected) {
             // get all edges between this edge's endpoints
             $edges = $edge->getVertexStart()->getEdgesTo($edge->getVertexEnd())->getVector();
         } else {
