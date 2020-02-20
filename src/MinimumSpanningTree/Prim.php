@@ -2,10 +2,10 @@
 
 namespace Graphp\Algorithms\MinimumSpanningTree;
 
-use Fhaculty\Graph\Edge\Base as Edge;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Set\Edges;
-use Fhaculty\Graph\Vertex;
+use Graphp\Graph\Edge;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Set\Edges;
+use Graphp\Graph\Vertex;
 use SplPriorityQueue;
 
 class Prim extends Base

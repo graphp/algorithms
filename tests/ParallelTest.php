@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Parallel as AlgorithmParallel;
+use Graphp\Graph\Graph;
 
 class ParallelTest extends TestCase
 {
@@ -21,8 +21,8 @@ class ParallelTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $e1 = $v1->createEdgeTo($v2);
-        $e2 = $v2->createEdgeTo($v1);
+        $e1 = $graph->createEdgeDirected($v1, $v2);
+        $e2 = $graph->createEdgeDirected($v2, $v1);
 
         $alg = new AlgorithmParallel($graph);
 
@@ -38,8 +38,8 @@ class ParallelTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $e1 = $v1->createEdgeTo($v2);
-        $e2 = $v1->createEdgeTo($v2);
+        $e1 = $graph->createEdgeDirected($v1, $v2);
+        $e2 = $graph->createEdgeDirected($v1, $v2);
 
         $alg = new AlgorithmParallel($graph);
 
@@ -55,8 +55,8 @@ class ParallelTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $e1 = $v1->createEdgeTo($v2);
-        $e2 = $v1->createEdge($v2);
+        $e1 = $graph->createEdgeDirected($v1, $v2);
+        $e2 = $graph->createEdgeUndirected($v1, $v2);
 
         $alg = new AlgorithmParallel($graph);
 
@@ -76,12 +76,12 @@ class ParallelTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $e1 = $v1->createEdgeTo($v2);
-        $e2 = $v1->createEdgeTo($v2);
-        $e3 = $v1->createEdge($v2);
-        $e4 = $v1->createEdge($v2);
-        $e5 = $v2->createEdgeTo($v1);
-        $e6 = $v2->createEdgeTo($v1);
+        $e1 = $graph->createEdgeDirected($v1, $v2);
+        $e2 = $graph->createEdgeDirected($v1, $v2);
+        $e3 = $graph->createEdgeUndirected($v1, $v2);
+        $e4 = $graph->createEdgeUndirected($v1, $v2);
+        $e5 = $graph->createEdgeDirected($v2, $v1);
+        $e6 = $graph->createEdgeDirected($v2, $v1);
 
         $alg = new AlgorithmParallel($graph);
 

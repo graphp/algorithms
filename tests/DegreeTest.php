@@ -1,9 +1,9 @@
 <?php
 
-use Fhaculty\Graph\Exception\UnderflowException;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Degree as AlgorithmDegree;
+use Graphp\Graph\Exception\UnderflowException;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Graph;
 
 class DegreeTest extends TestCase
 {
@@ -54,8 +54,8 @@ class DegreeTest extends TestCase
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
-        $v1->createEdgeTo($v2);
-        $v2->createEdgeTo($v3);
+        $graph->createEdgeDirected($v1, $v2);
+        $graph->createEdgeDirected($v2, $v3);
 
         $alg = new AlgorithmDegree($graph);
 

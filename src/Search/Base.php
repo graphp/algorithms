@@ -2,10 +2,10 @@
 
 namespace Graphp\Algorithms\Search;
 
-use Fhaculty\Graph\Exception\InvalidArgumentException;
-use Fhaculty\Graph\Set\Vertices;
-use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\BaseVertex;
+use Graphp\Graph\Exception\InvalidArgumentException;
+use Graphp\Graph\Set\Vertices;
+use Graphp\Graph\Vertex;
 
 abstract class Base extends BaseVertex
 {

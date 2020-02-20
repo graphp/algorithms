@@ -2,7 +2,7 @@
 
 namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Edge\Directed as EdgeDirected;
+use Graphp\Graph\EdgeDirected;
 
 /**
  * Basic algorithms for working with symmetric digraphs

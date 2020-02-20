@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Tree\InTree;
+use Graphp\Graph\Graph;
 
 class InTreeTest extends BaseDirectedTest
 {
@@ -12,10 +12,10 @@ class InTreeTest extends BaseDirectedTest
         $root = $graph->createVertex();
 
         $c1 = $graph->createVertex();
-        $c1->createEdgeTo($root);
+        $graph->createEdgeDirected($c1, $root);
 
         $c2 = $graph->createVertex();
-        $c2->createEdgeTo($root);
+        $graph->createEdgeDirected($c2, $root);
 
         return $graph;
     }
@@ -29,9 +29,9 @@ class InTreeTest extends BaseDirectedTest
     {
         // v1 -> v2 <- v3 -> v4
         $graph = new Graph();
-        $graph->createVertex('v1')->createEdgeTo($graph->createVertex('v2'));
-        $graph->createVertex('v3')->createEdgeTo($graph->getVertex('v2'));
-        $graph->getVertex('v3')->createEdgeTo($graph->createVertex('v4'));
+        $graph->createEdgeDirected($graph->createVertex('v1'), $graph->createVertex('v2'));
+        $graph->createEdgeDirected($graph->createVertex('v3'), $graph->getVertex('v2'));
+        $graph->createEdgeDirected($graph->getVertex('v3'), $graph->createVertex('v4'));
 
         return $graph;
     }
@@ -40,8 +40,8 @@ class InTreeTest extends BaseDirectedTest
     {
         // v1 <- v2, v1 <- v2
         $graph = new Graph();
-        $graph->createVertex('v2')->createEdgeTo($graph->createVertex('v1'));
-        $graph->getVertex('v2')->createEdgeTo($graph->getVertex('v1'));
+        $graph->createEdgeDirected($graph->createVertex('v2'), $graph->createVertex('v1'));
+        $graph->createEdgeDirected($graph->getVertex('v2'), $graph->getVertex('v1'));
 
         return $graph;
     }

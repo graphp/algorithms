@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Loop as AlgorithmLoop;
+use Graphp\Graph\Graph;
 
 class LoopTest extends TestCase
 {
@@ -21,8 +21,8 @@ class LoopTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $v1->createEdgeTo($v2);
-        $v2->createEdge($v1);
+        $graph->createEdgeDirected($v1, $v2);
+        $graph->createEdgeUndirected($v2, $v1);
 
         $alg = new AlgorithmLoop($graph);
 
@@ -35,7 +35,7 @@ class LoopTest extends TestCase
     {
         // 1 -- 1
         $graph = new Graph();
-        $graph->createVertex(1)->createEdge($v1 = $graph->getVertex(1));
+        $graph->createEdgeUndirected($graph->createVertex(1), $v1 = $graph->getVertex(1));
 
         $alg = new AlgorithmLoop($graph);
 
@@ -47,7 +47,7 @@ class LoopTest extends TestCase
     {
         // 1 -> 1
         $graph = new Graph();
-        $graph->createVertex(1)->createEdgeTo($v1 = $graph->getVertex(1));
+        $graph->createEdgeDirected($graph->createVertex(1), $v1 = $graph->getVertex(1));
 
         $alg = new AlgorithmLoop($graph);
 

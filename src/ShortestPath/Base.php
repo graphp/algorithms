@@ -2,15 +2,15 @@
 
 namespace Graphp\Algorithms\ShortestPath;
 
-use Fhaculty\Graph\Edge\Base as Edge;
-use Fhaculty\Graph\Exception\InvalidArgumentException;
-use Fhaculty\Graph\Exception\OutOfBoundsException;
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Set\Edges;
-use Fhaculty\Graph\Set\Vertices;
-use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Walk;
 use Graphp\Algorithms\BaseVertex;
+use Graphp\Graph\Edge;
+use Graphp\Graph\Exception\InvalidArgumentException;
+use Graphp\Graph\Exception\OutOfBoundsException;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Set\Edges;
+use Graphp\Graph\Set\Vertices;
+use Graphp\Graph\Vertex;
+use Graphp\Graph\Walk;
 
 /**
  * Abstract base class for shortest path algorithms

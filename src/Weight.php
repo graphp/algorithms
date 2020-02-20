@@ -2,7 +2,7 @@
 
 namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Graph;
+use Graphp\Graph\Graph;
 
 /**
  * Basic algorithms for working with the (total) weight of a Graph/Walk

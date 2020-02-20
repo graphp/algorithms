@@ -2,10 +2,10 @@
 
 namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Edge\Base as Edge;
-use Fhaculty\Graph\Edge\Directed as EdgeDirected;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Graph;
+use Graphp\Graph\Edge;
+use Graphp\Graph\EdgeDirected;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Graph;
 
 class ResidualGraph extends BaseGraph
 {

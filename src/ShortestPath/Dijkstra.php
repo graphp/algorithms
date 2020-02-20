@@ -2,8 +2,8 @@
 
 namespace Graphp\Algorithms\ShortestPath;
 
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Set\Edges;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Set\Edges;
 use SplPriorityQueue;
 
 /**

@@ -1,8 +1,8 @@
 <?php
 
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Set\Vertices;
 use Graphp\Algorithms\Tree\BaseDirected;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Set\Vertices;
 
 abstract class BaseDirectedTest extends TestCase
 {
@@ -150,7 +150,7 @@ abstract class BaseDirectedTest extends TestCase
     {
         // v1 -> v1
         $graph = new Graph();
-        $graph->createVertex('v1')->createEdgeTo($graph->getVertex('v1'));
+        $graph->createEdgeDirected($graph->createVertex('v1'), $graph->getVertex('v1'));
 
         $tree = $this->createTreeAlg($graph);
 
@@ -164,7 +164,7 @@ abstract class BaseDirectedTest extends TestCase
     {
         // v1 -> v1
         $graph = new Graph();
-        $graph->createVertex('v1')->createEdgeTo($graph->getVertex('v1'));
+        $graph->createEdgeDirected($graph->createVertex('v1'), $graph->getVertex('v1'));
 
         $tree = $this->createTreeAlg($graph);
 
@@ -175,7 +175,7 @@ abstract class BaseDirectedTest extends TestCase
     {
         // v1 -- v2
         $graph = new Graph();
-        $graph->createVertex('v1')->createEdge($graph->createVertex('v2'));
+        $graph->createEdgeUndirected($graph->createVertex('v1'), $graph->createVertex('v2'));
 
         $tree = $this->createTreeAlg($graph);
 
@@ -186,9 +186,9 @@ abstract class BaseDirectedTest extends TestCase
     {
         // v1 -> v2 -- v3 -> v4
         $graph = new Graph();
-        $graph->createVertex('v1')->createEdgeTo($graph->createVertex('v2'));
-        $graph->getVertex('v2')->createEdge($graph->createVertex('v3'));
-        $graph->getVertex('v3')->createEdgeTo($graph->createVertex('v4'));
+        $graph->createEdgeDirected($graph->createVertex('v1'), $graph->createVertex('v2'));
+        $graph->createEdgeUndirected($graph->getVertex('v2'), $graph->createVertex('v3'));
+        $graph->createEdgeDirected($graph->getVertex('v3'), $graph->createVertex('v4'));
 
         $tree = $this->createTreeAlg($graph);
 

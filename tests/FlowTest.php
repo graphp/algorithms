@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Flow as AlgorithmFlow;
+use Graphp\Graph\Graph;
 
 class FlowaTest extends TestCase
 {
@@ -22,7 +22,7 @@ class FlowaTest extends TestCase
     {
         // 1 -> 2
         $graph = new Graph();
-        $graph->createVertex(1)->createEdgeTo($graph->createVertex(2))->setFlow(0);
+        $graph->createEdgeDirected($graph->createVertex(1), $graph->createVertex(2))->setFlow(0);
 
 
         $alg = new AlgorithmFlow($graph);
@@ -40,7 +40,7 @@ class FlowaTest extends TestCase
     public function testGraphSimple(Graph $graph)
     {
         // 1 -> 2
-        $graph->createVertex(1)->createEdgeTo($graph->createVertex(2));
+        $graph->createEdgeDirected($graph->createVertex(1), $graph->createVertex(2));
 
         $alg = new AlgorithmFlow($graph);
 
@@ -59,7 +59,7 @@ class FlowaTest extends TestCase
     public function testGraphWithUnweightedEdges(Graph $graph)
     {
         // additional flow edge: 2 -> 3
-        $graph->getVertex(2)->createEdgeTo($graph->createVertex(3))->setFlow(10);
+        $graph->createEdgeDirected($graph->getVertex(2), $graph->createVertex(3))->setFlow(10);
 
         $alg = new AlgorithmFlow($graph);
 
@@ -88,7 +88,7 @@ class FlowaTest extends TestCase
     {
         // 1 -- 2
         $graph = new Graph();
-        $graph->createVertex(1)->createEdge($graph->createVertex(2))->setFlow(10);
+        $graph->createEdgeUndirected($graph->createVertex(1), $graph->createVertex(2))->setFlow(10);
 
 
         $alg = new AlgorithmFlow($graph);

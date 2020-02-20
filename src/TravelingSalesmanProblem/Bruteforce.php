@@ -2,13 +2,13 @@
 
 namespace Graphp\Algorithms\TravelingSalesmanProblem;
 
-use Fhaculty\Graph\Edge\Base as Edge;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Exception\UnderflowException;
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Set\Edges;
-use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\TravelingSalesmanProblem\MinimumSpanningTree as AlgorithmTspMst;
+use Graphp\Graph\Edge;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Exception\UnderflowException;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Set\Edges;
+use Graphp\Graph\Vertex;
 
 class Bruteforce extends Base
 {

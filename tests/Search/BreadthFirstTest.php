@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Search\BreadthFirst;
+use Graphp\Graph\Graph;
 
 class BreadthFirstSearchTest extends TestCase
 {
@@ -42,7 +42,7 @@ class BreadthFirstSearchTest extends TestCase
     {
         $g = new Graph();
         foreach ($edges as $e) {
-            $g->createVertex($e[0], true)->createEdgeTo($g->createVertex($e[1], true));
+            $g->createEdgeDirected($g->createVertex($e[0], true), $g->createVertex($e[1], true));
         }
         $a = new BreadthFirst($g->getVertex($subject));
         if ($maxDepth !== null) {

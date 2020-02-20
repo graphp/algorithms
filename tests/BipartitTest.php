@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Bipartit as AlgorithmBipartit;
+use Graphp\Graph\Graph;
 
 class BipartitTest extends TestCase
 {
@@ -22,7 +22,7 @@ class BipartitTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $v1->createEdgeTo($v2);
+        $graph->createEdgeDirected($v1, $v2);
 
         $alg = new AlgorithmBipartit($graph);
 
@@ -46,7 +46,7 @@ class BipartitTest extends TestCase
         // create a cloned graph with groups assigned according to bipartition
         $graph = $alg->createGraphGroups();
 
-        $this->assertInstanceOf('Fhaculty\Graph\Graph', $graph);
+        $this->assertInstanceOf('Graphp\Graph\Graph', $graph);
 
         $alg2 = new AlgorithmBipartit($graph);
         $this->assertTrue($alg2->isBipartitGroups());
@@ -59,9 +59,9 @@ class BipartitTest extends TestCase
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
-        $v1->createEdgeTo($v2);
-        $v2->createEdgeTo($v3);
-        $v3->createEdgeTo($v1);
+        $graph->createEdgeDirected($v1, $v2);
+        $graph->createEdgeDirected($v2, $v3);
+        $graph->createEdgeDirected($v3, $v1);
 
         $alg = new AlgorithmBipartit($graph);
 

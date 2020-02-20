@@ -1,9 +1,9 @@
 <?php
 
-use Fhaculty\Graph\Edge\Directed;
-use Fhaculty\Graph\Edge\Base as Edge;
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
+use Graphp\Graph\Edge;
+use Graphp\Graph\EdgeDirected;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Vertex;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 (include_once __DIR__ . '/../vendor/autoload.php') OR die(PHP_EOL . 'ERROR: composer autoloader not found, run "composer install" or see README for instructions' . PHP_EOL);
@@ -82,7 +82,7 @@ class TestCase extends BaseTestCase
     private function getEdgeDump(Edge $edge)
     {
         $ret = \get_class($edge) . ' ';
-        if ($edge instanceof Directed) {
+        if ($edge instanceof EdgeDirected) {
             $ret .= $edge->getVertexStart()->getId() . ' -> ' . $edge->getVertexEnd()->getId();
         } else {
             $vertices = $edge->getVertices()->getIds();

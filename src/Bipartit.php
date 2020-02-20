@@ -2,8 +2,8 @@
 
 namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Graph;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Graph;
 
 class Bipartit extends BaseGraph
 {

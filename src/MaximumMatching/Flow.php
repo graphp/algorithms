@@ -2,12 +2,12 @@
 
 namespace Graphp\Algorithms\MaximumMatching;
 
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Set\Edges;
-use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\Directed;
 use Graphp\Algorithms\Groups;
 use Graphp\Algorithms\MaxFlow\EdmondsKarp as MaxFlowEdmondsKarp;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Set\Edges;
+use Graphp\Graph\Vertex;
 
 class Flow extends Base
 {
@@ -42,16 +42,16 @@ class Flow extends Base
 
             if ($group === $groupA) {
                 // group A: source
-                $superSource->createEdgeTo($vertex)->setCapacity(1)->setFlow(0);
+                $graphFlow->createEdgeDirected($superSource, $vertex)->setCapacity(1)->setFlow(0);
 
                 // temporarily create edges from A->B for flow graph
                 $originalVertex = $this->graph->getVertex($vertex->getId());
                 foreach ($originalVertex->getVerticesEdgeTo() as $vertexTarget) {
-                    $vertex->createEdgeTo($graphFlow->getVertex($vertexTarget->getId()))->setCapacity(1)->setFlow(0);
+                    $graphFlow->createEdgeDirected($vertex, $graphFlow->getVertex($vertexTarget->getId()))->setCapacity(1)->setFlow(0);
                 }
             } else {
                 // group B: sink
-                $vertex->createEdgeTo($superSink)->setCapacity(1)->setFlow(0);
+                $graphFlow->createEdgeDirected($vertex, $superSink)->setCapacity(1)->setFlow(0);
             }
         }
 

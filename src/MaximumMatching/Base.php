@@ -2,10 +2,10 @@
 
 namespace Graphp\Algorithms\MaximumMatching;
 
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Set\Edges;
 use Graphp\Algorithms\BaseGraph;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Set\Edges;
 
 abstract class Base extends BaseGraph
 {

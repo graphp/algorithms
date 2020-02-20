@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\ResidualGraph;
+use Graphp\Graph\Graph;
 
 class ResidualGraphTest extends TestCase
 {
@@ -22,7 +22,7 @@ class ResidualGraphTest extends TestCase
     {
         $graph = new Graph();
 
-        $graph->createVertex(0)->createEdgeTo($graph->createVertex(1))->setFlow(0)
+        $graph->createEdgeDirected($graph->createVertex(0), $graph->createVertex(1))->setFlow(0)
                                                                       ->setCapacity(2)
                                                                       ->setWeight(3);
 
@@ -39,7 +39,7 @@ class ResidualGraphTest extends TestCase
     {
         $graph = new Graph();
 
-        $graph->createVertex(0)->createEdgeTo($graph->createVertex(1))->setFlow(2)
+        $graph->createEdgeDirected($graph->createVertex(0), $graph->createVertex(1))->setFlow(2)
                                                                       ->setCapacity(2)
                                                                       ->setWeight(3);
 
@@ -47,7 +47,7 @@ class ResidualGraphTest extends TestCase
         $residual = $alg->createGraph();
 
         $expected = new Graph();
-        $expected->createVertex(1)->createEdgeTo($expected->createVertex(0))->setFlow(0)
+        $expected->createEdgeDirected($expected->createVertex(1), $expected->createVertex(0))->setFlow(0)
                                                                             ->setCapacity(2)
                                                                             ->setWeight(-3);
 
@@ -61,7 +61,7 @@ class ResidualGraphTest extends TestCase
     {
         $graph = new Graph();
 
-        $graph->createVertex(0)->createEdgeTo($graph->createVertex(1))->setFlow(1)
+        $graph->createEdgeDirected($graph->createVertex(0), $graph->createVertex(1))->setFlow(1)
                                                                     ->setCapacity(2)
                                                                     ->setWeight(3);
 
@@ -73,12 +73,12 @@ class ResidualGraphTest extends TestCase
         $expected->createVertex(1);
 
         // remaining edge
-        $expected->getVertex(0)->createEdgeTo($expected->getVertex(1))->setFlow(0)
+        $expected->createEdgeDirected($expected->getVertex(0), $expected->getVertex(1))->setFlow(0)
                                                                       ->setCapacity(1)
                                                                       ->setWeight(3);
 
         // back edge
-        $expected->getVertex(1)->createEdgeTo($expected->getVertex(0))->setFlow(0)
+        $expected->createEdgeDirected($expected->getVertex(1), $expected->getVertex(0))->setFlow(0)
                                                                       ->setCapacity(1)
                                                                       ->setWeight(-3);
 
@@ -91,7 +91,7 @@ class ResidualGraphTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $v1->createEdgeTo($v2)->setFlow(0)->setCapacity(2);
+        $graph->createEdgeDirected($v1, $v2)->setFlow(0)->setCapacity(2);
 
         // 1 -[0/2]-> 2
         // ^          |
@@ -99,8 +99,8 @@ class ResidualGraphTest extends TestCase
         $expected = new Graph();
         $v1 = $expected->createVertex(1);
         $v2 = $expected->createVertex(2);
-        $v1->createEdgeTo($v2)->setFlow(0)->setCapacity(2);
-        $v2->createEdgeTo($v1)->setFlow(0)->setCapacity(0);
+        $expected->createEdgeDirected($v1, $v2)->setFlow(0)->setCapacity(2);
+        $expected->createEdgeDirected($v2, $v1)->setFlow(0)->setCapacity(0);
 
         $alg = new ResidualGraph($graph);
         $alg->setKeepNullCapacity(true);
@@ -115,7 +115,7 @@ class ResidualGraphTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $v1->createEdgeTo($v2)->setFlow(2)->setCapacity(2);
+        $graph->createEdgeDirected($v1, $v2)->setFlow(2)->setCapacity(2);
 
         // 1 -[0/0]-> 2
         // ^          |
@@ -123,8 +123,8 @@ class ResidualGraphTest extends TestCase
         $expected = new Graph();
         $v1 = $expected->createVertex(1);
         $v2 = $expected->createVertex(2);
-        $v1->createEdgeTo($v2)->setFlow(0)->setCapacity(0);
-        $v2->createEdgeTo($v1)->setFlow(0)->setCapacity(2);
+        $expected->createEdgeDirected($v1, $v2)->setFlow(0)->setCapacity(0);
+        $expected->createEdgeDirected($v2, $v1)->setFlow(0)->setCapacity(2);
 
         $alg = new ResidualGraph($graph);
         $alg->setKeepNullCapacity(true);
@@ -141,8 +141,8 @@ class ResidualGraphTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $v1->createEdgeTo($v2)->setFlow(1)->setCapacity(2);
-        $v1->createEdgeTo($v2)->setFlow(2)->setCapacity(3);
+        $graph->createEdgeDirected($v1, $v2)->setFlow(1)->setCapacity(2);
+        $graph->createEdgeDirected($v1, $v2)->setFlow(2)->setCapacity(3);
 
         // 1 -[0/2]-> 2
         // ^          |
@@ -150,8 +150,8 @@ class ResidualGraphTest extends TestCase
         $expected = new Graph();
         $v1 = $expected->createVertex(1);
         $v2 = $expected->createVertex(2);
-        $v1->createEdgeTo($v2)->setFlow(0)->setCapacity(2);
-        $v2->createEdgeTo($v1)->setFlow(0)->setCapacity(3);
+        $expected->createEdgeDirected($v1, $v2)->setFlow(0)->setCapacity(2);
+        $expected->createEdgeDirected($v2, $v1)->setFlow(0)->setCapacity(3);
 
         $alg = new ResidualGraph($graph);
         $alg->setMergeParallelEdges(true);
@@ -168,7 +168,7 @@ class ResidualGraphTest extends TestCase
     {
         $graph = new Graph();
 
-        $graph->createVertex()->createEdge($graph->createVertex())->setFlow(1)
+        $graph->createEdgeUndirected($graph->createVertex(), $graph->createVertex())->setFlow(1)
                                                                   ->setCapacity(2);
 
         $alg = new ResidualGraph($graph);
@@ -183,7 +183,7 @@ class ResidualGraphTest extends TestCase
     {
         $graph = new Graph();
 
-        $graph->createVertex()->createEdgeTo($graph->createVertex())->setCapacity(1);
+        $graph->createEdgeDirected($graph->createVertex(), $graph->createVertex())->setCapacity(1);
 
         $alg = new ResidualGraph($graph);
         $alg->createGraph();
@@ -197,7 +197,7 @@ class ResidualGraphTest extends TestCase
     {
         $graph = new Graph();
 
-        $graph->createVertex()->createEdgeTo($graph->createVertex())->setFlow(1);
+        $graph->createEdgeDirected($graph->createVertex(), $graph->createVertex())->setFlow(1);
 
         $alg = new ResidualGraph($graph);
         $alg->createGraph();

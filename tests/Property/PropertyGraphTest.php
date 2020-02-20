@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Property\GraphProperty;
+use Graphp\Graph\Graph;
 
 class PropertyGraphTest extends TestCase
 {

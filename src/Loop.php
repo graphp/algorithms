@@ -2,7 +2,7 @@
 
 namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Vertex;
+use Graphp\Graph\Vertex;
 
 /**
  * Basic algorithms for working with loop edges

@@ -5,10 +5,10 @@ namespace Graphp\Algorithms\MinimumCostFlow;
 use Graphp\Algorithms\BaseGraph;
 use Graphp\Algorithms\Weight as AlgorithmWeight;
 use Graphp\Algorithms\Flow as AlgorithmFlow;
-use Fhaculty\Graph\Exception\UnderflowException;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Set\Edges;
+use Graphp\Graph\Exception\UnderflowException;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Set\Edges;
 
 abstract class Base extends BaseGraph
 {

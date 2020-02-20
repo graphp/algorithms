@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Eulerian as AlgorithmEulerian;
+use Graphp\Graph\Graph;
 
 class EulerianTest extends TestCase
 {
@@ -20,7 +20,7 @@ class EulerianTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $v1->createEdge($v2);
+        $graph->createEdgeUndirected($v1, $v2);
 
         $alg = new AlgorithmEulerian($graph);
 
@@ -34,9 +34,9 @@ class EulerianTest extends TestCase
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
-        $v1->createEdge($v2);
-        $v2->createEdge($v3);
-        $v3->createEdge($v1);
+        $graph->createEdgeUndirected($v1, $v2);
+        $graph->createEdgeUndirected($v2, $v3);
+        $graph->createEdgeUndirected($v3, $v1);
 
         $alg = new AlgorithmEulerian($graph);
 

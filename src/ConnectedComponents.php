@@ -2,11 +2,11 @@
 
 namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Exception\InvalidArgumentException;
-use Fhaculty\Graph\Exception\UnderflowException;
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\Search\BreadthFirst as SearchBreadthFirst;
+use Graphp\Graph\Exception\InvalidArgumentException;
+use Graphp\Graph\Exception\UnderflowException;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Vertex;
 
 /**
  * Algorithm for working with connected components

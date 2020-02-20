@@ -2,8 +2,8 @@
 
 namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Edge\Directed as EdgeDirected;
-use Fhaculty\Graph\Edge\Undirected as EdgeUndirected;
+use Graphp\Graph\EdgeDirected;
+use Graphp\Graph\EdgeUndirected;
 
 /**
  * Basic algorithms for working with the undirected or directed Graphs (digraphs) / Walks.

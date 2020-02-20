@@ -2,11 +2,11 @@
 
 namespace Graphp\Algorithms\Tree;
 
-use Fhaculty\Graph\Exception\UnderflowException;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Set\Vertices;
-use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\Tree\Base as Tree;
+use Graphp\Graph\Exception\UnderflowException;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Set\Vertices;
+use Graphp\Graph\Vertex;
 
 /**
  * Abstract algorithm base class for working with directed, rooted trees

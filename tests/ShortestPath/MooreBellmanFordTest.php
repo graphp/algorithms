@@ -1,8 +1,8 @@
 <?php
 
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\ShortestPath\MooreBellmanFord;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Vertex;
 
 class MooreBellmanFordTest extends BaseShortestPathTest
 {
@@ -19,8 +19,8 @@ class MooreBellmanFordTest extends BaseShortestPathTest
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $v1->createEdgeTo($v2)->setWeight(10);
-        $e2 = $v1->createEdgeTo($v2)->setWeight(-1);
+        $graph->createEdgeDirected($v1, $v2)->setWeight(10);
+        $e2 = $graph->createEdgeDirected($v1, $v2)->setWeight(-1);
 
         $alg = $this->createAlg($v1);
 
@@ -52,13 +52,13 @@ class MooreBellmanFordTest extends BaseShortestPathTest
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $v1->createEdge($v2)->setWeight(-10);
+        $graph->createEdgeUndirected($v1, $v2)->setWeight(-10);
 
         $alg = $this->createAlg($v1);
 
         $cycle = $alg->getCycleNegative();
 
-        $this->assertInstanceOf('Fhaculty\Graph\Walk', $cycle);
+        $this->assertInstanceOf('Graphp\Graph\Walk', $cycle);
     }
 
     public function testLoopNegativeWeightIsCycle()
@@ -66,13 +66,13 @@ class MooreBellmanFordTest extends BaseShortestPathTest
         // 1 -[-10]-> 1
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
-        $v1->createEdge($v1)->setWeight(-10);
+        $graph->createEdgeUndirected($v1, $v1)->setWeight(-10);
 
         $alg = $this->createAlg($v1);
 
         $cycle = $alg->getCycleNegative();
 
-        $this->assertInstanceOf('Fhaculty\Graph\Walk', $cycle);
+        $this->assertInstanceOf('Graphp\Graph\Walk', $cycle);
     }
 
     public function testNegativeComponentHasCycle()
@@ -85,9 +85,9 @@ class MooreBellmanFordTest extends BaseShortestPathTest
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
         $v4 = $graph->createVertex(4);
-        $v1->createEdgeTo($v2)->setWeight(1);
-        $v3->createEdgeTo($v4)->setWeight(-1);
-        $v4->createEdgeTo($v3)->setWeight(-2);
+        $graph->createEdgeDirected($v1, $v2)->setWeight(1);
+        $graph->createEdgeDirected($v3, $v4)->setWeight(-1);
+        $graph->createEdgeDirected($v4, $v3)->setWeight(-2);
 
         // second component has a cycle
         $alg = $this->createAlg($v3);

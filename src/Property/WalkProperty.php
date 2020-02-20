@@ -2,9 +2,9 @@
 
 namespace Graphp\Algorithms\Property;
 
-use Fhaculty\Graph\Walk;
 use Graphp\Algorithms\Base as BaseAlgorithm;
 use Graphp\Algorithms\Loop as AlgorithmLoop;
+use Graphp\Graph\Walk;
 
 /**
  * Simple algorithms for working with Walk properties

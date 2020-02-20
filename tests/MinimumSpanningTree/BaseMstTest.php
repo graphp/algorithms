@@ -1,8 +1,8 @@
 <?php
 
-use Fhaculty\Graph\Graph;
-use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\MinimumSpanningTree\Base as MstBase;
+use Graphp\Graph\Graph;
+use Graphp\Graph\Vertex;
 
 abstract class BaseMstTest extends TestCase
 {
@@ -32,7 +32,7 @@ abstract class BaseMstTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $v1->createEdge($v2)->setWeight(3);
+        $graph->createEdgeUndirected($v1, $v2)->setWeight(3);
 
         $alg = $this->createAlg($v1);
 
@@ -50,10 +50,10 @@ abstract class BaseMstTest extends TestCase
         $v3 = $graph->createVertex(3);
         $v4 = $graph->createVertex(4);
         $v5 = $graph->createVertex(5);
-        $v1->createEdge($v2)->setWeight(6);
-        $v2->createEdge($v3)->setWeight(9);
-        $v3->createEdge($v4)->setWeight(7);
-        $v4->createEdge($v5)->setWeight(8);
+        $graph->createEdgeUndirected($v1, $v2)->setWeight(6);
+        $graph->createEdgeUndirected($v2, $v3)->setWeight(9);
+        $graph->createEdgeUndirected($v3, $v4)->setWeight(7);
+        $graph->createEdgeUndirected($v4, $v5)->setWeight(8);
 
         $alg = $this->createAlg($v1);
 
@@ -71,9 +71,9 @@ abstract class BaseMstTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
-        $v1->createEdge($v2)->setWeight(4);
-        $v1->createEdge($v2)->setWeight(3);
-        $v1->createEdge($v2)->setWeight(5);
+        $graph->createEdgeUndirected($v1, $v2)->setWeight(4);
+        $graph->createEdgeUndirected($v1, $v2)->setWeight(3);
+        $graph->createEdgeUndirected($v1, $v2)->setWeight(5);
 
         $alg = $this->createAlg($v1);
         $edges = $alg->getEdges();
@@ -92,17 +92,17 @@ abstract class BaseMstTest extends TestCase
         $v1 = $graph->createVertex(1);
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
-        $v1->createEdge($v2)->setWeight(4);
-        $v2->createEdge($v3)->setWeight(5);
-        $v3->createEdge($v1)->setWeight(6);
+        $graph->createEdgeUndirected($v1, $v2)->setWeight(4);
+        $graph->createEdgeUndirected($v2, $v3)->setWeight(5);
+        $graph->createEdgeUndirected($v3, $v1)->setWeight(6);
 
         // 1 --[4]-- 2 -- [5] -- 3
         $graphExpected = new Graph();
         $ve1 = $graphExpected->createVertex(1);
         $ve2 = $graphExpected->createVertex(2);
         $ve3 = $graphExpected->createVertex(3);
-        $ve1->createEdge($ve2)->setWeight(4);
-        $ve2->createEdge($ve3)->setWeight(5);
+        $graphExpected->createEdgeUndirected($ve1, $ve2)->setWeight(4);
+        $graphExpected->createEdgeUndirected($ve2, $ve3)->setWeight(5);
 
         $alg = $this->createAlg($v1);
         $this->assertCount(2, $alg->getEdges());
@@ -119,10 +119,10 @@ abstract class BaseMstTest extends TestCase
         $v3 = $graph->createVertex(3);
         $v4 = $graph->createVertex(4);
         $v5 = $graph->createVertex(5);
-        $v1->createEdgeTo($v2)->setWeight(6);
-        $v2->createEdge($v3)->setWeight(7);
-        $v4->createEdge($v3)->setWeight(8);
-        $v5->createEdgeTo($v4)->setWeight(9);
+        $graph->createEdgeDirected($v1, $v2)->setWeight(6);
+        $graph->createEdgeUndirected($v2, $v3)->setWeight(7);
+        $graph->createEdgeUndirected($v4, $v3)->setWeight(8);
+        $graph->createEdgeDirected($v5, $v4)->setWeight(9);
 
         $alg = $this->createAlg($v1);
 
@@ -142,8 +142,8 @@ abstract class BaseMstTest extends TestCase
         $v2 = $graph->createVertex(2);
         $v3 = $graph->createVertex(3);
         $v4 = $graph->createVertex(4);
-        $v1->createEdge($v2)->setWeight(1);
-        $v3->createEdge($v4)->setWeight(1);
+        $graph->createEdgeUndirected($v1, $v2)->setWeight(1);
+        $graph->createEdgeUndirected($v3, $v4)->setWeight(1);
 
         $alg = $this->createAlg($v1);
         $alg->getEdges();

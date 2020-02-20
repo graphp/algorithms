@@ -2,11 +2,11 @@
 
 namespace Graphp\Algorithms\Tree;
 
-use Fhaculty\Graph\Edge\Undirected as UndirectedEdge;
-use Fhaculty\Graph\Exception\UnexpectedValueException;
-use Fhaculty\Graph\Set\Vertices;
-use Fhaculty\Graph\Vertex;
 use Graphp\Algorithms\Tree\Base as Tree;
+use Graphp\Graph\EdgeUndirected;
+use Graphp\Graph\Exception\UnexpectedValueException;
+use Graphp\Graph\Set\Vertices;
+use Graphp\Graph\Vertex;
 
 /**
  * Undirected tree implementation
@@ -133,7 +133,7 @@ class Undirected extends Tree
     {
         $vertices = array();
         foreach ($vertex->getEdges() as $edge) {
-            if (!$edge instanceof UndirectedEdge) {
+            if (!$edge instanceof EdgeUndirected) {
                 throw new UnexpectedValueException('Directed edge encountered');
             }
             $vertices[] = $edge->getVertexToFrom($vertex);

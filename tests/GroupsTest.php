@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Groups as AlgorithmGroups;
+use Graphp\Graph\Graph;
 
 class GroupsTest extends TestCase
 {
@@ -25,7 +25,7 @@ class GroupsTest extends TestCase
         $graph = new Graph();
         $v1 = $graph->createVertex(1)->setGroup(1);
         $v2 = $graph->createVertex(2)->setGroup(2);
-        $v1->createEdgeTo($v2);
+        $graph->createEdgeDirected($v1, $v2);
 
         $alg = new AlgorithmGroups($graph);
 
@@ -45,9 +45,9 @@ class GroupsTest extends TestCase
         $v1 = $graph->createVertex(1)->setGroup(1);
         $v2 = $graph->createVertex(2)->setGroup(2);
         $v3 = $graph->createVertex(3)->setGroup(1);
-        $v1->createEdgeTo($v2);
-        $v2->createEdgeTo($v3);
-        $v3->createEdgeTo($v1);
+        $graph->createEdgeDirected($v1, $v2);
+        $graph->createEdgeDirected($v2, $v3);
+        $graph->createEdgeDirected($v3, $v1);
 
         $alg = new AlgorithmGroups($graph);
 

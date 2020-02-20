@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Tree\Undirected;
+use Graphp\Graph\Graph;
 
 class UndirectedTest extends TestCase
 {
@@ -36,7 +36,7 @@ class UndirectedTest extends TestCase
     {
         // v1 -- v2
         $graph = new Graph();
-        $graph->createVertex('v1')->createEdge($graph->createVertex('v2'));
+        $graph->createEdgeUndirected($graph->createVertex('v1'), $graph->createVertex('v2'));
 
         $tree = $this->createTree($graph);
         $this->assertTrue($tree->isTree());
@@ -48,8 +48,8 @@ class UndirectedTest extends TestCase
     {
         // v1 -- v2 -- v3
         $graph = new Graph();
-        $graph->createVertex('v1')->createEdge($graph->createVertex('v2'));
-        $graph->getVertex('v2')->createEdge($graph->createVertex('v3'));
+        $graph->createEdgeUndirected($graph->createVertex('v1'), $graph->createVertex('v2'));
+        $graph->createEdgeUndirected($graph->getVertex('v2'), $graph->createVertex('v3'));
 
         $tree = $this->createTree($graph);
         $this->assertTrue($tree->isTree());
@@ -61,8 +61,8 @@ class UndirectedTest extends TestCase
     {
         // v1 -- v2 -- v1
         $graph = new Graph();
-        $graph->createVertex('v1')->createEdge($graph->createVertex('v2'));
-        $graph->getVertex('v1')->createEdge($graph->getVertex('v2'));
+        $graph->createEdgeUndirected($graph->createVertex('v1'), $graph->createVertex('v2'));
+        $graph->createEdgeUndirected($graph->getVertex('v1'), $graph->getVertex('v2'));
 
         $tree = $this->createTree($graph);
         $this->assertFalse($tree->isTree());
@@ -72,7 +72,7 @@ class UndirectedTest extends TestCase
     {
         // v1 -- v1
         $graph = new Graph();
-        $graph->createVertex('v1')->createEdge($graph->getVertex('v1'));
+        $graph->createEdgeUndirected($graph->createVertex('v1'), $graph->getVertex('v1'));
 
         $tree = $this->createTree($graph);
         $this->assertFalse($tree->isTree());
@@ -82,9 +82,9 @@ class UndirectedTest extends TestCase
     {
         // v1 -- v2 -- v3 -- v1
         $graph = new Graph();
-        $graph->createVertex('v1')->createEdge($graph->createVertex('v2'));
-        $graph->getVertex('v2')->createEdge($graph->createVertex('v3'));
-        $graph->getVertex('v3')->createEdge($graph->getVertex('v1'));
+        $graph->createEdgeUndirected($graph->createVertex('v1'), $graph->createVertex('v2'));
+        $graph->createEdgeUndirected($graph->getVertex('v2'), $graph->createVertex('v3'));
+        $graph->createEdgeUndirected($graph->getVertex('v3'), $graph->getVertex('v1'));
 
         $tree = $this->createTree($graph);
         $this->assertFalse($tree->isTree());
@@ -94,7 +94,7 @@ class UndirectedTest extends TestCase
     {
         // v1 -> v2
         $graph = new Graph();
-        $graph->createVertex('v1')->createEdgeTo($graph->createVertex('v2'));
+        $graph->createEdgeDirected($graph->createVertex('v1'), $graph->createVertex('v2'));
 
         $tree = $this->createTree($graph);
         $this->assertFalse($tree->isTree());
@@ -104,8 +104,8 @@ class UndirectedTest extends TestCase
     {
         // v1 -- v2 -> v3
         $graph = new Graph();
-        $graph->createVertex('v1')->createEdge($graph->createVertex('v2'));
-        $graph->getVertex('v2')->createEdgeTo($graph->createVertex('v3'));
+        $graph->createEdgeUndirected($graph->createVertex('v1'), $graph->createVertex('v2'));
+        $graph->createEdgeDirected($graph->getVertex('v2'), $graph->createVertex('v3'));
 
         $tree = $this->createTree($graph);
         $this->assertFalse($tree->isTree());

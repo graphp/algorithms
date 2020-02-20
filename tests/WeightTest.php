@@ -1,7 +1,7 @@
 <?php
 
-use Fhaculty\Graph\Graph;
 use Graphp\Algorithms\Weight as AlgorithmWeight;
+use Graphp\Graph\Graph;
 
 class WeightTest extends TestCase
 {
@@ -27,7 +27,7 @@ class WeightTest extends TestCase
     public function testGraphSimple(Graph $graph)
     {
         // 1 -> 2
-        $graph->createVertex(1)->createEdgeTo($graph->createVertex(2))->setWeight(3)->setFlow(4);
+        $graph->createEdgeDirected($graph->createVertex(1), $graph->createVertex(2))->setWeight(3)->setFlow(4);
 
         $alg = new AlgorithmWeight($graph);
 
@@ -46,7 +46,7 @@ class WeightTest extends TestCase
      */
     public function testGraphWithUnweightedEdges(Graph $graph)
     {
-        $graph->createVertex(5)->createEdgeTo($graph->createVertex(6))->setFlow(7);
+        $graph->createEdgeDirected($graph->createVertex(5), $graph->createVertex(6))->setFlow(7);
 
         $alg = new AlgorithmWeight($graph);
 

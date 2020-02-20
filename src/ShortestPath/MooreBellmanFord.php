@@ -2,11 +2,11 @@
 
 namespace Graphp\Algorithms\ShortestPath;
 
-use Fhaculty\Graph\Exception\NegativeCycleException;
-use Fhaculty\Graph\Exception\UnderflowException;
-use Fhaculty\Graph\Set\Edges;
-use Fhaculty\Graph\Vertex;
-use Fhaculty\Graph\Walk;
+use Graphp\Graph\Exception\NegativeCycleException;
+use Graphp\Graph\Exception\UnderflowException;
+use Graphp\Graph\Set\Edges;
+use Graphp\Graph\Vertex;
+use Graphp\Graph\Walk;
 
 /**
  * Moore-Bellman-Ford's shortest path algorithm

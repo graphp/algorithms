@@ -2,7 +2,7 @@
 
 namespace Graphp\Algorithms;
 
-use Fhaculty\Graph\Graph;
+use Graphp\Graph\Graph;
 
 /**
  * Abstract base class for algorithms that operate on a given Graph instance
