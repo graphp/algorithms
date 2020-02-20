@@ -1,13 +1,13 @@
 {
     "name": "graphp/algorithms",
-    "description": "Common mathematical graph algorithms",
+    "description": "Common mathematical graph algorithms implemented in PHP",
     "keywords": ["Graph algorithms", "shortest path", "dijkstra", "moore-bellman-ford", "minimum spanning tree", "kruskal", "prim"],
     "homepage": "https://github.com/graphp/algorithms",
     "license": "MIT",
     "authors": [
         {
             "name": "Christian Lück",
-            "email": "christian@lueck.tv"
+            "email": "christian@clue.engineering"
         }
     ],
     "require": {
