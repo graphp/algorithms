@@ -2,7 +2,12 @@
 
 Common mathematical graph algorithms implemented in PHP
 
-> Note: This project is in beta stage! Feel free to report any issues you encounter.
+>   You're viewing the contents of the `master` development brach. Note that this
+    branch is subject to active development and will contain breaking changes
+    for the upcoming release. If you want to use the latest release version,
+    see also the `v0.8.x` release branch for more details.
+
+>   Note: This project is in beta stage! Feel free to report any issues you encounter.
 
 ## Install
 
