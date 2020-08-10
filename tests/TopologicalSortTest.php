@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms;
+
 use Graphp\Algorithms\TopologicalSort;
 use Graphp\Graph\Graph;
 
@@ -36,33 +38,28 @@ class TopologicalSortTest extends TestCase
         $this->assertSame(array($graph->getVertex(1), $graph->getVertex(2)), $alg->getVertices()->getVector());
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testFailUndirected()
     {
         $graph = new Graph();
         $graph->createEdgeUndirected($graph->createVertex(1), $graph->createVertex(2));
 
         $alg = new TopologicalSort($graph);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getVertices();
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testFailLoop()
     {
         $graph = new Graph();
         $graph->createEdgeDirected($graph->createVertex(1), $graph->getVertex(1));
 
         $alg = new TopologicalSort($graph);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getVertices();
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testFailCycle()
     {
         $graph = new Graph();
@@ -70,6 +67,8 @@ class TopologicalSortTest extends TestCase
         $graph->createEdgeDirected($graph->getVertex(2), $graph->getVertex(1));
 
         $alg = new TopologicalSort($graph);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getVertices();
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\MinimumSpanningTree;
+
 use Graphp\Algorithms\MinimumSpanningTree\Prim;
 use Graphp\Graph\Vertex;
 

@@ -1,8 +1,11 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\Tree;
+
 use Graphp\Algorithms\Tree\BaseDirected;
 use Graphp\Graph\Graph;
 use Graphp\Graph\Set\Vertices;
+use Graphp\Tests\Algorithms\TestCase;
 
 abstract class BaseDirectedTest extends TestCase
 {
@@ -43,30 +46,30 @@ abstract class BaseDirectedTest extends TestCase
     /**
      * @param BaseDirected $tree
      * @depends testNullGraph
-     * @expectedException UnderflowException
      */
     public function testEmptyGraphDoesNotHaveRootVertex(BaseDirected $tree)
     {
+        $this->setExpectedException('UnderflowException');
         $tree->getVertexRoot();
     }
 
     /**
      * @param BaseDirected $tree
      * @depends testNullGraph
-     * @expectedException UnderflowException
      */
     public function testEmptyGraphDoesNotHaveDegree(BaseDirected $tree)
     {
+        $this->setExpectedException('UnderflowException');
         $tree->getDegree();
     }
 
     /**
      * @param BaseDirected $tree
      * @depends testNullGraph
-     * @expectedException UnderflowException
      */
     public function testEmptyGraphDoesNotHaveHeight(BaseDirected $tree)
     {
+        $this->setExpectedException('UnderflowException');
         $tree->getHeight();
     }
 
@@ -108,11 +111,12 @@ abstract class BaseDirectedTest extends TestCase
      *
      * @param BaseDirected $tree
      * @depends testGraphTree
-     * @expectedException UnderflowException
      */
     public function testGraphTreeRootDoesNotHaveParent(BaseDirected $tree)
     {
         $root = $tree->getVertexRoot();
+
+        $this->setExpectedException('UnderflowException');
         $tree->getVertexParent($root);
     }
 
@@ -125,15 +129,13 @@ abstract class BaseDirectedTest extends TestCase
         $this->assertFalse($tree->isTree());
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testNonTreeVertexHasMoreThanOneParent()
     {
         $graph = $this->createGraphNonTree();
 
         $tree = $this->createTreeAlg($graph);
 
+        $this->setExpectedException('UnexpectedValueException');
         $tree->getVertexParent($graph->getVertex('v3'));
     }
 
@@ -157,9 +159,6 @@ abstract class BaseDirectedTest extends TestCase
         $this->assertFalse($tree->isTree());
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testGraphWithLoopCanNotGetSubgraph()
     {
         // v1 -> v1
@@ -168,6 +167,7 @@ abstract class BaseDirectedTest extends TestCase
 
         $tree = $this->createTreeAlg($graph);
 
+        $this->setExpectedException('UnexpectedValueException');
         $tree->getVerticesSubtree($graph->getVertex('v1'));
     }
 

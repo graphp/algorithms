@@ -1,8 +1,10 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\MaximumMatching;
+
 use Graphp\Algorithms\MaximumMatching\Flow;
 use Graphp\Graph\Graph;
-use PHPUnit\Framework\TestCase;
+use Graphp\Tests\Algorithms\TestCase;
 
 class FlowTest extends TestCase
 {
@@ -37,7 +39,6 @@ class FlowTest extends TestCase
 
     /**
      * expect exception for directed edges
-     * @expectedException UnexpectedValueException
      */
     public function testInvalidDirected()
     {
@@ -45,12 +46,13 @@ class FlowTest extends TestCase
         $graph->createEdgeDirected($graph->createVertex(0)->setGroup(0), $graph->createVertex(1)->setGroup(1));
 
         $alg = new Flow($graph);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getNumberOfMatches();
     }
 
     /**
      * expect exception for non-bipartit graphs
-     * @expectedException UnexpectedValueException
      */
     public function testInvalidBipartit()
     {
@@ -58,6 +60,8 @@ class FlowTest extends TestCase
         $graph->createEdgeUndirected($graph->createVertex(0)->setGroup(1), $graph->createVertex(1)->setGroup(1));
 
         $alg = new Flow($graph);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getNumberOfMatches();
     }
 }

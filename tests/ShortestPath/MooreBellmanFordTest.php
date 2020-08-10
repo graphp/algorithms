@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\ShortestPath;
+
 use Graphp\Algorithms\ShortestPath\MooreBellmanFord;
 use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
@@ -39,10 +41,10 @@ class MooreBellmanFordTest extends BaseShortestPathTest
     /**
      * @param MooreBellmanFord $alg
      * @depends testGraphParallelNegative
-     * @expectedException UnderflowException
      */
     public function testNoNegativeCycle(MooreBellmanFord $alg)
     {
+        $this->setExpectedException('UnderflowException');
         $alg->getCycleNegative();
     }
 
@@ -96,16 +98,8 @@ class MooreBellmanFordTest extends BaseShortestPathTest
 
         // first component does not have a cycle
         $alg = $this->createAlg($v1);
-        $this->expectException('UnderflowException');
-        $alg->getCycleNegative();
-    }
 
-    public function expectException($class)
-    {
-        if (\method_exists($this, 'setExpectedException')) {
-            $this->setExpectedException($class);
-        } else {
-            parent::expectException($class);
-        }
+        $this->setExpectedException('UnderflowException');
+        $alg->getCycleNegative();
     }
 }

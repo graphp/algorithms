@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\MinimumCostFlow;
+
 use Graphp\Algorithms\MinimumCostFlow\SuccessiveShortestPath;
 use Graphp\Graph\Graph;
 

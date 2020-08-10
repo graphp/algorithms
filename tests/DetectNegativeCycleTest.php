@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms;
+
 use Graphp\Algorithms\DetectNegativeCycle;
 use Graphp\Graph\Graph;
 
@@ -20,10 +22,10 @@ class DetectNegativeCycleTest extends TestCase
      *
      * @param DetectNegativeCycle $alg
      * @depends testNullGraph
-     * @expectedException UnderflowException
      */
     public function testNullGraphHasNoCycle(DetectNegativeCycle $alg)
     {
+        $this->setExpectedException('UnderflowException');
         $alg->getCycleNegative();
     }
 
@@ -31,10 +33,10 @@ class DetectNegativeCycleTest extends TestCase
      *
      * @param DetectNegativeCycle $alg
      * @depends testNullGraph
-     * @expectedException UnderflowException
      */
     public function testNullGraphHasNoCycleGraph(DetectNegativeCycle $alg)
     {
+        $this->setExpectedException('UnderflowException');
         $alg->createGraph();
     }
 

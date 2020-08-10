@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms;
+
 use Graphp\Algorithms\Symmetric as AlgorithmSymmetric;
 use Graphp\Graph\Graph;
 

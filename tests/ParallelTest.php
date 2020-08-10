@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms;
+
 use Graphp\Algorithms\Parallel as AlgorithmParallel;
 use Graphp\Graph\Graph;
 

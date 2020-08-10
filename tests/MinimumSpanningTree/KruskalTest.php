@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\MinimumSpanningTree;
+
 use Graphp\Algorithms\MinimumSpanningTree\Kruskal;
 use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
@@ -11,14 +13,13 @@ class KruskalTest extends BaseMstTest
         return new Kruskal($vertex->getGraph());
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testNullGraphIsNotConsideredToBeConnected()
     {
         $graph = new Graph();
 
         $alg = new Kruskal($graph);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getEdges();
     }
 }

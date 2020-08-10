@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\ShortestPath;
+
 use Graphp\Algorithms\ShortestPath\Dijkstra;
 use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
@@ -11,9 +13,6 @@ class DijkstraTest extends BaseShortestPathTest
         return new Dijkstra($vertex);
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testGraphParallelNegative()
     {
         // 1 -[10]-> 2
@@ -27,6 +26,7 @@ class DijkstraTest extends BaseShortestPathTest
 
         $alg = $this->createAlg($v1);
 
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getEdges();
     }
 }

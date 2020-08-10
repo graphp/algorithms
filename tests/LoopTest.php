@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms;
+
 use Graphp\Algorithms\Loop as AlgorithmLoop;
 use Graphp\Graph\Graph;
 

@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms;
+
 use Graphp\Algorithms\Flow as AlgorithmFlow;
 use Graphp\Graph\Graph;
 
@@ -23,7 +25,6 @@ class FlowaTest extends TestCase
         // 1 -> 2
         $graph = new Graph();
         $graph->createEdgeDirected($graph->createVertex(1), $graph->createVertex(2))->setFlow(0);
-
 
         $alg = new AlgorithmFlow($graph);
 
@@ -81,18 +82,15 @@ class FlowaTest extends TestCase
         $this->assertFalse($alg->isBalancedFlow());
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testVertexWithUndirectedEdgeHasInvalidFlow()
     {
         // 1 -- 2
         $graph = new Graph();
         $graph->createEdgeUndirected($graph->createVertex(1), $graph->createVertex(2))->setFlow(10);
 
-
         $alg = new AlgorithmFlow($graph);
 
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getFlowVertex($graph->getVertex(1));
     }
 }

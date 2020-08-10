@@ -1,7 +1,10 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\TravelingSalesmanProblem;
+
 use Graphp\Algorithms\TravelingSalesmanProblem\Bruteforce;
 use Graphp\Graph\Graph;
+use Graphp\Tests\Algorithms\TestCase;
 
 class BruteforceTest extends TestCase
 {
@@ -33,7 +36,7 @@ class BruteforceTest extends TestCase
         $alg = new Bruteforce($graph);
         $alg->setUpperLimitMst();
 
-        $ref = new ReflectionProperty($alg, 'upperLimit');
+        $ref = new \ReflectionProperty($alg, 'upperLimit');
         $ref->setAccessible(true);
 
         $this->assertEquals(6, $ref->getValue($alg));

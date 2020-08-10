@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms;
+
 use Graphp\Algorithms\Bipartit as AlgorithmBipartit;
 use Graphp\Graph\Graph;
 
@@ -73,22 +75,22 @@ class BipartitTest extends TestCase
     /**
      *
      * @param AlgorithmBipartit $alg
-     * @expectedException UnexpectedValueException
      * @depends testGraphTriangleCycleIsNotBipartit
      */
     public function testGraphTriangleCycleColorsInvalid(AlgorithmBipartit $alg)
     {
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getColors();
     }
 
     /**
      *
      * @param AlgorithmBipartit $alg
-     * @expectedException UnexpectedValueException
      * @depends testGraphTriangleCycleIsNotBipartit
      */
     public function testGraphTriangleCycleColorVerticesInvalid(AlgorithmBipartit $alg)
     {
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getColorVertices();
     }
 }

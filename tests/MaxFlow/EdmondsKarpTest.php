@@ -1,8 +1,10 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\MaxFlow;
+
 use Graphp\Algorithms\MaxFlow\EdmondsKarp as AlgorithmMaxFlowEdmondsKarp;
 use Graphp\Graph\Graph;
-use PHPUnit\Framework\TestCase;
+use Graphp\Tests\Algorithms\TestCase;
 
 class EdmondsKarpTest extends TestCase
 {
@@ -106,9 +108,6 @@ class EdmondsKarpTest extends TestCase
 //         $this->assertEquals(10, $alg->getFlowMax());
 //     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testEdgesUndirected()
     {
         // 0 -[0/7]- 1
@@ -121,6 +120,7 @@ class EdmondsKarpTest extends TestCase
         // 0 -[7/7]- 1
         $alg = new AlgorithmMaxFlowEdmondsKarp($v0, $v1);
 
+        $this->setExpectedException('UnexpectedValueException');
         $this->assertEquals(7, $alg->getFlowMax());
     }
 
@@ -136,10 +136,6 @@ class EdmondsKarpTest extends TestCase
 //         $this->assertEquals(0.735802, $alg->getFlowMax());
 //     }
 
-
-    /**
-     * @expectedException InvalidArgumentException
-     */
     public function testInvalidFlowToOtherGraph()
     {
         $graph1 = new Graph();
@@ -148,17 +144,16 @@ class EdmondsKarpTest extends TestCase
         $graph2 = new Graph();
         $vg2 = $graph2->createVertex(2);
 
+        $this->setExpectedException('InvalidArgumentException');
         new AlgorithmMaxFlowEdmondsKarp($vg1, $vg2);
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     */
     public function testInvalidFlowToSelf()
     {
         $graph = new Graph();
         $v1 = $graph->createVertex(1);
 
+        $this->setExpectedException('InvalidArgumentException');
         new AlgorithmMaxFlowEdmondsKarp($v1, $v1);
     }
 

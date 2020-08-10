@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms;
+
 use Graphp\Algorithms\ResidualGraph;
 use Graphp\Graph\Graph;
 
@@ -162,7 +164,6 @@ class ResidualGraphTest extends TestCase
 
     /**
      * expect exception for undirected edges
-     * @expectedException UnexpectedValueException
      */
     public function testInvalidUndirected()
     {
@@ -172,12 +173,13 @@ class ResidualGraphTest extends TestCase
                                                                   ->setCapacity(2);
 
         $alg = new ResidualGraph($graph);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->createGraph();
     }
 
     /**
      * expect exception for edges with no flow
-     * @expectedException UnexpectedValueException
      */
     public function testInvalidNoFlow()
     {
@@ -186,12 +188,13 @@ class ResidualGraphTest extends TestCase
         $graph->createEdgeDirected($graph->createVertex(), $graph->createVertex())->setCapacity(1);
 
         $alg = new ResidualGraph($graph);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->createGraph();
     }
 
     /**
      * expect exception for edges with no capacity
-     * @expectedException UnexpectedValueException
      */
     public function testInvalidNoCapacity()
     {
@@ -200,6 +203,8 @@ class ResidualGraphTest extends TestCase
         $graph->createEdgeDirected($graph->createVertex(), $graph->createVertex())->setFlow(1);
 
         $alg = new ResidualGraph($graph);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->createGraph();
     }
 

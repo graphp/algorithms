@@ -1,8 +1,11 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\MinimumSpanningTree;
+
 use Graphp\Algorithms\MinimumSpanningTree\Base as MstBase;
 use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
+use Graphp\Tests\Algorithms\TestCase;
 
 abstract class BaseMstTest extends TestCase
 {
@@ -131,9 +134,6 @@ abstract class BaseMstTest extends TestCase
         $this->assertGraphEquals($graph, $alg->createGraph());
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testMultipleComponentsFail()
     {
         // 1 --[1]-- 2, 3 --[1]-- 4
@@ -146,12 +146,11 @@ abstract class BaseMstTest extends TestCase
         $graph->createEdgeUndirected($v3, $v4)->setWeight(1);
 
         $alg = $this->createAlg($v1);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getEdges();
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testMultipleIsolatedVerticesFormMultipleComponentsFail()
     {
         // 1, 2
@@ -160,6 +159,8 @@ abstract class BaseMstTest extends TestCase
         $graph->createVertex(2);
 
         $alg = $this->createAlg($v1);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getEdges();
     }
 

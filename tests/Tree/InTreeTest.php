@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\Tree;
+
 use Graphp\Algorithms\Tree\InTree;
 use Graphp\Graph\Graph;
 
