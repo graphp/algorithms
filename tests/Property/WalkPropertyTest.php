@@ -1,8 +1,11 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\Property;
+
 use Graphp\Algorithms\Property\WalkProperty;
 use Graphp\Graph\Graph;
 use Graphp\Graph\Walk;
+use Graphp\Tests\Algorithms\TestCase;
 
 class WalkPropertyTest extends TestCase
 {

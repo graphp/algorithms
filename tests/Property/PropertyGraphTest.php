@@ -1,7 +1,10 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\Property;
+
 use Graphp\Algorithms\Property\GraphProperty;
 use Graphp\Graph\Graph;
+use Graphp\Tests\Algorithms\TestCase;
 
 class PropertyGraphTest extends TestCase
 {

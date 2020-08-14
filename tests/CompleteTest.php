@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms;
+
 use Graphp\Algorithms\Complete as AlgorithmComplete;
 use Graphp\Graph\Graph;
 

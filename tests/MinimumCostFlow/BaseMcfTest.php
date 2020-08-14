@@ -1,7 +1,10 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\MinimumCostFlow;
+
 use Graphp\Algorithms\MinimumCostFlow\Base;
 use Graphp\Graph\Graph;
+use Graphp\Tests\Algorithms\TestCase;
 
 abstract class BaseMcfTest extends TestCase
 {
@@ -112,9 +115,6 @@ abstract class BaseMcfTest extends TestCase
         $this->assertEquals(14, $alg->getWeightFlow()); // 4*1 + 2*2 + 2*1 + 2*2
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testEdgeCapacityInsufficientFails()
     {
         // 1(+2) -[0/1]-> 2(-2)
@@ -124,12 +124,11 @@ abstract class BaseMcfTest extends TestCase
         $graph->createEdgeDirected($v1, $v2)->setCapacity(1);
 
         $alg = $this->createAlgorithm($graph);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getWeightFlow();
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testEdgeCapacityUnsetFails()
     {
         // 1(+2) -> 2(-2)
@@ -139,12 +138,11 @@ abstract class BaseMcfTest extends TestCase
         $graph->createEdgeDirected($v1, $v2);
 
         $alg = $this->createAlgorithm($graph);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getWeightFlow();
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testIsolatedVerticesFail()
     {
         // 1(+2), 2(-2)
@@ -153,12 +151,11 @@ abstract class BaseMcfTest extends TestCase
         $graph->createVertex(2)->setBalance(-2);
 
         $alg = $this->createAlgorithm($graph);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getWeightFlow();
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testUnbalancedFails()
     {
         // 1(+2) -> 2(-3)
@@ -168,12 +165,11 @@ abstract class BaseMcfTest extends TestCase
         $graph->createEdgeDirected($v1, $v2)->setCapacity(3);
 
         $alg = $this->createAlgorithm($graph);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getWeightFlow();
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testUndirectedFails()
     {
         // 1(+2) -- 2(-2)
@@ -183,12 +179,11 @@ abstract class BaseMcfTest extends TestCase
         $graph->createEdgeUndirected($v1, $v2)->setCapacity(2);
 
         $alg = $this->createAlgorithm($graph);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getWeightFlow();
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function testUndirectedNegativeCycleFails()
     {
         // 1(+2) -[0/2/-1]- 2(-2)
@@ -198,6 +193,8 @@ abstract class BaseMcfTest extends TestCase
         $graph->createEdgeUndirected($v1, $v2)->setCapacity(2)->setWeight(-1);
 
         $alg = $this->createAlgorithm($graph);
+
+        $this->setExpectedException('UnexpectedValueException');
         $alg->getWeightFlow();
     }
 }

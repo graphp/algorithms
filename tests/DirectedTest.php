@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms;
+
 use Graphp\Algorithms\Directed as AlgorithmDirected;
 use Graphp\Graph\Graph;
 

@@ -1,8 +1,11 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\ShortestPath;
+
 use Graphp\Algorithms\ShortestPath\Base as ShortestPathAlg;
 use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
+use Graphp\Tests\Algorithms\TestCase;
 
 abstract class BaseShortestPathTest extends TestCase
 {
@@ -82,9 +85,6 @@ abstract class BaseShortestPathTest extends TestCase
         $this->assertEquals(2, \count($walk->getEdges()));
     }
 
-    /**
-     * @expectedException OutOfBoundsException
-     */
     public function testIsolatedVertexIsNotReachable()
     {
         // 1, 2
@@ -96,12 +96,10 @@ abstract class BaseShortestPathTest extends TestCase
 
         $this->assertFalse($alg->hasVertex($v2));
 
+        $this->setExpectedException('OutOfBoundsException');
         $alg->getEdgesTo($v2);
     }
 
-    /**
-     * @expectedException OutOfBoundsException
-     */
     public function testSeparateGraphsAreNotReachable()
     {
         // 1
@@ -113,6 +111,7 @@ abstract class BaseShortestPathTest extends TestCase
 
         $alg = $this->createAlg($vg1);
 
+        $this->setExpectedException('OutOfBoundsException');
         $alg->getEdgesTo($vg2);
     }
 

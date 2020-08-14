@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\ShortestPath;
+
 use Graphp\Algorithms\ShortestPath\BreadthFirst;
 use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;

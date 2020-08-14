@@ -1,7 +1,10 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\Tree;
+
 use Graphp\Algorithms\Tree\Undirected;
 use Graphp\Graph\Graph;
+use Graphp\Tests\Algorithms\TestCase;
 
 class UndirectedTest extends TestCase
 {

@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms;
+
 use Graphp\Algorithms\Groups as AlgorithmGroups;
 use Graphp\Graph\Graph;
 

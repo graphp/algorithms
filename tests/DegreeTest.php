@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms;
+
 use Graphp\Algorithms\Degree as AlgorithmDegree;
 use Graphp\Graph\Exception\UnderflowException;
 use Graphp\Graph\Exception\UnexpectedValueException;

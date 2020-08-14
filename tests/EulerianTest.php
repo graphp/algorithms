@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms;
+
 use Graphp\Algorithms\Eulerian as AlgorithmEulerian;
 use Graphp\Graph\Graph;
 

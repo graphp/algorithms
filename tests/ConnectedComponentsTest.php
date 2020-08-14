@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms;
+
 use Graphp\Algorithms\ConnectedComponents as AlgorithmConnected;
 use Graphp\Graph\Graph;
 
@@ -81,9 +83,6 @@ class ConnectedComponentsTest extends TestCase
         $this->assertEquals($ge, $alg->createGraphComponentVertex($v5));
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     */
     public function testInvalidVertexPassedToAlgorithm()
     {
         $graph = new Graph();
@@ -92,6 +91,8 @@ class ConnectedComponentsTest extends TestCase
         $v2 = $graph2->createVertex(12);
 
         $alg = new AlgorithmConnected($graph);
+
+        $this->setExpectedException('InvalidArgumentException');
         $alg->createGraphComponentVertex($v2);
     }
 }

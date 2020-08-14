@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\Tree;
+
 use Graphp\Algorithms\Tree\OutTree;
 use Graphp\Graph\Graph;
 

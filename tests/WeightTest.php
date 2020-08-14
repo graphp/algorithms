@@ -1,5 +1,7 @@
 <?php
 
+namespace Graphp\Tests\Algorithms;
+
 use Graphp\Algorithms\Weight as AlgorithmWeight;
 use Graphp\Graph\Graph;
 

@@ -1,7 +1,10 @@
 <?php
 
+namespace Graphp\Tests\Algorithms\Search;
+
 use Graphp\Algorithms\Search\BreadthFirst;
 use Graphp\Graph\Graph;
+use Graphp\Tests\Algorithms\TestCase;
 
 class BreadthFirstSearchTest extends TestCase
 {

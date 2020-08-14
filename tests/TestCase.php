@@ -1,12 +1,12 @@
 <?php
 
+namespace Graphp\Tests\Algorithms;
+
 use Graphp\Graph\Edge;
 use Graphp\Graph\EdgeDirected;
 use Graphp\Graph\Graph;
 use Graphp\Graph\Vertex;
 use PHPUnit\Framework\TestCase as BaseTestCase;
-
-(include_once __DIR__ . '/../vendor/autoload.php') OR die(PHP_EOL . 'ERROR: composer autoloader not found, run "composer install" or see README for instructions' . PHP_EOL);
 
 class TestCase extends BaseTestCase
 {
@@ -94,5 +94,22 @@ class TestCase extends BaseTestCase
         $ret .= PHP_EOL . 'attributes: ' . \json_encode($edge->getAttributeBag()->getAttributes());
 
         return $ret;
+    }
+
+    public function setExpectedException($exception, $exceptionMessage = '', $exceptionCode = null)
+    {
+        if (method_exists($this, 'expectException')) {
+            // PHPUnit 6+
+            $this->expectException($exception);
+            if ($exceptionMessage !== '') {
+                $this->expectExceptionMessage($exceptionMessage);
+            }
+            if ($exceptionCode !== null) {
+                $this->expectExceptionCode($exceptionCode);
+            }
+        } else {
+            // legacy PHPUnit 4 - PHPUnit 5
+            parent::setExpectedException($exception, $exceptionMessage, $exceptionCode);
+        }
     }
 }
