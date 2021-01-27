@@ -1,4 +1,6 @@
-# graphp/algorithms [![Build Status](https://travis-ci.org/graphp/algorithms.svg?branch=master)](https://travis-ci.org/graphp/algorithms)
+# graphp/algorithms
+
+[![CI status](https://github.com/graphp/algorithms/workflows/CI/badge.svg)](https://github.com/graphp/algorithms/actions)
 
 Common mathematical graph algorithms implemented in PHP
 
