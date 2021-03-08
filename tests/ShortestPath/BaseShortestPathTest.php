@@ -82,7 +82,7 @@ abstract class BaseShortestPathTest extends TestCase
         $this->assertEquals($expectedWeight, $alg->getDistance($v1));
 
         $walk = $alg->getWalkTo($v1);
-        $this->assertEquals(2, \count($walk->getEdges()));
+        $this->assertCount(2, $walk->getEdges());
     }
 
     public function testIsolatedVertexIsNotReachable()
