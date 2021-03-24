@@ -6,7 +6,7 @@ use Graphp\Algorithms\Search\BreadthFirst;
 use Graphp\Graph\Graph;
 use Graphp\Tests\Algorithms\TestCase;
 
-class BreadthFirstSearchTest extends TestCase
+class BreadthFirstTest extends TestCase
 {
     public function providerMaxDepth()
     {

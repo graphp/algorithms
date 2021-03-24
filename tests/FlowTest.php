@@ -5,7 +5,7 @@ namespace Graphp\Tests\Algorithms;
 use Graphp\Algorithms\Flow as AlgorithmFlow;
 use Graphp\Graph\Graph;
 
-class FlowaTest extends TestCase
+class FlowTest extends TestCase
 {
     public function testGraphEmpty()
     {
