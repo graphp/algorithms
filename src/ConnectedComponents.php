@@ -115,7 +115,7 @@ class ConnectedComponents extends BaseGraph
     }
 
     /**
-     * separate input graph into separate independant and unconnected graphs
+     * separate input graph into separate independent and unconnected graphs
      *
      * @return Graph[]
      * @uses Graph::getVertices()
